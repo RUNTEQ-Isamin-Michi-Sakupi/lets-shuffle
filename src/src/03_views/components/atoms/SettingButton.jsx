@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Setting from '../blocks/Setting'; // 設定画面をインポート
-import InputTime from '../atoms/InputTime'; // カウント���ウンタイマーをインポート
+import InputTime from '../atoms/InputTime'; // カウントダウンタイマーをインポート
 
 const SettingButton = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false); // メニューの開閉状態を管理
@@ -12,6 +12,11 @@ const SettingButton = () => {
     // メニューの開閉を切り替える関数
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
+    };
+
+    // メニューを閉じる関数
+    const closeMenu = () => {
+        setIsMenuOpen(false);
     };
 
     return (
@@ -68,6 +73,7 @@ const SettingButton = () => {
                         setFirstNotification={setFirstNotification}
                         secondNotification={secondNotification}
                         setSecondNotification={setSecondNotification}
+                        closeMenu={closeMenu} // メニューを閉じる関数を渡す
                     />
                 </div>
             )}

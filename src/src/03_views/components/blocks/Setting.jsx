@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuestionTime, firstNotification, setFirstNotification, secondNotification, setSecondNotification }) => {
+const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuestionTime, firstNotification, setFirstNotification, secondNotification, setSecondNotification, closeMenu }) => {
     const [localPresentationTime, setLocalPresentationTime] = useState(presentationTime / 60); // 分単位で管理
     const [localQuestionTime, setLocalQuestionTime] = useState(questionTime / 60); // 分単位で管理
-    const [localFirstNotification, setLocalFirstNotification] = useState(firstNotification / 60); // 分単位で管理
+    const [localFirstNotification, setLocalFirstNotification] = useState(firstNotification / 60); // 分単位で管���
     const [localSecondNotification, setLocalSecondNotification] = useState(secondNotification / 60); // 分単位で管理
     const [notificationSound, setNotificationSound] = useState('校長'); // 通知音
     const [volume, setVolume] = useState(50); // 音量
@@ -22,6 +22,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
             volume,
         });
         alert('設定を保存しました！');
+        closeMenu(); // メニューを閉じる
     };
 
     const handleReset = () => {
