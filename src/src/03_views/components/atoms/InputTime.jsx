@@ -18,11 +18,20 @@ const InputTime = ({ presentationTime, questionTime }) => {
 
     const formatTime = (time) => {
         if (time < 0) {
-            return `-${Math.abs(time)}`;
+            const absTime = Math.abs(time);
+            const minutes = Math.floor(absTime / 60);
+            const seconds = ('0' + (absTime % 60)).slice(-2);
+            return `-${minutes}:${seconds}`;
         }
         const minutes = Math.floor(time / 60);
         const seconds = ('0' + (time % 60)).slice(-2);
         return `${minutes}:${seconds}`;
+    };
+
+    const getTimeStyle = (time) => {
+        return {
+            color: time < 0 ? 'red' : 'black',
+        };
     };
 
     return (
@@ -61,7 +70,7 @@ const InputTime = ({ presentationTime, questionTime }) => {
                     }}
                 >
                     <div>登壇時間</div>
-                    <div>{formatTime(presentationTimer.time)}</div>
+                    <div style={getTimeStyle(presentationTimer.time)}>{formatTime(presentationTimer.time)}</div>
                     {presentationTimer.playNotice1 && <Notice play={presentationTimer.playNotice1} sound="/notification1.mp3" />} {/* 残り1分の通知音を再生 */}
                     {presentationTimer.playNotice2 && <Notice play={presentationTimer.playNotice2} sound="/notification2.mp3" />} {/* カウントが0になったときの通知音を再生 */}
                 </div>
@@ -116,7 +125,7 @@ const InputTime = ({ presentationTime, questionTime }) => {
                     }}
                 >
                     <div>質問時間</div>
-                    <div>{formatTime(questionTimer.time)}</div>
+                    <div style={getTimeStyle(questionTimer.time)}>{formatTime(questionTimer.time)}</div>
                     {questionTimer.playNotice1 && <Notice play={questionTimer.playNotice1} sound="/notification1.mp3" />} {/* 残り1分の通知音を再生 */}
                     {questionTimer.playNotice2 && <Notice play={questionTimer.playNotice2} sound="/notification2.mp3" />} {/* カウントが0になったときの通知音を再生 */}
                 </div>
