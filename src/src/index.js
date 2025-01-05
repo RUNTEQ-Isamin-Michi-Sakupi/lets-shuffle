@@ -13,6 +13,7 @@ root.render(
   <React.StrictMode>
     <Header />
     <SettingButton /> {/* 設定画面を表示するボタン */}
+    {/* ここに現在の発表者を追加する */}
     <InputTime /> {/* コンポーネントをアプリの一部として表示させるためにみちが追加 */}
     <Footer />
   </React.StrictMode>
