@@ -4,13 +4,14 @@ import './index.css';
 import Header from'./03_views/components/blocks/Header';
 import App from './App';
 import Footer from'./03_views/components/blocks/Footer';
+import InputTime from'./03_views/components/atoms/InputTime'; // みち追加 カウントダウンタイマーを表示するコンポーネント
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Header />
-    <App />
+    <InputTime /> {/* みち追加 コンポーネントをアプリの一部として表示させるために追加 */}
     <Footer />
   </React.StrictMode>
 );
