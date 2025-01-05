@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Notice from './Notice'; // Noticeコンポーネントをインポート
 
 const useTimer = (initialTime) => {
     const [time, setTime] = useState(initialTime); // 時間の状態管理

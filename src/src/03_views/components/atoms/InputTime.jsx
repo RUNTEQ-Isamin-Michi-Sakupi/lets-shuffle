@@ -4,9 +4,9 @@ import Notice from '../modules/Notice'; // Noticeコンポーネントをイン�
 
 const InputTime = () => {
     // 登壇時間のタイマーを管理
-    const presentationTimer = useTimer(62); // 初期値600秒（10分）
+    const presentationTimer = useTimer(600); // 初期値600秒（10分）
     // 質問時間のタイマーを管理
-    const questionTimer = useTimer(3); // 初期値300秒（5分）
+    const questionTimer = useTimer(300); // 初期値300秒（5分）
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '20px' }}>
@@ -49,7 +49,7 @@ const InputTime = () => {
                     {presentationTimer.playNotice2 && <Notice play={presentationTimer.playNotice2} sound="/notification2.mp3" />} {/* カウントが0になったときの通知音を再生 */}
                 </div>
                 <button
-                    onClick={() => presentationTimer.resetTime(600)} // タイマーを600秒（10分��にリセット
+                    onClick={() => presentationTimer.resetTime(600)} // タイマーを600秒（10分）
                     style={{
                         backgroundColor: '#ffd1d1', // 背景色
                         border: '1px solid #ff0000', // 枠線
