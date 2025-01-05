@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
 
-const InputTime = () => {
+const InputTime = () => { // カウントダウンタイマーを表示するコンポーネント
     console.log('InputTime component rendered');
     const [time, setTime] = useState(600); // 初期時間を600秒（10分）に設定
     const [isCounting, setIsCounting] = useState(false);
 
     useEffect(() => {
-        let timer;
+        let timer; // タイマーを格納する変数
         if (isCounting && time > 0) {
             timer = setInterval(() => {
                 setTime(prevTime => prevTime - 1);
             }, 1000);
         } else if (time === 0) {
-            setIsCounting(false);
+            setIsCounting(false); // カウントダウンが0になったらカウントを止める
         }
-        return () => clearInterval(timer);
+        return () => clearInterval(timer); // タイマーをクリアする
     }, [isCounting, time]);
 
-    const startCountdown = () => {
+    const startCountdown = () => { // カウントダウンを開始する関数
         setIsCounting(true);
     };
 
