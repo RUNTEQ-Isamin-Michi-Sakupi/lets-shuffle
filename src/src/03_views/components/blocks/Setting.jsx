@@ -26,7 +26,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
         setLocalPresentationTime(10);
         setLocalQuestionTime(5);
         setFirstNotification(1);
-        setSecondNotification(-1);
+        setSecondNotification(0);
         setNotificationSound('校長');
         setVolume(50);
     };
