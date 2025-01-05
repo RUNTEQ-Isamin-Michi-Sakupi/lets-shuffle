@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import useTimer from '../modules/Timer'; // Timerロジックをインポート
 import Notice from '../modules/Notice'; // Noticeコンポーネントをインポート
 
-const InputTime = ({ presentationTime, questionTime }) => {
+const InputTime = ({ presentationTime, questionTime, firstNotification, secondNotification }) => {
     // 登壇時間のタイマーを管理
-    const presentationTimer = useTimer(presentationTime); // 初期値を親コンポーネントから受け取る
+    const presentationTimer = useTimer(presentationTime, firstNotification, secondNotification); // 初期値を親コンポーネントから受け取る
     // 質問時間のタイマーを管理
-    const questionTimer = useTimer(questionTime); // 初期値を親コンポーネントから受け取る
+    const questionTimer = useTimer(questionTime, firstNotification, secondNotification); // 初期値を親コンポーネントから受け取る
 
     useEffect(() => {
         presentationTimer.resetTime(presentationTime);

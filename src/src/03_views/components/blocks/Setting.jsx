@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
 
-const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuestionTime }) => {
+const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuestionTime, firstNotification, setFirstNotification, secondNotification, setSecondNotification }) => {
     const [localPresentationTime, setLocalPresentationTime] = useState(presentationTime / 60); // 分単位で管理
     const [localQuestionTime, setLocalQuestionTime] = useState(questionTime / 60); // 分単位で管理
-    const [firstNotification, setFirstNotification] = useState(1); // 最初の通知時間（分）
-    const [secondNotification, setSecondNotification] = useState(0); // 2回目の通知時間（分）
+    const [localFirstNotification, setLocalFirstNotification] = useState(firstNotification / 60); // 分単位で管理
+    const [localSecondNotification, setLocalSecondNotification] = useState(secondNotification / 60); // 分単位で管理
     const [notificationSound, setNotificationSound] = useState('校長'); // 通知音
     const [volume, setVolume] = useState(50); // 音量
 
     const handleSave = () => {
         setPresentationTime(localPresentationTime * 60); // 秒単位に変換して保存
         setQuestionTime(localQuestionTime * 60); // 秒単位に変換して保存
+        setFirstNotification(localFirstNotification * 60); // 秒単位に変換して保存
+        setSecondNotification(localSecondNotification * 60); // 秒単位に変換して保存
         console.log({
             presentationTime: localPresentationTime * 60,
             questionTime: localQuestionTime * 60,
-            firstNotification,
-            secondNotification,
+            firstNotification: localFirstNotification * 60,
+            secondNotification: localSecondNotification * 60,
             notificationSound,
             volume,
         });
@@ -25,8 +27,8 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
     const handleReset = () => {
         setLocalPresentationTime(10);
         setLocalQuestionTime(5);
-        setFirstNotification(1);
-        setSecondNotification(0);
+        setLocalFirstNotification(1);
+        setLocalSecondNotification(0);
         setNotificationSound('校長');
         setVolume(50);
     };
@@ -75,8 +77,8 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                         通知1回目
                         <input
                             type="number"
-                            value={firstNotification}
-                            onChange={(e) => setFirstNotification(Number(e.target.value))}
+                            value={localFirstNotification}
+                            onChange={(e) => setLocalFirstNotification(Number(e.target.value))}
                             style={{
                                 width: '50px',
                                 marginLeft: '10px',
@@ -91,8 +93,8 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                         通知2回目
                         <input
                             type="number"
-                            value={secondNotification}
-                            onChange={(e) => setSecondNotification(Number(e.target.value))}
+                            value={localSecondNotification}
+                            onChange={(e) => setLocalSecondNotification(Number(e.target.value))}
                             style={{
                                 width: '50px',
                                 marginLeft: '10px',

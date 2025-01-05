@@ -6,6 +6,8 @@ const SettingButton = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false); // メニューの開閉状態を管理
     const [presentationTime, setPresentationTime] = useState(600); // 初期値600秒（10分）
     const [questionTime, setQuestionTime] = useState(300); // 初期値300秒（5分）
+    const [firstNotification, setFirstNotification] = useState(60); // 初期値60秒（1分）
+    const [secondNotification, setSecondNotification] = useState(0); // 初期値0秒
 
     // メニューの開閉を切り替える関数
     const toggleMenu = () => {
@@ -62,6 +64,10 @@ const SettingButton = () => {
                         setPresentationTime={setPresentationTime}
                         questionTime={questionTime}
                         setQuestionTime={setQuestionTime}
+                        firstNotification={firstNotification}
+                        setFirstNotification={setFirstNotification}
+                        secondNotification={secondNotification}
+                        setSecondNotification={setSecondNotification}
                     />
                 </div>
             )}
@@ -70,6 +76,8 @@ const SettingButton = () => {
             <InputTime
                 presentationTime={presentationTime}
                 questionTime={questionTime}
+                firstNotification={firstNotification}
+                secondNotification={secondNotification}
             />
         </div>
     );

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Notice from './Notice'; // Noticeコンポーネントをインポート
 
-const useTimer = (initialTime) => {
+const useTimer = (initialTime, firstNotification, secondNotification) => {
     const [time, setTime] = useState(initialTime); // 時間の状態管理
     const [isCounting, setIsCounting] = useState(false); // カウントダウン中かどうかの状態
     const [playNotice1, setPlayNotice1] = useState(false); // 残り1分の通知音を再生するかどうかの状態
@@ -12,10 +12,10 @@ const useTimer = (initialTime) => {
         if (isCounting) {
             timer = setInterval(() => {
                 setTime((prevTime) => {
-                    if (prevTime === 61) { // 残り1分のタイミングで通知音1を再生
+                    if (prevTime === firstNotification + 1) { // 残り時間のタイミングで通知音1を再生
                         setPlayNotice1(true);
                     }
-                    if (prevTime === 0) { // 時間が0になったら通知音2を再生
+                    if (prevTime === secondNotification + 1) { // 残り時間のタイミングで通知音2を再生
                         setPlayNotice2(true);
                     }
                     return prevTime - 1;
@@ -23,7 +23,7 @@ const useTimer = (initialTime) => {
             }, 1000); // 1秒ごとに減少
         }
         return () => clearInterval(timer); // コンポーネントがアンマウントされる際にタイマーをクリア
-    }, [isCounting]);
+    }, [isCounting, firstNotification, secondNotification]);
 
     // 時間をリセットする関数
     const resetTime = (newTime) => {
