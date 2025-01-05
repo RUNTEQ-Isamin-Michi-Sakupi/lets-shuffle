@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import useTimer from '../modules/Timer'; // Timerロジックをインポート
 import Notice from '../modules/Notice'; // Noticeコンポーネントをインポート
 
-const InputTime = ({ presentationTime, questionTime, firstNotification, secondNotification, volume }) => {
+const InputTime = ({ presentationTime, questionTime, firstNotification, secondNotification, volume, notificationSound }) => {
     // 登壇時間のタイマーを管理
     const presentationTimer = useTimer(presentationTime, firstNotification, secondNotification); // 初期値を親コンポーネントから受け取る
     // 質問時間のタイマーを管理
@@ -32,6 +32,15 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
         return {
             color: time < 0 ? 'red' : 'black',
         };
+    };
+
+    const getSoundFile = (sound, isSecondNotification) => {
+        if (sound === 'ベル') {
+            return isSecondNotification ? '/sounds/bell2.mp3' : '/sounds/bell1.mp3';
+        } else if (sound === '校長') {
+            return isSecondNotification ? '/sounds/principal2.mp3' : '/sounds/principal1.mp3';
+        }
+        return '/sounds/bell1.mp3';
     };
 
     return (
@@ -71,8 +80,8 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
                 >
                     <div>登壇時間</div>
                     <div style={getTimeStyle(presentationTimer.time)}>{formatTime(presentationTimer.time)}</div>
-                    {presentationTimer.playNotice1 && <Notice play={presentationTimer.playNotice1} sound="/notification1.mp3" volume={volume} />} {/* 残り1分の通知音を再生 */}
-                    {presentationTimer.playNotice2 && <Notice play={presentationTimer.playNotice2} sound="/notification2.mp3" volume={volume} />} {/* カウントが0になったときの通知音を再生 */}
+                    {presentationTimer.playNotice1 && <Notice play={presentationTimer.playNotice1} sound={getSoundFile(notificationSound, false)} volume={volume} />} {/* 残り1分の通知音を再生 */}
+                    {presentationTimer.playNotice2 && <Notice play={presentationTimer.playNotice2} sound={getSoundFile(notificationSound, true)} volume={volume} />} {/* カウントが0になったときの通知音を再生 */}
                 </div>
                 <button
                     onClick={() => presentationTimer.resetTime(presentationTime)} // タイマーをリセット
@@ -126,8 +135,8 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
                 >
                     <div>質問時間</div>
                     <div style={getTimeStyle(questionTimer.time)}>{formatTime(questionTimer.time)}</div>
-                    {questionTimer.playNotice1 && <Notice play={questionTimer.playNotice1} sound="/notification1.mp3" volume={volume} />} {/* 残り1分の通知音を再生 */}
-                    {questionTimer.playNotice2 && <Notice play={questionTimer.playNotice2} sound="/notification2.mp3" volume={volume} />} {/* カウントが0になったときの通知音を再生 */}
+                    {questionTimer.playNotice1 && <Notice play={questionTimer.playNotice1} sound={getSoundFile(notificationSound, false)} volume={volume} />} {/* 残り1分の通知音を再生 */}
+                    {questionTimer.playNotice2 && <Notice play={questionTimer.playNotice2} sound={getSoundFile(notificationSound, true)} volume={volume} />} {/* カウントが0になったときの通知音を再生 */}
                 </div>
                 <button
                     onClick={() => questionTimer.resetTime(questionTime)} // タイマーをリセット

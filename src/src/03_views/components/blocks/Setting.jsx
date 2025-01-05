@@ -29,7 +29,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
 
     const handleReset = () => { // リセットボタンを押したときの処理
         setLocalPresentationTime(10); // 分単位で初期値を設定
-        setLocalQuestionTime(5); // 分単位で初期値を設���
+        setLocalQuestionTime(5); // 分単位で初期値を設定
         setLocalFirstNotification(1); // 分単位で初期値を設定
         setLocalSecondNotification(0); // 分単位で初期値を設定
         setLocalNotificationSound('ベル'); // 初期値を設定
