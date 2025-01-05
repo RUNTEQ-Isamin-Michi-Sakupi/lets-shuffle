@@ -23,6 +23,7 @@ const InputTime = () => {
 
     const stopCountdown = () => {
         setIsCounting(false);
+        setTime(600); // Reset time to initial value
     };
 
     return (
@@ -34,7 +35,7 @@ const InputTime = () => {
                     backgroundColor: '#d1e7ff', // 背景色を青に変更
                     border: '1px solid #007bff', // 枠線を青に変更
                     borderRadius: '5px', // 角丸にする
-                    padding: '10px 20px', // 上下に10px、左右に20pxの余白を���加
+                    padding: '10px 20px', // 上下に10px、左右に20pxの余白を追加
                     fontSize: '16px', // フォントサイズを16pxに変更
                     color: '#000', // 文字色を黒に変更
                     cursor: 'pointer', // マウスを重ねた時にカーソルを指に変更
