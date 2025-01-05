@@ -5,7 +5,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
     const [localQuestionTime, setLocalQuestionTime] = useState(questionTime / 60); // 分単位で管理
     const [localFirstNotification, setLocalFirstNotification] = useState(firstNotification / 60); // 分単位で管���
     const [localSecondNotification, setLocalSecondNotification] = useState(secondNotification / 60); // 分単位で管理
-    const [notificationSound, setNotificationSound] = useState('校長'); // 通知音
+    const [notificationSound, setNotificationSound] = useState('ベル'); // 通知音
     const [volume, setVolume] = useState(50); // 音量
 
     const handleSave = () => {
@@ -25,12 +25,12 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
         closeMenu(); // メニューを閉じる
     };
 
-    const handleReset = () => {
-        setLocalPresentationTime(10);
-        setLocalQuestionTime(5);
-        setLocalFirstNotification(1);
-        setLocalSecondNotification(0);
-        setNotificationSound('校長');
+    const handleReset = () => { // リセットボタンを押したときの処理
+        setLocalPresentationTime(10); // 分単位で初期値を設定
+        setLocalQuestionTime(5); // 分単位で初期値を設定
+        setLocalFirstNotification(1); // 分単位で初期値を設定
+        setLocalSecondNotification(0); // 分単位で初期値を設定
+        setNotificationSound('校長'); // 初期値を設定
         setVolume(50);
     };
 
@@ -111,7 +111,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
             <div style={{ marginBottom: '10px' }}>
                 <label>通知音</label>
                 <div>
-                    {['校長', 'ベル'].map((sound) => (
+                    {['ベル', '校長'].map((sound) => (
                         <div key={sound}>
                             <label>
                                 <input
