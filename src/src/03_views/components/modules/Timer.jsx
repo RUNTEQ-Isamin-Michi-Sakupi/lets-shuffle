@@ -9,21 +9,21 @@ const useTimer = (initialTime) => {
 
     useEffect(() => {
         let timer;
-        if (isCounting && time > 0) {
+        if (isCounting) {
             timer = setInterval(() => {
                 setTime((prevTime) => {
                     if (prevTime === 61) { // 残り1分のタイミングで通知音1を再生
                         setPlayNotice1(true);
                     }
+                    if (prevTime === 0) { // 時間が0になったら通知音2を再生
+                        setPlayNotice2(true);
+                    }
                     return prevTime - 1;
                 });
             }, 1000); // 1秒ごとに減少
-        } else if (time === 0) {
-            setIsCounting(false); // 時間が0になったらカウントを停止
-            setPlayNotice2(true); // 通知音2を再生
         }
         return () => clearInterval(timer); // コンポーネントがアンマウントされる際にタイマーをクリア
-    }, [isCounting, time]);
+    }, [isCounting]);
 
     // 時間をリセットする関数
     const resetTime = (newTime) => {
