@@ -1,5 +1,6 @@
 import React from 'react';
 import useTimer from '../modules/Timer'; // Timerロジックをインポート
+import Notice from '../modules/Notice'; // Noticeコンポーネントをインポート
 
 const InputTime = () => {
     // 登壇時間のタイマーを管理
@@ -44,6 +45,7 @@ const InputTime = () => {
                 >
                     <div>登壇時間</div>
                     <div>{Math.floor(presentationTimer.time / 60)}:{('0' + (presentationTimer.time % 60)).slice(-2)}</div>
+                    {presentationTimer.playNotice && <Notice play={presentationTimer.playNotice} />} {/* 通知音を再生 */}
                 </div>
                 <button
                     onClick={() => presentationTimer.resetTime(600)} // タイマーを600秒（10分）にリセット
@@ -97,6 +99,7 @@ const InputTime = () => {
                 >
                     <div>質問時間</div>
                     <div>{Math.floor(questionTimer.time / 60)}:{('0' + (questionTimer.time % 60)).slice(-2)}</div>
+                    {questionTimer.playNotice && <Notice play={questionTimer.playNotice} />} {/* 通知音を再生 */}
                 </div>
                 <button
                     onClick={() => questionTimer.resetTime(300)} // タイマーを300秒（5分）にリセット
