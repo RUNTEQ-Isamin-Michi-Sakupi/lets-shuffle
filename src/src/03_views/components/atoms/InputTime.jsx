@@ -4,9 +4,9 @@ import Notice from '../modules/Notice'; // Noticeコンポーネントをイン�
 
 const InputTime = () => {
     // 登壇時間のタイマーを管理
-    const presentationTimer = useTimer(600); // 初期値600秒（10分）
+    const presentationTimer = useTimer(62); // 初期値600秒（10分）
     // 質問時間のタイマーを管理
-    const questionTimer = useTimer(300); // 初期値300秒（5分）
+    const questionTimer = useTimer(3); // 初期値300秒（5分）
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '20px' }}>
@@ -45,10 +45,11 @@ const InputTime = () => {
                 >
                     <div>登壇時間</div>
                     <div>{Math.floor(presentationTimer.time / 60)}:{('0' + (presentationTimer.time % 60)).slice(-2)}</div>
-                    {presentationTimer.playNotice && <Notice play={presentationTimer.playNotice} />} {/* 通知音を再生 */}
+                    {presentationTimer.playNotice1 && <Notice play={presentationTimer.playNotice1} sound="/notification1.mp3" />} {/* 残り1分の通知音を再生 */}
+                    {presentationTimer.playNotice2 && <Notice play={presentationTimer.playNotice2} sound="/notification2.mp3" />} {/* カウントが0になったときの通知音を再生 */}
                 </div>
                 <button
-                    onClick={() => presentationTimer.resetTime(600)} // タイマーを600秒（10分）にリセット
+                    onClick={() => presentationTimer.resetTime(600)} // タイマーを600秒（10分��にリセット
                     style={{
                         backgroundColor: '#ffd1d1', // 背景色
                         border: '1px solid #ff0000', // 枠線
@@ -99,7 +100,8 @@ const InputTime = () => {
                 >
                     <div>質問時間</div>
                     <div>{Math.floor(questionTimer.time / 60)}:{('0' + (questionTimer.time % 60)).slice(-2)}</div>
-                    {questionTimer.playNotice && <Notice play={questionTimer.playNotice} />} {/* 通知音を再生 */}
+                    {questionTimer.playNotice1 && <Notice play={questionTimer.playNotice1} sound="/notification1.mp3" />} {/* 残り1分の通知音を再生 */}
+                    {questionTimer.playNotice2 && <Notice play={questionTimer.playNotice2} sound="/notification2.mp3" />} {/* カウントが0になったときの通知音を再生 */}
                 </div>
                 <button
                     onClick={() => questionTimer.resetTime(300)} // タイマーを300秒（5分）にリセット

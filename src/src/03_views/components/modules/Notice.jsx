@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 
-const Notice = ({ play }) => {
+const Notice = ({ play, sound }) => {
     useEffect(() => {
         if (play) {
-            const audio = new Audio('/notification.mp3');
+            const audio = new Audio(sound);
             audio.play();
         }
-    }, [play]);
+    }, [play, sound]);
 
     return null;
 };
