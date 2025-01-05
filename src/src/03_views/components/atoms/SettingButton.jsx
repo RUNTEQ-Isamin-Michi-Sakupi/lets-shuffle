@@ -8,6 +8,7 @@ const SettingButton = () => {
     const [questionTime, setQuestionTime] = useState(300); // 初期値300秒（5分）
     const [firstNotification, setFirstNotification] = useState(60); // 初期値60秒（1分）
     const [secondNotification, setSecondNotification] = useState(0); // 初期値0秒
+    const [volume, setVolume] = useState(50); // 初期値50%
 
     // メニューの開閉を切り替える関数
     const toggleMenu = () => {
@@ -73,6 +74,8 @@ const SettingButton = () => {
                         setFirstNotification={setFirstNotification}
                         secondNotification={secondNotification}
                         setSecondNotification={setSecondNotification}
+                        volume={volume}
+                        setVolume={setVolume}
                         closeMenu={closeMenu} // メニューを閉じる関数を渡す
                     />
                 </div>
@@ -84,6 +87,7 @@ const SettingButton = () => {
                 questionTime={questionTime}
                 firstNotification={firstNotification}
                 secondNotification={secondNotification}
+                volume={volume}
             />
         </div>
     );
