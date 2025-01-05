@@ -37,85 +37,89 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
     };
 
     return (
-        <div style={{ padding: '20px', backgroundColor: '#f9f9f9', borderRadius: '10px', width: '300px' }}>
-            <h2 style={{ textAlign: 'center' }}>設定画面</h2>
+        <div style={{ padding: '20px', backgroundColor: '#f9f9f9', borderRadius: '10px', width: '300px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+            <h2 style={{ textAlign: 'center', marginBottom: '20px', color: '#333' }}>設定画面</h2>
 
             {/* 登壇時間 */}
-            <div style={{ marginBottom: '10px', textAlign: 'center' }}>
-                <label>登壇時間</label>
+            <div style={{ marginBottom: '20px', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <label style={{ marginRight: '10px', color: '#555' }}>登壇時間</label>
                 <input
                     type="number"
                     value={localPresentationTime}
                     onChange={(e) => setLocalPresentationTime(Number(e.target.value))}
                     style={{
-                        width: '50px',
-                        marginLeft: '10px',
-                        marginRight: '5px',
+                        width: '60px',
+                        padding: '5px',
+                        textAlign: 'center',
+                        borderRadius: '5px',
+                        border: '1px solid #ccc',
                     }}
                 />
-                min
+                <span style={{ marginLeft: '5px', color: '#555' }}>min</span>
             </div>
 
             {/* 質問時間 */}
-            <div style={{ marginBottom: '10px', textAlign: 'center' }}>
-                <label>質問時間</label>
+            <div style={{ marginBottom: '20px', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <label style={{ marginRight: '10px', color: '#555' }}>質問時間</label>
                 <input
                     type="number"
                     value={localQuestionTime}
                     onChange={(e) => setLocalQuestionTime(Number(e.target.value))}
                     style={{
-                        width: '50px',
-                        marginLeft: '10px',
-                        marginRight: '5px',
+                        width: '60px',
+                        padding: '5px',
+                        textAlign: 'center',
+                        borderRadius: '5px',
+                        border: '1px solid #ccc',
                     }}
                 />
-                min
+                <span style={{ marginLeft: '5px', color: '#555' }}>min</span>
             </div>
 
             {/* 残り時間通知 */}
-            <div style={{ marginBottom: '10px', textAlign: 'center' }}>
-                <label>残り時間通知</label>
-                <div style={{ textAlign: 'center' }}>
-                    <label>
-                        通知1回目
-                        <input
-                            type="number"
-                            value={localFirstNotification}
-                            onChange={(e) => setLocalFirstNotification(Number(e.target.value))}
-                            style={{
-                                width: '50px',
-                                marginLeft: '10px',
-                                marginRight: '5px',
-                            }}
-                        />
-                        min
-                    </label>
+            <div style={{ marginBottom: '20px', textAlign: 'center' }}>
+                <label style={{ display: 'block', marginBottom: '10px', color: '#555' }}>残り時間通知</label>
+                <div style={{ marginBottom: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <label style={{ marginRight: '10px', color: '#555' }}>通知1回目</label>
+                    <input
+                        type="number"
+                        value={localFirstNotification}
+                        onChange={(e) => setLocalFirstNotification(Number(e.target.value))}
+                        style={{
+                            width: '60px',
+                            padding: '5px',
+                            textAlign: 'center',
+                            borderRadius: '5px',
+                            border: '1px solid #ccc',
+                        }}
+                    />
+                    <span style={{ marginLeft: '5px', color: '#555' }}>min</span>
                 </div>
-                <div style={{ textAlign: 'center' }}>
-                    <label>
-                        通知2回目
-                        <input
-                            type="number"
-                            value={localSecondNotification}
-                            onChange={(e) => setLocalSecondNotification(Number(e.target.value))}
-                            style={{
-                                width: '50px',
-                                marginLeft: '10px',
-                                marginRight: '5px',
-                            }}
-                        />
-                        min
-                    </label>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <label style={{ marginRight: '10px', color: '#555' }}>通知2回目</label>
+                    <input
+                        type="number"
+                        value={localSecondNotification}
+                        onChange={(e) => setLocalSecondNotification(Number(e.target.value))}
+                        style={{
+                            width: '60px',
+                            padding: '5px',
+                            textAlign: 'center',
+                            borderRadius: '5px',
+                            border: '1px solid #ccc',
+                        }}
+                    />
+                    <span style={{ marginLeft: '5px', color: '#555' }}>min</span>
                 </div>
             </div>
 
             {/* 通知音 */}
-            <div style={{ marginBottom: '10px', textAlign: 'center' }}>
-                <label>通知音</label>
-                <div style={{ textAlign: 'center' }}>
+            <div style={{ marginBottom: '20px', textAlign: 'center' }}>
+                <label style={{ display: 'block', marginBottom: '10px', color: '#555' }}>通知音</label>
+                <div>
                     {['ベル', '校長'].map((sound) => (
                         <div key={sound} style={{ display: 'inline-block', marginRight: '10px' }}>
-                            <label>
+                            <label style={{ color: '#555' }}>
                                 <input
                                     type="radio"
                                     value={sound}
@@ -130,15 +134,15 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
             </div>
 
             {/* 音量 */}
-            <div style={{ marginBottom: '10px', textAlign: 'center' }}>
-                <label>音量</label>
+            <div style={{ marginBottom: '20px', textAlign: 'center' }}>
+                <label style={{ display: 'block', marginBottom: '10px', color: '#555' }}>音量</label>
                 <input
                     type="range"
                     value={localVolume}
                     onChange={(e) => setLocalVolume(Number(e.target.value))}
                     min="0"
                     max="100"
-                    style={{ marginLeft: '10px', width: '200px' }}
+                    style={{ width: '200px' }}
                 />
             </div>
 
@@ -156,7 +160,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                         marginRight: '10px',
                     }}
                 >
-                    設定保存
+                    保存
                 </button>
                 <button
                     onClick={handleReset}
