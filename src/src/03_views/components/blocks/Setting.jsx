@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 
-const Setting = () => {
-    const [presentationTime, setPresentationTime] = useState(10); // 登壇時間（分）
-    const [questionTime, setQuestionTime] = useState(5); // 質問時間（分）
+const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuestionTime }) => {
+    const [localPresentationTime, setLocalPresentationTime] = useState(presentationTime / 60); // 分単位で管理
+    const [localQuestionTime, setLocalQuestionTime] = useState(questionTime / 60); // 分単位で管理
     const [firstNotification, setFirstNotification] = useState(1); // 最初の通知時間（分）
     const [secondNotification, setSecondNotification] = useState(0); // 2回目の通知時間（分）
     const [notificationSound, setNotificationSound] = useState('校長'); // 通知音
     const [volume, setVolume] = useState(50); // 音量
 
     const handleSave = () => {
+        setPresentationTime(localPresentationTime * 60); // 秒単位に変換して保存
+        setQuestionTime(localQuestionTime * 60); // 秒単位に変換して保存
         console.log({
-            presentationTime,
-            questionTime,
+            presentationTime: localPresentationTime * 60,
+            questionTime: localQuestionTime * 60,
             firstNotification,
             secondNotification,
             notificationSound,
@@ -21,8 +23,8 @@ const Setting = () => {
     };
 
     const handleReset = () => {
-        setPresentationTime(10);
-        setQuestionTime(5);
+        setLocalPresentationTime(10);
+        setLocalQuestionTime(5);
         setFirstNotification(1);
         setSecondNotification(-1);
         setNotificationSound('校長');
@@ -38,8 +40,8 @@ const Setting = () => {
                 <label>登壇時間</label>
                 <input
                     type="number"
-                    value={presentationTime}
-                    onChange={(e) => setPresentationTime(Number(e.target.value))}
+                    value={localPresentationTime}
+                    onChange={(e) => setLocalPresentationTime(Number(e.target.value))}
                     style={{
                         width: '50px',
                         marginLeft: '10px',
@@ -54,8 +56,8 @@ const Setting = () => {
                 <label>質問時間</label>
                 <input
                     type="number"
-                    value={questionTime}
-                    onChange={(e) => setQuestionTime(Number(e.target.value))}
+                    value={localQuestionTime}
+                    onChange={(e) => setLocalQuestionTime(Number(e.target.value))}
                     style={{
                         width: '50px',
                         marginLeft: '10px',
@@ -86,7 +88,7 @@ const Setting = () => {
                 </div>
                 <div>
                     <label>
-                        通知2回目 オーバー時
+                        通知2回目
                         <input
                             type="number"
                             value={secondNotification}

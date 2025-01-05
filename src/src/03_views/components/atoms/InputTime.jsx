@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useTimer from '../modules/Timer'; // Timerロジックをインポート
 import Notice from '../modules/Notice'; // Noticeコンポーネントをインポート
 
-const InputTime = () => {
+const InputTime = ({ presentationTime, questionTime }) => {
     // 登壇時間のタイマーを管理
-    const presentationTimer = useTimer(600); // 初期値600秒（10分）
+    const presentationTimer = useTimer(presentationTime); // 初期値を親コンポーネントから受け取る
     // 質問時間のタイマーを管理
-    const questionTimer = useTimer(300); // 初期値300秒（5分）
+    const questionTimer = useTimer(questionTime); // 初期値を親コンポーネントから受け取る
+
+    useEffect(() => {
+        presentationTimer.resetTime(presentationTime);
+    }, [presentationTime]);
+
+    useEffect(() => {
+        questionTimer.resetTime(questionTime);
+    }, [questionTime]);
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '20px' }}>
@@ -49,7 +57,7 @@ const InputTime = () => {
                     {presentationTimer.playNotice2 && <Notice play={presentationTimer.playNotice2} sound="/notification2.mp3" />} {/* カウントが0になったときの通知音を再生 */}
                 </div>
                 <button
-                    onClick={() => presentationTimer.resetTime(600)} // タイマーを600秒（10分）
+                    onClick={() => presentationTimer.resetTime(presentationTime)} // タイマーをリセット
                     style={{
                         backgroundColor: '#ffd1d1', // 背景色
                         border: '1px solid #ff0000', // 枠線
@@ -104,7 +112,7 @@ const InputTime = () => {
                     {questionTimer.playNotice2 && <Notice play={questionTimer.playNotice2} sound="/notification2.mp3" />} {/* カウントが0になったときの通知音を再生 */}
                 </div>
                 <button
-                    onClick={() => questionTimer.resetTime(300)} // タイマーを300秒（5分）にリセット
+                    onClick={() => questionTimer.resetTime(questionTime)} // タイマーをリセット
                     style={{
                         backgroundColor: '#ffd1d1', // 背景色
                         border: '1px solid #ff0000',  // 枠線

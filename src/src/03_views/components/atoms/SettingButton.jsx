@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import Setting from '../blocks/Setting'; // 設定画面をインポート
+import InputTime from '../atoms/InputTime'; // カウント���ウンタイマーをインポート
 
 const SettingButton = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false); // メニューの開閉状態を管理
+    const [presentationTime, setPresentationTime] = useState(600); // 初期値600秒（10分）
+    const [questionTime, setQuestionTime] = useState(300); // 初期値300秒（5分）
 
     // メニューの開閉を切り替える関数
     const toggleMenu = () => {
@@ -54,9 +57,20 @@ const SettingButton = () => {
                         width: '250px', // メニューの幅
                     }}
                 >
-                    <Setting /> {/* 設定画面コンポーネント */}
+                    <Setting
+                        presentationTime={presentationTime}
+                        setPresentationTime={setPresentationTime}
+                        questionTime={questionTime}
+                        setQuestionTime={setQuestionTime}
+                    />
                 </div>
             )}
+
+            {/* カウントダウンタイマー */}
+            <InputTime
+                presentationTime={presentationTime}
+                questionTime={questionTime}
+            />
         </div>
     );
 };
