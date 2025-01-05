@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Setting from '../blocks/Setting'; // 設定画面をインポート
-import InputTime from '../atoms/InputTime'; // カウントダウンタイマーをインポート
+import InputTime from '../atoms/InputTime'; // カウント���ウンタイマーをインポート
 
 const SettingButton = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false); // メニューの開閉状態を管理
@@ -9,6 +9,7 @@ const SettingButton = () => {
     const [firstNotification, setFirstNotification] = useState(60); // 初期値60秒（1分）
     const [secondNotification, setSecondNotification] = useState(0); // 初期値0秒
     const [volume, setVolume] = useState(50); // 初期値50%
+    const [notificationSound, setNotificationSound] = useState('ベル'); // 初期値ベル
 
     // メニューの開閉を切り替える関数
     const toggleMenu = () => {
@@ -76,6 +77,8 @@ const SettingButton = () => {
                         setSecondNotification={setSecondNotification}
                         volume={volume}
                         setVolume={setVolume}
+                        notificationSound={notificationSound}
+                        setNotificationSound={setNotificationSound}
                         closeMenu={closeMenu} // メニューを閉じる関数を渡す
                     />
                 </div>
@@ -88,6 +91,7 @@ const SettingButton = () => {
                 firstNotification={firstNotification}
                 secondNotification={secondNotification}
                 volume={volume}
+                notificationSound={notificationSound}
             />
         </div>
     );
