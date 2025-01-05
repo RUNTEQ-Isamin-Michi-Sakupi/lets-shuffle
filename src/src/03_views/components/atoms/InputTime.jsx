@@ -1,104 +1,61 @@
-import React, { useState, useEffect } from 'react'; // ReactライブラリからuseStateとuseEffectをインポート
+import React from 'react';
+import useTimer from '../modules/Timer'; // Timerロジックをインポート
 
 const InputTime = () => {
-    // 登壇時間の初期値を600秒（10分）に設定
-    const [presentationTime, setPresentationTime] = useState(600);
-    const [isPresentationCounting, setIsPresentationCounting] = useState(false);
-
-    // 質問時間の初期値を300秒（5分）に設定
-    const [questionTime, setQuestionTime] = useState(300);
-    const [isQuestionCounting, setIsQuestionCounting] = useState(false);
-
-    // 登壇時間のカウントダウンロジック
-    useEffect(() => {
-        let timer;
-        if (isPresentationCounting && presentationTime > 0) {
-            timer = setInterval(() => {
-                setPresentationTime((prevTime) => prevTime - 1);
-            }, 1000);
-        } else if (presentationTime === 0) {
-            setIsPresentationCounting(false);
-        }
-        return () => clearInterval(timer);
-    }, [isPresentationCounting, presentationTime]);
-
-    // 質問時間のカウントダウンロジック
-    useEffect(() => {
-        let timer;
-        if (isQuestionCounting && questionTime > 0) {
-            timer = setInterval(() => {
-                setQuestionTime((prevTime) => prevTime - 1);
-            }, 1000);
-        } else if (questionTime === 0) {
-            setIsQuestionCounting(false);
-        }
-        return () => clearInterval(timer);
-    }, [isQuestionCounting, questionTime]);
-
-    // 登壇時間をリセットする関数
-    const resetPresentationTime = () => {
-        setIsPresentationCounting(false);
-        setPresentationTime(600); // 登壇時間を600秒にリセット
-    };
-
-    // 質問時間をリセットする関数
-    const resetQuestionTime = () => {
-        setIsQuestionCounting(false);
-        setQuestionTime(300); // 質問時間を300秒にリセット
-    };
+    // 登壇時間のタイマーを管理
+    const presentationTimer = useTimer(600); // 初期値600秒（10分）
+    // 質問時間のタイマーを管理
+    const questionTimer = useTimer(300); // 初期値300秒（5分）
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '20px' }}>
             {/* 登壇時間セクション */}
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '10px', marginLeft: '20px' }}>
-                {/* 登壇開始ボタン */}
                 <button
-                    onClick={() => setIsPresentationCounting(true)} // 登壇開始ボタンをクリックしたときにカウントダウンを開始
-                    style={{ // ボタンのスタイルを設定
-                        backgroundColor: '#d1e7ff', // 背景色を設定
-                        border: '1px solid #007bff', // 枠線のスタイル
-                        borderRadius: '5px', // 角丸にする
-                        padding: '10px 20px', // パディングを設定
-                        fontSize: '16px', // フォントサイズを設定
-                        width: '200px', // 幅を設定
-                        textAlign: 'center', // テキストを中央揃えにする
-                        cursor: 'pointer', // カーソルを指に変更
+                    onClick={() => presentationTimer.setIsCounting(true)}
+                    style={{
+                        backgroundColor: '#d1e7ff', // 背景色
+                        border: '1px solid #007bff', // 枠線
+                        borderRadius: '5px', // 角丸
+                        padding: '10px 20px', // 余白
+                        fontSize: '16px', // フォントサイズ
+                        width: '200px', // 幅
+                        textAlign: 'center', // 文字揃え
+                        cursor: 'pointer', // マウスカーソルで指を表示
                     }}
                 >
                     登壇開始
                 </button>
-                {/* 登壇時間の表示 */}
                 <div
                     style={{
-                        display: 'flex', // flexboxを使用して要素を並べる
-                        flexDirection: 'column', // 縦方向に並べる
-                        justifyContent: 'center', // 要素を中央揃えにする
-                        alignItems: 'center', // 要素を中央揃えにする
-                        width: '200px', // 幅を設定
-                        height: '100px', // 高さを設定
-                        border: '1px solid #000', // 枠線のスタイル
-                        borderRadius: '5px', // 角丸にする
-                        backgroundColor: '#fff', // 背景色を設定
-                        fontSize: '24px', // フォントサイズを設定
-                        fontWeight: 'bold', // フォントの太さを設定
-                        color: '#000', // テキストの色を設定
+                        display: 'flex', // 横並び
+                        flexDirection: 'column', // 縦並び
+                        justifyContent: 'center', // 中央揃え
+                        alignItems: 'center', // 中央揃え
+                        width: '200px', // 幅
+                        height: '100px', // 高さ
+                        border: '1px solid #000', // 枠線
+                        borderRadius: '5px', // 角丸
+                        backgroundColor: '#fff', // 背景色
+                        fontSize: '24px', // フォントサイズ
+                        fontWeight: 'bold', // 太字
+                        color: '#000', // 文字色
                     }}
                 >
                     <div>登壇時間</div>
-                    <div>{Math.floor(presentationTime / 60)}:{('0' + (presentationTime % 60)).slice(-2)}</div> {/* 残り時間を表示 */}
+                    <div>{Math.floor(presentationTimer.time / 60)}:{('0' + (presentationTimer.time % 60)).slice(-2)}</div>
                 </div>
-                {/* 登壇終了ボタン */}
                 <button
-                    onClick={resetPresentationTime} // 登壇終了ボタンをクリックしたときに登壇時間をリセット
+                    onClick={() => presentationTimer.resetTime(600)} // タイマーを600秒（10分）にリセット
                     style={{
-                        backgroundColor: '#ffd1d1', // 背景色を設定
-                        border: '1px solid #ff0000', // 枠線のスタイル
-                        borderRadius: '5px', // 角丸にする
-                        padding: '10px 20px', // パディングを設定
-                        fontSize: '16px', // フォントサイズを設定
-                        width: '200px', // 幅を設定
-                        textAlign: 'center', // テキストを中央揃えにする
-                        cursor: 'pointer', // カーソルを指に変更
+                        backgroundColor: '#ffd1d1', // 背景色
+                        border: '1px solid #ff0000', // 枠線
+                        borderRadius: '5px', // 角丸
+                        padding: '10px 20px', // 余白
+                        fontSize: '16px', // フォントサイズ
+                        width: '200px', // 幅
+                        textAlign: 'center', // 文字揃え
+                        cursor: 'pointer', // マウスカーソルで指を表示
                     }}
                 >
                     登壇終了
@@ -107,57 +64,51 @@ const InputTime = () => {
 
             {/* 質問時間セクション */}
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '10px', marginLeft: '20px' }}>
-                {/* 質問開始ボタン */}
                 <button
-                    onClick={() => setIsQuestionCounting(true)} // 質問開始ボタンをクリックしたときにカウントダウンを開始
+                    onClick={() => questionTimer.setIsCounting(true)} // カウントダウンを開始
                     style={{
-                        backgroundColor: '#d4edda', // 背景色を設定
-                        border: '1px solid #28a745', // 枠線のスタイル
-                        borderRadius: '5px', // 角丸にする
-                        padding: '10px 20px', // パディングを設定
-                        fontSize: '16px', // フォントサイズを設定
-                        width: '200px', // 幅を設定
-                        textAlign: 'center', // テキストを中央揃えにする
-                        cursor: 'pointer', // カーソルを指に変更
+                        backgroundColor: '#d4edda', // 背景色
+                        border: '1px solid #28a745', // 枠線
+                        borderRadius: '5px', // 角丸
+                        padding: '10px 20px', // 余白
+                        fontSize: '16px', // フォントサイズ
+                        width: '200px', // 幅
+                        textAlign: 'center', // 文字揃え
+                        cursor: 'pointer', // マウスカーソルで指を表示
                     }}
                 >
                     質問開始
                 </button>
-                {/* 質問時間の表示 */}
                 <div
                     style={{
-                        display: 'flex', // flexboxを使用して要素を並べる
-                        flexDirection: 'column', // 縦方向に並べる
-                        justifyContent: 'center', // 要素を中央揃えにする
-                        alignItems: 'center', // 要素を中央揃えにする
-                        width: '200px', // 幅を設定
-                        height: '100px', // 高さを設定
-                        border: '1px solid #000', // 枠線のスタイル
-                        borderRadius: '5px', // 角丸にする
-                        backgroundColor: '#fff', // 背景色を設定
-                        fontSize: '24px', // フォントサイズを設定
-                        fontWeight: 'bold', // フォントの太さを設定
-                        color: '#000', // テキストの色を設定
+                        display: 'flex', // 横並び
+                        flexDirection: 'column', // 縦並び
+                        justifyContent: 'center', // 中央揃え
+                        alignItems: 'center', // 中央揃え
+                        width: '200px', // 幅
+                        height: '100px', // 高さ
+                        border: '1px solid #000', // 枠線
+                        borderRadius: '5px', // 角丸
+                        backgroundColor: '#fff', // 背景色
+                        fontSize: '24px', // フォントサイズ
+                        fontWeight: 'bold', // 太字
+                        color: '#000', // 文字色
                     }}
                 >
                     <div>質問時間</div>
-                    <div>
-                        {Math.floor(questionTime / 60)}:
-                        {('0' + (questionTime % 60)).slice(-2)} {/* 残り時間を表示 */}
-                    </div>
+                    <div>{Math.floor(questionTimer.time / 60)}:{('0' + (questionTimer.time % 60)).slice(-2)}</div>
                 </div>
-                {/* 質問終了ボタン */}
                 <button
-                    onClick={resetQuestionTime} // 質問終了ボタンをクリックしたときに質問時間をリセット
+                    onClick={() => questionTimer.resetTime(300)} // タイマーを300秒（5分）にリセット
                     style={{
-                        backgroundColor: '#ffd1d1', // 背景色を設定
-                        border: '1px solid #ff0000', // 枠線のスタイル
-                        borderRadius: '5px', // 角丸にする
-                        padding: '10px 20px', // パディングを設定   
-                        fontSize: '16px', // フォントサイズを設定
-                        width: '200px', // 幅を設定
-                        textAlign: 'center', // テキストを中央揃えにする
-                        cursor: 'pointer', // カーソルを指に変更
+                        backgroundColor: '#ffd1d1', // 背景色
+                        border: '1px solid #ff0000',  // 枠線
+                        borderRadius: '5px', // 角丸
+                        padding: '10px 20px', // 余白
+                        fontSize: '16px', // フォントサイズ
+                        width: '200px', // 幅
+                        textAlign: 'center', // 文字揃え
+                        cursor: 'pointer', // マウスカーソルで指を表示
                     }}
                 >
                     質問終了
@@ -167,4 +118,4 @@ const InputTime = () => {
     );
 };
 
-export default InputTime; // 他のファイルで使用できるようにInputTimeコンポーネントをエクスポート
+export default InputTime;
