@@ -43,22 +43,35 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
         return '/sounds/bell1.mp3';
     };
 
+    const buttonStyle = {
+        padding: '10px 20px', // 余白
+        fontSize: '16px', // フォントサイズ
+        width: '200px', // 幅
+        textAlign: 'center', // 文字揃え
+        borderRadius: '5px', // 角丸
+        cursor: 'pointer', // マウスカーソルで指を表示
+        transition: 'transform 0.2s', // 変形のトランジション
+    };
+
+    const handleMouseDown = (e) => {
+        e.target.style.transform = 'scale(0.95)'; // クリック時の縮小
+    };
+
+    const handleMouseUp = (e) => {
+        e.target.style.transform = 'scale(1)'; // クリック解除時の元のサイズに戻す
+    };
+
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '20px' }}>
             {/* 登壇時間セクション */}
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '10px', marginLeft: '20px' }}>
                 <button
                     onClick={() => presentationTimer.setIsCounting(true)}
-                    style={{
-                        backgroundColor: '#d1e7ff', // 背景色
-                        border: '1px solid #007bff', // 枠線
-                        borderRadius: '5px', // 角丸
-                        padding: '10px 20px', // 余白
-                        fontSize: '16px', // フォントサイズ
-                        width: '200px', // 幅
-                        textAlign: 'center', // 文字揃え
-                        cursor: 'pointer', // マウスカーソルで指を表示
-                    }}
+                    style={{ ...buttonStyle, backgroundColor: '#fff', border: '1px solid #007bff' }}
+                    onMouseDown={handleMouseDown}
+                    onMouseUp={handleMouseUp}
+                    onMouseEnter={(e) => e.target.style.backgroundColor = '#d1e7ff'}
+                    onMouseLeave={(e) => e.target.style.backgroundColor = '#fff'}
                 >
                     登壇開始
                 </button>
@@ -85,16 +98,12 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
                 </div>
                 <button
                     onClick={() => presentationTimer.resetTime(presentationTime)} // タイマーをリセット
-                    style={{
-                        backgroundColor: '#ffd1d1', // 背景色
-                        border: '1px solid #ff0000', // 枠線
-                        borderRadius: '5px', // 角丸
-                        padding: '10px 20px', // 余白
-                        fontSize: '16px', // フォントサイズ
-                        width: '200px', // 幅
-                        textAlign: 'center', // 文字揃え
-                        cursor: 'pointer', // マウスカーソルで指を表示
-                    }}
+                    style={{ ...buttonStyle, backgroundColor: '#fff', border: '1px solid #ff0000' }}
+                                onMouseDown={handleMouseDown}
+                                onMouseUp={handleMouseUp}
+                                onMouseEnter={(e) => e.target.style.backgroundColor = '#ffd1d1'}
+                                onMouseLeave={(e) => e.target.style.backgroundColor = '#fff'}
+
                 >
                     登壇終了
                 </button>
@@ -104,16 +113,12 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '10px', marginLeft: '20px' }}>
                 <button
                     onClick={() => questionTimer.setIsCounting(true)} // カウントダウンを開始
-                    style={{
-                        backgroundColor: '#d4edda', // 背景色
-                        border: '1px solid #28a745', // 枠線
-                        borderRadius: '5px', // 角丸
-                        padding: '10px 20px', // 余白
-                        fontSize: '16px', // フォントサイズ
-                        width: '200px', // 幅
-                        textAlign: 'center', // 文字揃え
-                        cursor: 'pointer', // マウスカーソルで指を表示
-                    }}
+                    style={{ ...buttonStyle, backgroundColor: '#fff', border: '1px solid #28a745' }}
+                                onMouseDown={handleMouseDown}
+                                onMouseUp={handleMouseUp}
+                                onMouseEnter={(e) => e.target.style.backgroundColor = '#d4edda'}
+                                onMouseLeave={(e) => e.target.style.backgroundColor = '#fff'}
+
                 >
                     質問開始
                 </button>
@@ -140,16 +145,11 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
                 </div>
                 <button
                     onClick={() => questionTimer.resetTime(questionTime)} // タイマーをリセット
-                    style={{
-                        backgroundColor: '#ffd1d1', // 背景色
-                        border: '1px solid #ff0000',  // 枠線
-                        borderRadius: '5px', // 角丸
-                        padding: '10px 20px', // 余白
-                        fontSize: '16px', // フォントサイズ
-                        width: '200px', // 幅
-                        textAlign: 'center', // 文字揃え
-                        cursor: 'pointer', // マウスカーソルで指を表示
-                    }}
+                    style={{ ...buttonStyle, backgroundColor: '#fff', border: '1px solid #ff0000' }}
+                                onMouseDown={handleMouseDown}
+                                onMouseUp={handleMouseUp}
+                                onMouseEnter={(e) => e.target.style.backgroundColor = '#ffd1d1'}
+                                onMouseLeave={(e) => e.target.style.backgroundColor = '#fff'}
                 >
                     質問終了
                 </button>
