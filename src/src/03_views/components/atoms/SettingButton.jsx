@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Setting from '../blocks/Setting'; // 設定画面をインポート
-import InputTime from '../atoms/InputTime'; // カウント���ウンタイマーをインポート
+import InputTime from '../atoms/InputTime'; // カウントダウンタイマーをインポート
 
 const SettingButton = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false); // メニューの開閉状態を管理
