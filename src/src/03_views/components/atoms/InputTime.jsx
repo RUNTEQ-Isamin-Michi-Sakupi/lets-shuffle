@@ -67,11 +67,11 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '10px', marginLeft: '20px' }}>
                 <button
                     onClick={() => presentationTimer.setIsCounting(true)}
-                    style={{ ...buttonStyle, backgroundColor: '#fff', border: '1px solid #007bff' }}
+                    style={{ ...buttonStyle, backgroundColor: '#000', border: '1px solid #fff',color: '#fff', fontWeight: 'bold' }}
                     onMouseDown={handleMouseDown}
                     onMouseUp={handleMouseUp}
-                    onMouseEnter={(e) => e.target.style.backgroundColor = '#d1e7ff'}
-                    onMouseLeave={(e) => e.target.style.backgroundColor = '#fff'}
+                    onMouseEnter={(e) => e.target.style.backgroundColor = '#444'}
+                    onMouseLeave={(e) => e.target.style.backgroundColor = '#000'}
                 >
                     登壇開始
                 </button>
@@ -98,11 +98,11 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
                 </div>
                 <button
                     onClick={() => presentationTimer.resetTime(presentationTime)} // タイマーをリセット
-                    style={{ ...buttonStyle, backgroundColor: '#fff', border: '1px solid #ff0000' }}
+                    style={{ ...buttonStyle, backgroundColor: '#ff0000', border: '1px solid #fff', color: '#fff' ,fontWeight: 'bold'}}
                                 onMouseDown={handleMouseDown}
                                 onMouseUp={handleMouseUp}
-                                onMouseEnter={(e) => e.target.style.backgroundColor = '#ffd1d1'}
-                                onMouseLeave={(e) => e.target.style.backgroundColor = '#fff'}
+                                onMouseEnter={(e) => e.target.style.backgroundColor = '#ff9999'}
+                                onMouseLeave={(e) => e.target.style.backgroundColor = '#ff0000'}
 
                 >
                     登壇終了
@@ -113,11 +113,11 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '10px', marginLeft: '20px' }}>
                 <button
                     onClick={() => questionTimer.setIsCounting(true)} // カウントダウンを開始
-                    style={{ ...buttonStyle, backgroundColor: '#fff', border: '1px solid #28a745' }}
+                    style={{ ...buttonStyle, backgroundColor: '#008406', border: '1px solid #fff',color: '#fff' , fontWeight: 'bold'}}
                                 onMouseDown={handleMouseDown}
                                 onMouseUp={handleMouseUp}
-                                onMouseEnter={(e) => e.target.style.backgroundColor = '#d4edda'}
-                                onMouseLeave={(e) => e.target.style.backgroundColor = '#fff'}
+                                onMouseEnter={(e) => e.target.style.backgroundColor = '#b2e0c9'}
+                                onMouseLeave={(e) => e.target.style.backgroundColor = '#008406'}
 
                 >
                     質問開始
@@ -145,11 +145,11 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
                 </div>
                 <button
                     onClick={() => questionTimer.resetTime(questionTime)} // タイマーをリセット
-                    style={{ ...buttonStyle, backgroundColor: '#fff', border: '1px solid #ff0000' }}
+                    style={{ ...buttonStyle, backgroundColor: '#ee7800', border: '1px solid #fff',color: '#fff' , fontWeight: 'bold'}}
                                 onMouseDown={handleMouseDown}
                                 onMouseUp={handleMouseUp}
-                                onMouseEnter={(e) => e.target.style.backgroundColor = '#ffd1d1'}
-                                onMouseLeave={(e) => e.target.style.backgroundColor = '#fff'}
+                                onMouseEnter={(e) => e.target.style.backgroundColor = '#ffc185'}
+                                onMouseLeave={(e) => e.target.style.backgroundColor = '#ee7800'}
                 >
                     質問終了
                 </button>

@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Header from './03_views/components/blocks/Header';
-import App from './App';
 import Footer from './03_views/components/blocks/Footer';
 import SettingButton from './03_views/components/atoms/SettingButton'; // 設定画面を表示するコンポーネント みちが追加
 import reportWebVitals from './reportWebVitals';
