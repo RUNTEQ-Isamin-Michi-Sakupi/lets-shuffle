@@ -5,7 +5,7 @@ import OutputName from '../atoms/OutputName';
 
 const Body = () => {
     const bodyStyle = {
-        backgroundImage: 'url(/backgroundtest.jpg)', // 背景画像のパス
+        backgroundImage: 'url(/img/backgroundtest.jpg)', // 背景画像のパス
         backgroundSize: 'cover', // 画像をコンテナ全体にカバー
         backgroundPosition: 'center', // 画像を中央に配置
         backgroundRepeat: 'no-repeat', // 画像を繰り返さない
