@@ -1,4 +1,7 @@
 import React from 'react'; //背景画像用のテストコード
+import Card from '../atoms/Card';
+import InputName from '../atoms/InputName';
+import OutputName from '../atoms/OutputName';
 
 const Body = () => {
     const bodyStyle = {
@@ -15,6 +18,9 @@ const Body = () => {
     return (
         <div style={bodyStyle}>
             {/* コンテンツをここに追加 */}
+            <Card />
+            <InputName />
+            <OutputName />
         </div>
     );
 };
