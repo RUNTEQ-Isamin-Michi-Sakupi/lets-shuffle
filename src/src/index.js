@@ -4,7 +4,6 @@ import './index.css';
 import Header from './03_views/components/blocks/Header';
 import Body from './03_views/components/blocks/Body';
 import Footer from './03_views/components/blocks/Footer';
-import SettingButton from './03_views/components/atoms/SettingButton'; // 設定画面を表示するコンポーネント みちが追加
 import reportWebVitals from './reportWebVitals';
 
 
@@ -13,7 +12,6 @@ root.render(
   <React.StrictMode>
     <Header />
     <Body />
-    <SettingButton /> {/* 設定画面を表示するボタン */}
     {/* ここに現在の発表者を追加する */}
     <Footer />
   </React.StrictMode>
