@@ -52,6 +52,11 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
         };
     };
 
+    const handleVolumeChange = (e) => {
+        const value = Number(e.target.value);
+        setLocalVolume(value);
+    };
+
     return (
         <div>
             <h2 style={{ textAlign: 'center', marginBottom: '20px', color: '#333' }}>設定画面</h2>
@@ -145,6 +150,19 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                 />
                 <button onClick={() => increment(setLocalVolume, localVolume)} style={buttonStyle}>+</button>
                 <span style={{ marginLeft: '5px', color: '#555', fontWeight: 'bold' }}>%</span>
+            </div>
+
+            {/* 音量スライダー */}
+            <div style={{ marginBottom: '20px', textAlign: 'center' }}>
+                <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    step="1"
+                    value={localVolume}
+                    onChange={handleVolumeChange}
+                    style={{ width: '80%' }}
+                />
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
