@@ -140,7 +140,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                 <span style={{ marginLeft: '5px', color: '#555' }}>%</span>
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
                 <button onClick={handleSave} style={{ padding: '10px 20px', backgroundColor: '#4CAF50', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>保存</button>
                 <button onClick={handleReset} style={{ padding: '10px 20px', backgroundColor: '#f44336', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>リセット</button>
             </div>
