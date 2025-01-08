@@ -44,7 +44,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
     };
 
     return (
-        <div style={{ padding: '20px', backgroundColor: '#f9f9f9', borderRadius: '10px', width: '300px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+        <div>
             <h2 style={{ textAlign: 'center', marginBottom: '20px', color: '#333' }}>設定画面</h2>
 
             {/* 登壇時間 */}
