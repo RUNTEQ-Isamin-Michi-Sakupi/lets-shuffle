@@ -2,7 +2,7 @@ import React from 'react'
 
 const Card = () => {
     const cardStyle = {
-        width: "5rem",
+        width: "6rem",
         aspectRatio: "58 / 89",
         backgroundColor: "#c00606",
         boxShadow: "0 0 6px black",
