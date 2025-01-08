@@ -33,12 +33,14 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
     };
 
     const decrement = (setter, value) => {
-        setter(value - 1);
+        if (value > 0 || setter === setLocalFirstNotification || setter === setLocalSecondNotification) {
+            setter(value - 1);
+        }
     };
 
-    const handleInputChange = (e, setter) => {
+    const handleInputChange = (e, setter, allowNegative = true) => {
         const value = e.target.value;
-        if (!isNaN(value) || value === '-') { // 数値または負の符号のみ許可
+        if (!isNaN(value) && (allowNegative || value >= 0)) { // 数値のみ許可、負の値を許可するかどうか
             setter(Number(value));
         }
     };
@@ -61,8 +63,8 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                 <input
                     type="text"
                     value={localPresentationTime}
-                    onChange={(e) => handleInputChange(e, setLocalPresentationTime)}
-                    style={getInputStyle(localPresentationTime)}
+                    onChange={(e) => handleInputChange(e, setLocalPresentationTime, false)}
+                    style={inputStyle}
                 />
                 <button onClick={() => increment(setLocalPresentationTime, localPresentationTime)} style={buttonStyle}>+</button>
                 <span style={{ marginLeft: '5px', color: '#555', fontWeight: 'bold' }}>分</span>
@@ -75,8 +77,8 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                 <input
                     type="text"
                     value={localQuestionTime}
-                    onChange={(e) => handleInputChange(e, setLocalQuestionTime)}
-                    style={getInputStyle(localQuestionTime)}
+                    onChange={(e) => handleInputChange(e, setLocalQuestionTime, false)}
+                    style={inputStyle}
                 />
                 <button onClick={() => increment(setLocalQuestionTime, localQuestionTime)} style={buttonStyle}>+</button>
                 <span style={{ marginLeft: '5px', color: '#555', fontWeight: 'bold' }}>分</span>
