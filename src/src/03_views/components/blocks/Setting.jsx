@@ -43,6 +43,13 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
         }
     };
 
+    const getInputStyle = (value) => {
+        return {
+            ...inputStyle,
+            color: value < 0 ? 'red' : 'black'
+        };
+    };
+
     return (
         <div>
             <h2 style={{ textAlign: 'center', marginBottom: '20px', color: '#333' }}>設定画面</h2>
@@ -55,7 +62,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                     type="text"
                     value={localPresentationTime}
                     onChange={(e) => handleInputChange(e, setLocalPresentationTime)}
-                    style={inputStyle}
+                    style={getInputStyle(localPresentationTime)}
                 />
                 <button onClick={() => increment(setLocalPresentationTime, localPresentationTime)} style={buttonStyle}>+</button>
                 <span style={{ marginLeft: '5px', color: '#555', fontWeight: 'bold' }}>分</span>
@@ -69,7 +76,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                     type="text"
                     value={localQuestionTime}
                     onChange={(e) => handleInputChange(e, setLocalQuestionTime)}
-                    style={inputStyle}
+                    style={getInputStyle(localQuestionTime)}
                 />
                 <button onClick={() => increment(setLocalQuestionTime, localQuestionTime)} style={buttonStyle}>+</button>
                 <span style={{ marginLeft: '5px', color: '#555', fontWeight: 'bold' }}>分</span>
@@ -85,7 +92,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                         type="text"
                         value={localFirstNotification}
                         onChange={(e) => handleInputChange(e, setLocalFirstNotification)}
-                        style={inputStyle}
+                        style={getInputStyle(localFirstNotification)}
                     />
                     <button onClick={() => increment(setLocalFirstNotification, localFirstNotification)} style={buttonStyle}>+</button>
                     <span style={{ marginLeft: '5px', color: '#555', fontWeight: 'bold' }}>分</span>
@@ -97,7 +104,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                         type="text"
                         value={localSecondNotification}
                         onChange={(e) => handleInputChange(e, setLocalSecondNotification)}
-                        style={inputStyle}
+                        style={getInputStyle(localSecondNotification)}
                     />
                     <button onClick={() => increment(setLocalSecondNotification, localSecondNotification)} style={buttonStyle}>+</button>
                     <span style={{ marginLeft: '5px', color: '#555', fontWeight: 'bold' }}>分</span>
