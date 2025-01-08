@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Header = () => {
-  const style = {
+  const Header_style = {
     backgroundImage: 'url(/img/header.png)',
     backgroundSize: 'cover', // 画像をコンテナ全体にカバー
     backgroundPosition: 'center', // 画像を中央に配置
@@ -10,7 +10,7 @@ const Header = () => {
     height: '13vh' // ビューポートの高さ
   }
   return (
-    <div style={style}>
+    <div style={Header_style}>
 
     </div>
   )
