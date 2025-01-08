@@ -33,14 +33,12 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
     };
 
     const decrement = (setter, value) => {
-        if (value > 0) {
-            setter(value - 1);
-        }
+        setter(value - 1);
     };
 
     const handleInputChange = (e, setter) => {
         const value = e.target.value;
-        if (!isNaN(value)) { // 数値のみ許可
+        if (!isNaN(value) || value === '-') { // 数値または負の符号のみ許可
             setter(Number(value));
         }
     };
@@ -60,7 +58,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                     style={inputStyle}
                 />
                 <button onClick={() => increment(setLocalPresentationTime, localPresentationTime)} style={buttonStyle}>+</button>
-                <span style={{ marginLeft: '5px', color: '#555' }}>分</span>
+                <span style={{ marginLeft: '5px', color: '#555', fontWeight: 'bold' }}>分</span>
             </div>
 
             {/* 質問時間 */}
@@ -74,7 +72,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                     style={inputStyle}
                 />
                 <button onClick={() => increment(setLocalQuestionTime, localQuestionTime)} style={buttonStyle}>+</button>
-                <span style={{ marginLeft: '5px', color: '#555' }}>分</span>
+                <span style={{ marginLeft: '5px', color: '#555', fontWeight: 'bold' }}>分</span>
             </div>
 
             {/* 残り時間通知 */}
@@ -90,7 +88,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                         style={inputStyle}
                     />
                     <button onClick={() => increment(setLocalFirstNotification, localFirstNotification)} style={buttonStyle}>+</button>
-                    <span style={{ marginLeft: '5px', color: '#555' }}>分</span>
+                    <span style={{ marginLeft: '5px', color: '#555', fontWeight: 'bold' }}>分</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <label style={{ marginRight: '10px', color: '#555' }}>通知2回目</label>
@@ -102,7 +100,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                         style={inputStyle}
                     />
                     <button onClick={() => increment(setLocalSecondNotification, localSecondNotification)} style={buttonStyle}>+</button>
-                    <span style={{ marginLeft: '5px', color: '#555' }}>分</span>
+                    <span style={{ marginLeft: '5px', color: '#555', fontWeight: 'bold' }}>分</span>
                 </div>
             </div>
 
@@ -137,12 +135,12 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                     style={inputStyle}
                 />
                 <button onClick={() => increment(setLocalVolume, localVolume)} style={buttonStyle}>+</button>
-                <span style={{ marginLeft: '5px', color: '#555' }}>%</span>
+                <span style={{ marginLeft: '5px', color: '#555', fontWeight: 'bold' }}>%</span>
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
-                <button onClick={handleSave} style={{ padding: '10px 20px', backgroundColor: '#4CAF50', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>保存</button>
-                <button onClick={handleReset} style={{ padding: '10px 20px', backgroundColor: '#f44336', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>リセット</button>
+                <button onClick={handleSave} style={{ padding: '10px 20px', backgroundColor: '#4CAF50', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold' }}>保存</button>
+                <button onClick={handleReset} style={{ padding: '10px 20px', backgroundColor: '#f44336', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold' }}>リセット</button>
             </div>
         </div>
     );
@@ -156,6 +154,7 @@ const buttonStyle = {
     border: 'none',
     borderRadius: '5px',
     cursor: 'pointer',
+    fontWeight: 'bold', // ボタンのテキストを太字にする
 };
 
 const inputStyle = {
@@ -167,6 +166,7 @@ const inputStyle = {
     MozAppearance: 'textfield', // スピンボタンを削除するスタイル
     WebkitAppearance: 'none',
     margin: 0,
+    fontWeight: 'bold', // 数字を太字にする
 };
 
 export default Setting;
