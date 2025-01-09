@@ -33,10 +33,16 @@ const ShuffleContent = () => {
     <div style={cardAndButtonStyle}>
         <div style={buttonContainerStyle}>
         <div style={buttonStyle}>
-            <Button />
+            <Button
+            name={"一気に順番決め"}
+            func={0}
+            />
         </div>
         <div style={buttonStyle}>
-            <Button />
+          <Button
+            name={"一気に順番決め"}
+            func={1}
+          />
         </div>
         </div>
         <div style={cardContainerStyle}>
@@ -47,5 +53,7 @@ const ShuffleContent = () => {
     </div>
   )
 }
+
+
 
 export default ShuffleContent
