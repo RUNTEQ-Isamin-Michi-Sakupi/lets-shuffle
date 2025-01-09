@@ -123,7 +123,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                 <label style={{ display: 'block', marginBottom: '10px', color: '#000', fontWeight: 'bold', fontSize: '20px' }}>通知音</label>
                 <div>
                     {['ベル', '校長'].map((sound) => (
-                        <div key={sound} style={{ display: 'inline-block', marginRight: '10px' , fontWeight: 'bold', fontSize: '20px'}}>
+                        <div key={sound} style={{ display: 'inline-block', marginRight: '10px', fontWeight: 'bold', fontSize: '20px' }}>
                             <label style={{ color: '#555' }}>
                                 <input
                                     type="radio"
@@ -166,8 +166,42 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
-                <button onClick={handleSave} style={{ padding: '10px 20px', backgroundColor: '#4CAF50', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold', fontSize: '15px', transition: 'background-color 0.3s' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#45a049'} onMouseLeave={(e) => e.target.style.backgroundColor = '#4CAF50'}>保存</button>
-                <button onClick={handleReset} style={{ padding: '10px 20px', backgroundColor: '#f44336', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold', fontSize: '15px', transition: 'background-color 0.3s' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#e53935'} onMouseLeave={(e) => e.target.style.backgroundColor = '#f44336'}>初期設定</button>
+                <button
+                    onClick={handleSave} // 保存ボタンを押したときの処理
+                    style={{
+                        padding: '10px 20px', // ボタンの余白
+                        backgroundColor: '#4CAF50', // ボタンの背景色
+                        color: '#fff', // ボタンのテキストの色
+                        border: 'none', // ボタンの枠線をなしにする
+                        borderRadius: '5px', // ボタンを角丸に
+                        cursor: 'pointer', // マウスカーソルで指を表示
+                        fontWeight: 'bold', // ボタンのテキストを太字にする
+                        fontSize: '15px', // ボタンのフォントサイズ
+                        transition: 'background-color 0.3s' // ホバー時の背景色の変化をスムーズにする
+                    }}
+                    onMouseEnter={(e) => e.target.style.backgroundColor = '#45a049'} // ホバー時の背景色
+                    onMouseLeave={(e) => e.target.style.backgroundColor = '#4CAF50'} // ホバー解除時の背景色
+                >
+                    保存
+                </button>
+                <button
+                    onClick={handleReset} // リセットボタンを押したときの処理
+                    style={{
+                        padding: '10px 20px', // ボタンの余白
+                        backgroundColor: '#f44336', // ボタンの背景色
+                        color: '#fff', // ボタンのテキストの色
+                        border: 'none', // ボタンの枠線をなしにする
+                        borderRadius: '5px', // ボタンを角丸に
+                        cursor: 'pointer', // マウスカーソルで指を表示
+                        fontWeight: 'bold', // ボタンのテキストを太字にする
+                        fontSize: '15px', // ボタンのフォントサイズ
+                        transition: 'background-color 0.3s' // ホバー時の背景色の変化をスムーズにする
+                    }}
+                    onMouseEnter={(e) => e.target.style.backgroundColor = '#e53935'} // ホバー時の背景色
+                    onMouseLeave={(e) => e.target.style.backgroundColor = '#f44336'} // ホバー解除時の背景色
+                >
+                    初期設定
+                </button>
             </div>
         </div>
     );
