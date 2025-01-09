@@ -216,6 +216,7 @@ const buttonStyle = {
     borderRadius: '5px', // ボタンを角丸に
     cursor: 'pointer', // マウスカーソルで指を表示
     fontWeight: 'bold', // ボタンのテキストを太字にする
+    fontSize: '20px', // ボタンのフォントサイズを大きくする
 };
 
 const inputStyle = {
