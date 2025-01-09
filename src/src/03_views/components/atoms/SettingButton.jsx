@@ -77,7 +77,7 @@ const SettingButton = () => {
                             border: '1px solid #ccc',
                             borderRadius: '20px', // 角を丸くする
                             boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-                            padding: '20px 70px', // 横方向に広くする
+                            padding: '10px 70px', // 横方向に広くする
                             zIndex: 1000,
                             width: '300px', // メニューの幅
                         }}
