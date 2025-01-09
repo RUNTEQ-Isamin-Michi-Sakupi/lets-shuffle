@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react';
 import HowToUse from './HowToUse';
 
 const HowToUseButton = () => {
-  const HowToUseButton_style ={
+  const [showHowToUse, setShowHowToUse] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowHowToUse(!showHowToUse);
+  };
+
+  const HowToUseButton_style = {
+    position: 'fixed', // 固定位置
+    top: '10px', // 上から10px
+    right: '10px', // 右から10px
     backgroundColor: '#fff', // 背景色
     color: '#000', // テキストの色
     border: 'none', // 枠線をなしに
@@ -14,25 +23,24 @@ const HowToUseButton = () => {
     transition: 'background-color 0.3s ease', // 背景色のトランジション
     width: '50px', // ボタンの幅
     height: '50px', // ボタンの高さ
-    display: 'flex', // アイコンを中央に配置
-    justifyContent: 'center', // アイコンを中央に配置
-    alignItems: 'center', // アイコンを中央に配置
-    marginLeft: '20px', // ボタンの左側に余白を設定
-    marginBottom: '20px', // ボタンの下側に余白を設定
-  }
+    display: 'flex', // アイコンを中央
+    justifyContent: 'center', // アイコンを中央
+    alignItems: 'center', // アイコンを中央
+  };
 
   return (
-    <button
-      onClick={""}
-      style = {
-        HowToUseButton_style
-      }
-  onMouseEnter={(e) => e.target.style.backgroundColor = '#ADD8E6'} // ホバー時の背景色
-  onMouseLeave={(e) => e.target.style.backgroundColor = '#fff'} // ホバー解除時の背景色
->
-  ❤️
-</button>
-  )
-}
+    <div>
+      <button
+        onClick={handleButtonClick}
+        style={HowToUseButton_style}
+        onMouseEnter={(e) => e.target.style.backgroundColor = '#ADD8E6'}
+        onMouseLeave={(e) => e.target.style.backgroundColor = '#fff'}
+      >
+        ❤️
+      </button>
+      {showHowToUse && <HowToUse onClose={handleButtonClick} />}
+    </div>
+  );
+};
 
-export default HowToUseButton
+export default HowToUseButton;
