@@ -1,31 +1,20 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import Shaffle from "../03_views/components/modules/Shaffle";
 
 export const useAnnouncer = () => {
     const [ nameArray, setNameArray] = useState([]);
+    const [ trigger, setTrigger] = useState(0); // トリガー用の状態
 
-    // 登壇者名の取得
-    function getInputName(){
-        let inputNameArray = document.getElementById("inputname").value.split("\n")
-        return inputNameArray
-    }
-    
-    // シャッフル機能
-    function arrayShuffle(array) {
-        const cloneArray = array
-    
-        for (let i = cloneArray.length - 1; i >= 0; i--) {
-        let rand = Math.floor(Math.random() * (i + 1))
-        // 配列の要素の順番を入れ替える
-        let tmpStorage = cloneArray[i]
-        cloneArray[i] = cloneArray[rand]
-        cloneArray[rand] = tmpStorage
-        }
-        return cloneArray
-    }
+    // Shaffleを呼び出して状態を更新
+    useEffect(() => {
+        const shuffledArray = Shaffle();
+        setNameArray(shuffledArray);
+    }, [trigger]); // triggerが変更されるたびに再実行
 
-    const input = getInputName()
-    setNameArray = arrayShuffle(input)
+    // 外部からトリガーを発火させるための関数を返す
+    const reshuffle = () => {
+        setTrigger((prev) => prev + 1); // triggerを更新
+    };
 
-    return nameArray;
-
+    return { nameArray, reshuffle };   
 }
