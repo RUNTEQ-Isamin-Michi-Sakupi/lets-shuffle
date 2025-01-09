@@ -10,31 +10,31 @@ const HowToUseButton = () => {
 
   const HowToUseButton_style = {
     position: 'fixed',
-    top: '10px',
-    right: '10px',
-    backgroundColor: '#fff', // 背景色をピンクに変更
-    color: '#fff', // テキストの色を白に変更
-    border: 'none',
-    borderRadius: '50%',
+    right: '0px',
+    backgroundColor: 'transparent', // 背景色を透明にする
+    color: '#fff',
+    border: '2px solid transparent', // 枠線を透明にする
+    borderRadius: '5px',
     padding: '10px',
-    fontSize: '24px',
+    fontSize: '30px',
     cursor: 'pointer',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // ボックスシャドウを強調
-    transition: 'background-color 0.3s ease, transform 0.3s ease', // トランジションを追加
-    width: '60px', // ボタンの幅を広げる
-    height: '60px', // ボタンの高さを広げる
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+    transition: 'background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease', // トランジションを追加
+    width: '150px',
+    height: '101px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
   };
 
   const handleMouseEnter = (e) => {
-    e.target.style.backgroundColor = '#ff1493'; // ホバー時の背景色を濃いピンクに変更
-    e.target.style.transform = 'scale(1.1)'; // ホバー時に少し大きくする
+    e.target.style.backgroundColor = '#1e90ff'; // ホバー時の背景色をドッジブルーに変更
+    e.target.style.borderColor = '#1e90ff'; // ホバー時の枠線の色をドッジブルーに変更
   };
 
   const handleMouseLeave = (e) => {
-    e.target.style.backgroundColor = '#fff'; // ホバー解除時の背景色を元に戻す
+    e.target.style.backgroundColor = 'transparent'; // ホバー解除時の背景色を透明に戻す
+    e.target.style.borderColor = 'transparent'; // ホバー解除時の枠線の色を透明に戻す
     e.target.style.transform = 'scale(1)'; // ホバー解除時に元のサイズに戻す
   };
 
@@ -46,7 +46,7 @@ const HowToUseButton = () => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        ❤️
+        使い方
       </button>
       {showHowToUse && <HowToUse onClose={handleButtonClick} />}
     </div>
