@@ -75,9 +75,9 @@ const SettingButton = () => {
                             transform: 'translate(-50%, -50%)',
                             backgroundColor: '#fff',
                             border: '1px solid #ccc',
-                            borderRadius: '8px',
+                            borderRadius: '20px', // 角を丸くする
                             boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-                            padding: '20px',
+                            padding: '20px 70px', // 横方向に広くする
                             zIndex: 1000,
                             width: '300px', // メニューの幅
                         }}
