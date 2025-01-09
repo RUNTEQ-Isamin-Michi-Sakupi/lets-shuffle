@@ -63,7 +63,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
 
             {/* 登壇時間 */}
             <div style={{ marginBottom: '20px', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <label style={{ marginRight: '10px', color: '#555' }}>登壇時間</label>
+                <label style={{ marginRight: '10px', color: '#000', fontWeight: 'bold' }}>登壇時間</label>
                 <button onClick={() => decrement(setLocalPresentationTime, localPresentationTime)} style={buttonStyle}>-</button>
                 <input
                     type="text"
@@ -72,12 +72,12 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                     style={inputStyle}
                 />
                 <button onClick={() => increment(setLocalPresentationTime, localPresentationTime)} style={buttonStyle}>+</button>
-                <span style={{ marginLeft: '5px', color: '#555', fontWeight: 'bold' }}>分</span>
+                <span style={{ marginLeft: '5px', color: '#000', fontWeight: 'bold' }}>分</span>
             </div>
 
             {/* 質問時間 */}
             <div style={{ marginBottom: '20px', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <label style={{ marginRight: '10px', color: '#555' }}>質問時間</label>
+                <label style={{ marginRight: '10px', color: '#000', fontWeight: 'bold' }}>質問時間</label>
                 <button onClick={() => decrement(setLocalQuestionTime, localQuestionTime)} style={buttonStyle}>-</button>
                 <input
                     type="text"
@@ -86,14 +86,14 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                     style={inputStyle}
                 />
                 <button onClick={() => increment(setLocalQuestionTime, localQuestionTime)} style={buttonStyle}>+</button>
-                <span style={{ marginLeft: '5px', color: '#555', fontWeight: 'bold' }}>分</span>
+                <span style={{ marginLeft: '5px', color: '#000', fontWeight: 'bold' }}>分</span>
             </div>
 
             {/* 残り時間通知 */}
             <div style={{ marginBottom: '20px', textAlign: 'center' }}>
-                <label style={{ display: 'block', marginBottom: '10px', color: '#555' }}>残り時間通知</label>
+                <label style={{ display: 'block', marginBottom: '10px', color: '#000', fontWeight: 'bold' }}>残り時間通知</label>
                 <div style={{ marginBottom: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <label style={{ marginRight: '10px', color: '#555' }}>通知1回目</label>
+                    <label style={{ marginRight: '10px', color: '#000', fontWeight: 'bold' }}>通知1回目</label>
                     <button onClick={() => decrement(setLocalFirstNotification, localFirstNotification)} style={buttonStyle}>-</button>
                     <input
                         type="text"
@@ -102,10 +102,10 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                         style={getInputStyle(localFirstNotification)}
                     />
                     <button onClick={() => increment(setLocalFirstNotification, localFirstNotification)} style={buttonStyle}>+</button>
-                    <span style={{ marginLeft: '5px', color: '#555', fontWeight: 'bold' }}>分</span>
+                    <span style={{ marginLeft: '5px', color: '#000', fontWeight: 'bold' }}>分</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <label style={{ marginRight: '10px', color: '#555' }}>通知2回目</label>
+                    <label style={{ marginRight: '10px', color: '#000', fontWeight: 'bold' }}>通知2回目</label>
                     <button onClick={() => decrement(setLocalSecondNotification, localSecondNotification)} style={buttonStyle}>-</button>
                     <input
                         type="text"
@@ -114,13 +114,13 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                         style={getInputStyle(localSecondNotification)}
                     />
                     <button onClick={() => increment(setLocalSecondNotification, localSecondNotification)} style={buttonStyle}>+</button>
-                    <span style={{ marginLeft: '5px', color: '#555', fontWeight: 'bold' }}>分</span>
+                    <span style={{ marginLeft: '5px', color: '#000', fontWeight: 'bold' }}>分</span>
                 </div>
             </div>
 
             {/* 通知音 */}
             <div style={{ marginBottom: '20px', textAlign: 'center' }}>
-                <label style={{ display: 'block', marginBottom: '10px', color: '#555' }}>通知音</label>
+                <label style={{ display: 'block', marginBottom: '10px', color: '#000', fontWeight: 'bold' }}>通知音</label>
                 <div>
                     {['ベル', '校長'].map((sound) => (
                         <div key={sound} style={{ display: 'inline-block', marginRight: '10px' }}>
@@ -140,7 +140,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
 
             {/* 音量 */}
             <div style={{ marginBottom: '20px', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <label style={{ marginRight: '10px', color: '#555' }}>音量</label>
+                <label style={{ marginRight: '10px', color: '#000', fontWeight: 'bold' }}>音量</label>
                 <button onClick={() => decrement(setLocalVolume, localVolume)} style={buttonStyle}>-</button>
                 <input
                     type="text"
@@ -149,7 +149,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                     style={inputStyle}
                 />
                 <button onClick={() => increment(setLocalVolume, localVolume)} style={buttonStyle}>+</button>
-                <span style={{ marginLeft: '5px', color: '#555', fontWeight: 'bold' }}>%</span>
+                <span style={{ marginLeft: '5px', color: '#000', fontWeight: 'bold' }}>%</span>
             </div>
 
             {/* 音量スライダー */}
@@ -166,8 +166,8 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
-                <button onClick={handleSave} style={{ padding: '10px 20px', backgroundColor: '#4CAF50', color: '#000', border: 'none', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold' }}>保存</button>
-                <button onClick={handleReset} style={{ padding: '10px 20px', backgroundColor: '#f44336', color: '#000', border: 'none', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold' }}>リセット</button>
+                <button onClick={handleSave} style={{ padding: '10px 20px', backgroundColor: '#4CAF50', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold' }}>保存</button>
+                <button onClick={handleReset} style={{ padding: '10px 20px', backgroundColor: '#f44336', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold' }}>リセット</button>
             </div>
         </div>
     );
