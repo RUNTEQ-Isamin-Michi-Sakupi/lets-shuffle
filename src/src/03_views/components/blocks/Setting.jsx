@@ -69,7 +69,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                     type="text"
                     value={localPresentationTime}
                     onChange={(e) => handleInputChange(e, setLocalPresentationTime, false)}
-                    style={inputStyle}
+                    style={{ ...inputStyle, fontSize: '20px' }} // 数字のサイズを大きくした
                 />
                 <button onClick={() => increment(setLocalPresentationTime, localPresentationTime)} style={buttonStyle}>+</button>
                 <span style={{ marginLeft: '5px', color: '#000', fontWeight: 'bold' }}>分</span>
@@ -83,7 +83,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                     type="text"
                     value={localQuestionTime}
                     onChange={(e) => handleInputChange(e, setLocalQuestionTime, false)}
-                    style={inputStyle}
+                    style={{ ...inputStyle, fontSize: '20px' }} // 数字のサイズを大きくした
                 />
                 <button onClick={() => increment(setLocalQuestionTime, localQuestionTime)} style={buttonStyle}>+</button>
                 <span style={{ marginLeft: '5px', color: '#000', fontWeight: 'bold' }}>分</span>
@@ -99,7 +99,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                         type="text"
                         value={localFirstNotification}
                         onChange={(e) => handleInputChange(e, setLocalFirstNotification)}
-                        style={getInputStyle(localFirstNotification)}
+                        style={{ ...getInputStyle(localFirstNotification), fontSize: '20px' }}
                     />
                     <button onClick={() => increment(setLocalFirstNotification, localFirstNotification)} style={buttonStyle}>+</button>
                     <span style={{ marginLeft: '5px', color: '#000', fontWeight: 'bold' }}>分</span>
@@ -111,7 +111,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                         type="text"
                         value={localSecondNotification}
                         onChange={(e) => handleInputChange(e, setLocalSecondNotification)}
-                        style={getInputStyle(localSecondNotification)}
+                        style={{ ...getInputStyle(localSecondNotification), fontSize: '20px' }}
                     />
                     <button onClick={() => increment(setLocalSecondNotification, localSecondNotification)} style={buttonStyle}>+</button>
                     <span style={{ marginLeft: '5px', color: '#000', fontWeight: 'bold' }}>分</span>
@@ -146,7 +146,7 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
                     type="text"
                     value={localVolume}
                     onChange={(e) => handleInputChange(e, setLocalVolume)}
-                    style={inputStyle}
+                    style={{ ...inputStyle, fontSize: '20px' }}
                 />
                 <button onClick={() => increment(setLocalVolume, localVolume)} style={buttonStyle}>+</button>
                 <span style={{ marginLeft: '5px', color: '#000', fontWeight: 'bold' }}>%</span>
