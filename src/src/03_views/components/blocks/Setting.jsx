@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; // useStateフックをインポート
 
 const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuestionTime, firstNotification, setFirstNotification, secondNotification, setSecondNotification, volume, setVolume, notificationSound, setNotificationSound, closeMenu }) => {
     const [localPresentationTime, setLocalPresentationTime] = useState(presentationTime / 60); // 分単位で管理
@@ -45,14 +45,14 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
         }
     };
 
-    const getInputStyle = (value) => {
+    const getInputStyle = (value) => { // 数値がマイナスの場合は赤色にする
         return {
             ...inputStyle,
             color: value < 0 ? 'red' : 'black'
         };
     };
 
-    const handleVolumeChange = (e) => {
+    const handleVolumeChange = (e) => { // 音量を変更する関数
         const value = Number(e.target.value);
         setLocalVolume(value);
     };
@@ -174,26 +174,26 @@ const Setting = ({ presentationTime, setPresentationTime, questionTime, setQuest
 };
 
 const buttonStyle = {
-    padding: '5px 10px',
-    margin: '0 5px',
+    padding: '5px 10px', // ボタンの余白
+    margin: '0 5px', // ボタンの間隔
     backgroundColor: '#007bff',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
+    color: '#fff', // ボタンのテキストの色
+    border: 'none', // ボタンの枠線をなしにする
+    borderRadius: '5px', // ボタンを角丸に
+    cursor: 'pointer', // マウスカーソルで指を表示
     fontWeight: 'bold', // ボタンのテキストを太字にする
 };
 
 const inputStyle = {
-    width: '60px',
-    padding: '5px',
-    textAlign: 'center',
-    borderRadius: '5px',
-    border: '1px solid #ccc',
+    width: '60px', // 入力欄の幅
+    padding: '5px', // 入力欄の余白
+    textAlign: 'center', // 入力された数字を中央揃え
+    borderRadius: '5px', // 入力欄を角丸に
+    border: '1px solid #ccc', // 枠線を設定
     MozAppearance: 'textfield', // スピンボタンを削除するスタイル
-    WebkitAppearance: 'none',
-    margin: 0,
+    WebkitAppearance: 'none', // スピンボタンを削除するスタイル
+    margin: 0, // マージンをなしにする
     fontWeight: 'bold', // 数字を太字にする
 };
 
-export default Setting;
+export default Setting; // Settingコンポーネントをエクスポート
