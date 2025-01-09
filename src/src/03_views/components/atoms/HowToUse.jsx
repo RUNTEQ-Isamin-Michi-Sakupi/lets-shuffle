@@ -5,7 +5,7 @@ const HowToUse = ({ onClose }) => {
     <div style={overlayStyle}>
       <div style={videoContainerStyle}>
         <button onClick={onClose} style={closeButtonStyle}>✖</button>
-        <video width="600" controls autoPlay>
+        <video width="1050" controls autoPlay> {/* 幅を800pxに変更 */}
           <source src={`${process.env.PUBLIC_URL}/how_to_use.mp4`} type="video/mp4" />
           お使いのブラウザは動画タグに対応していません。
         </video>
