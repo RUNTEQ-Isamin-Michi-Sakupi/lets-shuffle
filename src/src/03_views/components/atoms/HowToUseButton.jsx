@@ -28,8 +28,8 @@ const HowToUseButton = () => {
   };
 
   const handleMouseEnter = (e) => {
-    e.target.style.backgroundColor = '#1e90ff'; // ホバー時の背景色をドッジブルーに変更
-    e.target.style.borderColor = '#1e90ff'; // ホバー時の枠線の色をドッジブルーに変更
+    e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.3)'; // ホバー時の背景色を薄い黒色に変更
+    e.target.style.borderColor = 'rgba(0, 0, 0, 0.3)'; // ホバー時の枠線の色を薄い黒色に変更
   };
 
   const handleMouseLeave = (e) => {
