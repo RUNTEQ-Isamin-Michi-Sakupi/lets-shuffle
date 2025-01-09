@@ -28,7 +28,7 @@ const SettingButton = () => {
                 onClick={toggleMenu}
                 style={{
                     backgroundColor: '#fff', // 背景色
-                    color: '#fff', // テキストの色
+                    color: '#000', // テキストの色
                     border: 'none', // 枠線をなしに
                     borderRadius: '50%', // 角丸（円形にする）
                     padding: '10px', // 余白
@@ -52,35 +52,52 @@ const SettingButton = () => {
 
             {/* 設定メニュー */}
             {isMenuOpen && (
-                <div
-                    style={{
-                        position: 'absolute',
-                        top: '60px', // ボタンの下に表示
-                        left: '0',
-                        backgroundColor: '#fff',
-                        border: '1px solid #ccc',
-                        borderRadius: '8px',
-                        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-                        padding: '15px',
-                        zIndex: 100,
-                        width: '250px', // メニューの幅
-                    }}
-                >
-                    <Setting
-                        presentationTime={presentationTime}
-                        setPresentationTime={setPresentationTime}
-                        questionTime={questionTime}
-                        setQuestionTime={setQuestionTime}
-                        firstNotification={firstNotification}
-                        setFirstNotification={setFirstNotification}
-                        secondNotification={secondNotification}
-                        setSecondNotification={setSecondNotification}
-                        volume={volume}
-                        setVolume={setVolume}
-                        notificationSound={notificationSound}
-                        setNotificationSound={setNotificationSound}
-                        closeMenu={closeMenu} // メニューを閉じる関数を渡す
+                <div>
+                    {/* オーバーレイ */}
+                    <div
+                        onClick={closeMenu}
+                        style={{
+                            position: 'fixed',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                            zIndex: 999,
+                        }}
                     />
+                    {/* 設定画面 */}
+                    <div
+                        style={{
+                            position: 'fixed',
+                            top: '52%', // 少し下に移動
+                            left: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            backgroundColor: '#fff',
+                            border: '1px solid #ccc',
+                            borderRadius: '20px', // 角を丸くする
+                            boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+                            padding: '10px 70px', // 横方向に広くする
+                            zIndex: 1000,
+                            width: '300px', // メニューの幅
+                        }}
+                    >
+                        <Setting
+                            presentationTime={presentationTime}
+                            setPresentationTime={setPresentationTime}
+                            questionTime={questionTime}
+                            setQuestionTime={setQuestionTime}
+                            firstNotification={firstNotification}
+                            setFirstNotification={setFirstNotification}
+                            secondNotification={secondNotification}
+                            setSecondNotification={setSecondNotification}
+                            volume={volume}
+                            setVolume={setVolume}
+                            notificationSound={notificationSound}
+                            setNotificationSound={setNotificationSound}
+                            closeMenu={closeMenu} // メニューを閉じる関数を渡す
+                        />
+                    </div>
                 </div>
             )}
 
