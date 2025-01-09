@@ -1,4 +1,5 @@
 import React from 'react'
+import HowToUse from '../atoms/HowToUse';
 
 const Header = () => {
   const Header_style = {
@@ -11,7 +12,7 @@ const Header = () => {
   }
   return (
     <div style={Header_style}>
-
+      <HowToUse />
     </div>
   )
 }
