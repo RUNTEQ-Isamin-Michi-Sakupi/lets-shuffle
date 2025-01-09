@@ -1,7 +1,7 @@
 import React from 'react'
 
-const HowToUse = () => {
-  const HowToUse_style ={
+const HowToUseButton = () => {
+  const HowToUseButton_style ={
     backgroundColor: '#fff', // 背景色
     color: '#000', // テキストの色
     border: 'none', // 枠線をなしに
@@ -24,7 +24,7 @@ const HowToUse = () => {
     <button
       onClick={""}
       style = {
-        HowToUse_style
+        HowToUseButton_style
       }
   onMouseEnter={(e) => e.target.style.backgroundColor = '#ADD8E6'} // ホバー時の背景色
   onMouseLeave={(e) => e.target.style.backgroundColor = '#fff'} // ホバー解除時の背景色
