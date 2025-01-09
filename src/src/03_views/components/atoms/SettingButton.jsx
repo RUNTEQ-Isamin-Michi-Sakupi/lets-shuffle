@@ -70,7 +70,7 @@ const SettingButton = () => {
                     <div
                         style={{
                             position: 'fixed',
-                            top: '50%',
+                            top: '52%', // 少し下に移動
                             left: '50%',
                             transform: 'translate(-50%, -50%)',
                             backgroundColor: '#fff',
