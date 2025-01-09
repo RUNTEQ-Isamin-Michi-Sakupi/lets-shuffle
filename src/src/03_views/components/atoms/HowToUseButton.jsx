@@ -9,23 +9,33 @@ const HowToUseButton = () => {
   };
 
   const HowToUseButton_style = {
-    position: 'fixed', // 固定位置
-    top: '10px', // 上から10px
-    right: '10px', // 右から10px
-    backgroundColor: '#fff', // 背景色
-    color: '#000', // テキストの色
-    border: 'none', // 枠線をなしに
-    borderRadius: '50%', // 角丸（円形にする）
-    padding: '10px', // 余白
-    fontSize: '24px', // フォントサイズ
-    cursor: 'pointer', // マウスカーソルで指を表示
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // ボックスシャドウ
-    transition: 'background-color 0.3s ease', // 背景色のトランジション
-    width: '50px', // ボタンの幅
-    height: '50px', // ボタンの高さ
-    display: 'flex', // アイコンを中央
-    justifyContent: 'center', // アイコンを中央
-    alignItems: 'center', // アイコンを中央
+    position: 'fixed',
+    top: '10px',
+    right: '10px',
+    backgroundColor: '#fff', // 背景色をピンクに変更
+    color: '#fff', // テキストの色を白に変更
+    border: 'none',
+    borderRadius: '50%',
+    padding: '10px',
+    fontSize: '24px',
+    cursor: 'pointer',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // ボックスシャドウを強調
+    transition: 'background-color 0.3s ease, transform 0.3s ease', // トランジションを追加
+    width: '60px', // ボタンの幅を広げる
+    height: '60px', // ボタンの高さを広げる
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  };
+
+  const handleMouseEnter = (e) => {
+    e.target.style.backgroundColor = '#ff1493'; // ホバー時の背景色を濃いピンクに変更
+    e.target.style.transform = 'scale(1.1)'; // ホバー時に少し大きくする
+  };
+
+  const handleMouseLeave = (e) => {
+    e.target.style.backgroundColor = '#fff'; // ホバー解除時の背景色を元に戻す
+    e.target.style.transform = 'scale(1)'; // ホバー解除時に元のサイズに戻す
   };
 
   return (
@@ -33,8 +43,8 @@ const HowToUseButton = () => {
       <button
         onClick={handleButtonClick}
         style={HowToUseButton_style}
-        onMouseEnter={(e) => e.target.style.backgroundColor = '#ADD8E6'}
-        onMouseLeave={(e) => e.target.style.backgroundColor = '#fff'}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         ❤️
       </button>
