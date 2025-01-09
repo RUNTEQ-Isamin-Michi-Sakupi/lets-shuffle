@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from '../atoms/Card';
+import FrontCard from '../atoms/FrontCard';
 import Button from '../atoms/Button'
 import { useAnnouncer } from '../../../02_hook/useShareState';
 
@@ -53,7 +53,7 @@ const ShuffleContent = () => {
         <div style={cardContainerStyle}>
         <div style={cardStyle }>
           {nameArray.map((name, index) => (
-            <Card key={index} name={name} /> // 配列の要素に基づいてカードをレンダリング
+            <FrontCard key={index} name={name} /> // 配列の要素に基づいてカードをレンダリング
           ))}
         </div>
         </div>
