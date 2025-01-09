@@ -7,7 +7,7 @@ const InputName = () => {
     height: '74vh'
   }
   return (
-    <textarea style={inputnameStyle} placeholder='改行区切りで入力'>
+    <textarea id="inputname" style={inputnameStyle} placeholder='改行区切りで入力'>
 
     </textarea>
   )

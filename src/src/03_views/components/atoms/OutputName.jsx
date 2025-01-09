@@ -4,12 +4,12 @@ const OutputName = () => {
   const outputnameStyle = {
     width: '150px',
     backgroundColor: '#ffffff',
-    height: '75vh'
+    height: '74vh'
   }
   return (
-    <div style={outputnameStyle}>
-      aaaa
-    </div>
+    <textarea id="outputname" style={outputnameStyle}>
+
+    </textarea>
   )
 }
 
