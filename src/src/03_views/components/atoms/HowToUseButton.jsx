@@ -9,22 +9,22 @@ const HowToUseButton = () => {
   };
 
   const HowToUseButton_style = {
-    position: 'fixed',
-    right: '0px',
+    position: 'fixed', // 固定位置
+    right: '0px', // 右から0px
     backgroundColor: 'transparent', // 背景色を透明にする
-    color: '#fff',
+    color: '#fff', // テキストの色
     border: '2px solid transparent', // 枠線を透明にする
-    borderRadius: '5px',
-    padding: '10px',
-    fontSize: '30px',
-    cursor: 'pointer',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+    borderRadius: '5px', // 角を丸くする
+    padding: '10px', // ボタンの余白
+    fontSize: '30px', // フォントサイズ
+    cursor: 'pointer', // マウスカーソルを指に変更
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // ボックスシャドウを追加
     transition: 'background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease', // トランジションを追加
-    width: '150px',
-    height: '101px',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: '150px', // ボタンの幅
+    height: '101px', // ボタンの高さ
+    display: 'flex', // アイコンを中央に配置
+    justifyContent: 'center', // アイコンを中央に配置
+    alignItems: 'center', // アイコンを中央に配置
   };
 
   const handleMouseEnter = (e) => {
@@ -41,10 +41,10 @@ const HowToUseButton = () => {
   return (
     <div>
       <button
-        onClick={handleButtonClick}
-        style={HowToUseButton_style}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        onClick={handleButtonClick} // ボタンをクリックしたときの処理
+        style={HowToUseButton_style} // ボタンのスタイル
+        onMouseEnter={handleMouseEnter} // マウスが乗ったときの処理
+        onMouseLeave={handleMouseLeave} // マウスが離れたときの処理
       >
         使い方
       </button>
