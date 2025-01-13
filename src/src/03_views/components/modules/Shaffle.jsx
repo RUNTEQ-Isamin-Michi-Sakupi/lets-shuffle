@@ -4,8 +4,9 @@ export default function Shaffle () {
 
 // 登壇者名の取得
 function getInputName(){
-    let inputNameArray = document.getElementById("inputname").value.split("\n")
-    return inputNameArray
+    const inputNameArray = document.getElementById("inputname").value.split("\n")
+    const clean = inputNameArray.filter(Boolean);
+    return clean
 }
 
 // シャッフル機能

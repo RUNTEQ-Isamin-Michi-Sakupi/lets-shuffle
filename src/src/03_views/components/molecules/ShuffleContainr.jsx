@@ -9,7 +9,7 @@ const ShuffleContent = () => {
 
   const cardAndButtonStyle = {
     marginTop: '20px',
-      width: '90vw',
+    width: '90vw',
     height: '90vh'
   }
 
@@ -24,12 +24,15 @@ const ShuffleContent = () => {
   }
   const cardContainerStyle = {
     marginTop: '50px',
-    display: 'grid',
+    display: 'flex',
+    flexWrap: 'wrap',
+    minWidth: '50vw',
     justifyContent: 'center'
   }
   const cardStyle = {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(7,1fr)', // Gridの繰り返し回数
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
     gap: '15px' // 幅
   }
 
@@ -40,20 +43,20 @@ const ShuffleContent = () => {
         <div style={buttonStyle}>
             <Button
             name={"一気に順番決め"}
-            onClick={reshuffle}
+            func={reshuffle}
             />
         </div>
         <div style={buttonStyle}>
           <Button
             name={"一気に順番決め"}
-            onClick={reshuffle}
+            func={reshuffle}
           />
         </div>
         </div>
         <div style={cardContainerStyle}>
         <div style={cardStyle }>
           {nameArray.map((name, index) => (
-            <FrontCard key={index} name={name} /> // 配列の要素に基づいてカードをレンダリング
+            <FrontCard key={index} name={name} index={index} /> // 配列の要素に基づいてカードをレンダリング
           ))}
         </div>
         </div>

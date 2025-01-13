@@ -27,8 +27,6 @@ export const useAnnouncer = () => {
         // カードが一枚づつめくれる
         setTrigger((prev) => prev + 1); // triggerを更新
     }
-
-
-
+    
     return { nameArray, reshuffle };   
 }

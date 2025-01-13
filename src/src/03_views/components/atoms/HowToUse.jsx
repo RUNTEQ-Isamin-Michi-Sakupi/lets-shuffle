@@ -22,7 +22,7 @@ const HowToUse = () => {
 
   return (
     <button
-      onClick={""}
+      // onClick={""}
       style = {
         HowToUse_style
       }
