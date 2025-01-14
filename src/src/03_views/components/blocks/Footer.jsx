@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   const Footer_style = {
@@ -11,9 +12,34 @@ const Footer = () => {
     width: '100vw', // ビューポートの幅
     height: '5vh' // ビューポートの高さ
   }
+
+  const Devex = {
+    color: '#d00',
+    textAlign: 'right',
+    alignSelf: 'center',
+    paddingRight: '1vw'
+  }
+
+  const Atag = {
+    color: '#d00',
+    fontSize: '16px',
+  }
+
+    const Isamin = "https://x.com/rikky1211_61b"
+    const Michi = "https://x.com/michihiro721"
+    const Sakupi = "https://x.com/mskk9783"
+
+
   return (
-    <div style={Footer_style}>
-      
+    <div>
+      <div style={Footer_style}>
+        <p style={Devex}>
+          Copyright ©️ 2024 RUNTEQ &nbsp; &nbsp;
+          <a href={Isamin} style={Atag}>61b_Isamin</a> &nbsp; <FaXTwitter /> &nbsp; / &nbsp; 
+          <a href={Michi} style={Atag}>60b_Michi</a> &nbsp; <FaXTwitter />  &nbsp; / &nbsp; 
+          <a href={Sakupi} style={Atag}>60b_Sakupi</a> &nbsp; <FaXTwitter />
+        </p>
+      </div>
     </div>
   )
 }
