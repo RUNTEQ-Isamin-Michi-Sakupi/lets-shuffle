@@ -2,11 +2,13 @@ import React, { useEffect } from 'react';
 import useTimer from '../modules/Timer'; // Timerロジックをインポート
 import Notice from '../modules/Notice'; // Noticeコンポーネントをインポート
 
+
 const InputTime = ({ presentationTime, questionTime, firstNotification, secondNotification, volume, notificationSound }) => {
     // 登壇時間のタイマーを管理
     const presentationTimer = useTimer(presentationTime, firstNotification, secondNotification); // 初期値を親コンポーネントから受け取る
     // 質問時間のタイマーを管理
     const questionTimer = useTimer(questionTime, firstNotification, secondNotification); // 初期値を親コンポーネントから受け取る
+
 
     useEffect(() => {
         presentationTimer.resetTime(presentationTime);
@@ -63,6 +65,38 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '20px' }}>
+            {/* 発表者セクション */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '10px', marginLeft: '20px' }}>
+                <button>
+                    前の発表者
+                </button>
+                <div
+                    style={{
+                        display: 'flex', // 横並び
+                        flexDirection: 'column', // 縦並び
+                        justifyContent: 'center', // 中央揃え
+                        alignItems: 'center', // 中央揃え
+                        width: '200px', // 幅
+                        height: '100px', // 高さ
+                        border: '1px solid #000', // 枠線
+                        borderRadius: '5px', // 角丸
+                        backgroundColor: '#fff', // 背景色
+                        fontSize: '24px', // フォントサイズ
+                        fontWeight: 'bold', // 太字
+                        color: '#000', // 文字色
+                    }}
+                >
+                    <p>
+                        {/* 名前が動的に変化するためのIndexを渡す */}
+                    </p>
+                </div>
+                <button>
+                    次の発表者
+                </button>
+
+            </div>
+            
+
             {/* 登壇時間セクション */}
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '10px', marginLeft: '20px' }}>
                 <button

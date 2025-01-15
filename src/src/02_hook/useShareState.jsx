@@ -5,9 +5,6 @@ export const useAnnouncer = () => {
     // nameの配列を定義
     const [ nameArray, setNameArray ] = useState([]);
 
-    // トリガー用の状態を定義
-    // const [ trigger, setTrigger ] = useState(0);
-
     // カードの状態を定義
     const [ isFlippedArray, setIsFlippedArray ] = useState([]);
 
