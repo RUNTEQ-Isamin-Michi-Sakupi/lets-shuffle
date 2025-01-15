@@ -32,6 +32,9 @@ export const useAnnouncer = () => {
 
             // 一枚ずつ開く場合のインデックスもリセット
             setCurrentIndex(0); 
+
+            // シャッフル後の名前をリセット
+            outputEle.value = "";            
           };
           initialize();
     }, []); 
@@ -42,6 +45,7 @@ export const useAnnouncer = () => {
         setNameArray(shuffledArray);
         setIsFlippedArray(Array(shuffledArray.length).fill(false));
         setCurrentIndex(0);
+        outputEle.value = "";
       };
 
     // カードをめくるための関数
@@ -59,7 +63,6 @@ export const useAnnouncer = () => {
     const allOpen = () => {
         setCurrentMode("all"); // モードを設定
         reshuffle(); // 再シャッフル
-        outputEle.value = "";
         setCurrentIndex(0);
     }
     
@@ -67,7 +70,6 @@ export const useAnnouncer = () => {
     const everyOpen = () => {
         setCurrentMode("every"); // モードを設定
         reshuffle(); // 再シャッフル
-        outputEle.value = "";
         setIsFlippedArray(Array(nameArray.length).fill(false));
     }
 
@@ -91,18 +93,6 @@ export const useAnnouncer = () => {
         return () => clearTimeout(timeout);
         }
     }, [currentMode, currentIndex, nameArray.length]);
-
-    // シャッフル後の名前を表示
-    function namePutIn(){
-    const outputEle = document.getElementById("outputname")
-    let names = ""
-    for (var i = 0; i < nameArray.length; i++) {
-        // 要素に対しての処理
-        let name = nameArray[i] + "\n"
-        names += name
-    }
-    outputEle.value = names
-    }
     
     return { nameArray, allOpen, everyOpen, flipCard, isFlippedArray };   
 }
