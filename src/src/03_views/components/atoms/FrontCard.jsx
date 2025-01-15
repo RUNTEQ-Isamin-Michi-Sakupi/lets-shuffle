@@ -10,7 +10,7 @@ function FrontCard({ index,func }) {
     borderRadius: "0.5rem" 
   }
 
-  return <div style={cardStyle} id={index} onClick={()=>func(index)} >前です</div>;
+  return <div style={cardStyle} id={index} onClick={()=>func(index)} ></div>;
 }
 
 export default FrontCard
