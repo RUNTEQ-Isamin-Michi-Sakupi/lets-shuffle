@@ -7,7 +7,7 @@ import ReactCardFlip from 'react-card-flip';
 
 const ShuffleContent = () => {
   // useAnnouncerからデータを取得
-  const { nameArray, reshuffle, flipCard, isFlippedArray } = useAnnouncer();
+  const { nameArray, allOpen, everyOpen, flipCard, isFlippedArray } = useAnnouncer();
 
   const cardAndButtonStyle = {
     marginTop: '20px',
@@ -44,13 +44,13 @@ const ShuffleContent = () => {
         <div style={buttonStyle}>
             <Button
             name={"一気に順番決め"}
-            func={reshuffle}
+            func={allOpen}
             />
         </div>
         <div style={buttonStyle}>
           <Button
-            name={"一気に順番決め"}
-            func={reshuffle}
+            name={"一枚ずつめくる"}
+            func={everyOpen}
           />
         </div>
         </div>
