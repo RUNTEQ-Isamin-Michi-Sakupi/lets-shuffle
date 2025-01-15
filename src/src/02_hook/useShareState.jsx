@@ -34,7 +34,10 @@ export const useAnnouncer = () => {
             setCurrentIndex(0); 
 
             // シャッフル後の名前をリセット
-            outputEle.value = "";            
+            if(outputEle){
+                outputEle.value = "";       
+            }
+                 
           };
           initialize();
     }, []); 
