@@ -6,7 +6,7 @@ export const useAnnouncer = () => {
     const [ nameArray, setNameArray ] = useState([]);
 
     // トリガー用の状態を定義
-    const [ trigger, setTrigger ] = useState(0);
+    // const [ trigger, setTrigger ] = useState(0);
 
     // カードの状態を定義
     const [ isFlippedArray, setIsFlippedArray ] = useState([]);
@@ -16,6 +16,9 @@ export const useAnnouncer = () => {
 
     // 現在のIndexを指定
     const [ currentIndex, setCurrentIndex ] = useState(0);
+
+    // シャッフル後の名前を表示するエレメント
+    const outputEle = document.getElementById("outputname");
 
     // Shaffleを呼び出して状態を更新
     useEffect(() => {
@@ -48,12 +51,15 @@ export const useAnnouncer = () => {
                 (isFlipped, index) => (index === nameArrayIndex ? !isFlipped:isFlipped )
             )
         )
+            const flippedName = nameArray[nameArrayIndex];
+            outputEle.value += `${flippedName}\n`; // 改行付きで名前を追加
     }
 
     // 一気に開く場合
     const allOpen = () => {
         setCurrentMode("all"); // モードを設定
         reshuffle(); // 再シャッフル
+        outputEle.value = "";
         setCurrentIndex(0);
     }
     
@@ -61,9 +67,9 @@ export const useAnnouncer = () => {
     const everyOpen = () => {
         setCurrentMode("every"); // モードを設定
         reshuffle(); // 再シャッフル
+        outputEle.value = "";
         setIsFlippedArray(Array(nameArray.length).fill(false));
     }
-
 
     // 自動でカードがめくれる処理
     useEffect(() => {
@@ -73,10 +79,30 @@ export const useAnnouncer = () => {
             prev.map((isFlipped, idx) => (idx === currentIndex ? true : isFlipped))
             );
             setCurrentIndex((prev) => prev + 1);
-        }, 1000); // 0.5秒ごとにカードをめくる
-        return () => clearTimeout(timeout); // クリーンアップ
+
+            // outpueEleに改行付きで追加
+            if (outputEle) {
+                const newName = nameArray[currentIndex];
+                outputEle.value += `${newName}\n`; 
+            }
+        }, 1000); // 1秒ごとにカードをめく
+
+        // クリーンアップ
+        return () => clearTimeout(timeout);
         }
     }, [currentMode, currentIndex, nameArray.length]);
+
+    // シャッフル後の名前を表示
+    function namePutIn(){
+    const outputEle = document.getElementById("outputname")
+    let names = ""
+    for (var i = 0; i < nameArray.length; i++) {
+        // 要素に対しての処理
+        let name = nameArray[i] + "\n"
+        names += name
+    }
+    outputEle.value = names
+    }
     
     return { nameArray, allOpen, everyOpen, flipCard, isFlippedArray };   
 }
