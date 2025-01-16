@@ -21,31 +21,43 @@ const SettingButton = () => {
         setIsMenuOpen(false);
     };
 
+    const buttonStyle = {
+        backgroundColor: '#fff', // 背景色
+        color: '#000', // テキストの色
+        border: 'none', // 枠線をなしに
+        borderRadius: '50%', // 角丸（円形にする）
+        padding: '10px', // 余白
+        fontSize: '24px', // フォントサイズ
+        cursor: 'pointer', // マウスカーソルで指を表示
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // ボックスシャドウ
+        transition: 'background-color 0.3s ease, transform 0.3s ease', // 背景色とサイズのトランジション
+        width: '50px', // ボタンの幅
+        height: '50px', // ボタンの高さ
+        display: 'flex', // アイコンを中央に配置
+        justifyContent: 'center', // アイコンを中央に配置
+        alignItems: 'center', // アイコンを中央に配置
+        marginLeft: '20px', // ボタンの左側に余白を設定
+        marginBottom: '20px', // ボタンの下側に余白を設定
+    };
+
+    const handleMouseEnter = (e) => {
+        e.target.style.backgroundColor = '#ADD8E6'; // ホバー時の背景色
+        e.target.style.transform = 'scale(1.1)'; // ホバー時に少し大きくする
+    };
+
+    const handleMouseLeave = (e) => {
+        e.target.style.backgroundColor = '#fff'; // ホバー解除時の背景色を元に戻す
+        e.target.style.transform = 'scale(1)'; // ホバー解除時に元のサイズに戻す
+    };
+
     return (
         <div style={{ position: 'relative' }}>
             {/* 設定ボタン */}
             <button
                 onClick={toggleMenu}
-                style={{
-                    backgroundColor: '#fff', // 背景色
-                    color: '#000', // テキストの色
-                    border: 'none', // 枠線をなしに
-                    borderRadius: '50%', // 角丸（円形にする）
-                    padding: '10px', // 余白
-                    fontSize: '24px', // フォントサイズ
-                    cursor: 'pointer', // マウスカーソルで指を表示
-                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // ボックスシャドウ
-                    transition: 'background-color 0.3s ease', // 背景色のトランジション
-                    width: '50px', // ボタンの幅
-                    height: '50px', // ボタンの高さ
-                    display: 'flex', // アイコンを中央に配置
-                    justifyContent: 'center', // アイコンを中央に配置
-                    alignItems: 'center', // アイコンを中央に配置
-                    marginLeft: '20px', // ボタンの左側に余白を設定
-                    marginBottom: '20px', // ボタンの下側に余白を設定
-                }}
-                onMouseEnter={(e) => e.target.style.backgroundColor = '#ADD8E6'} // ホバー時の背景色
-                onMouseLeave={(e) => e.target.style.backgroundColor = '#fff'} // ホバー解除時の背景色
+                style={buttonStyle}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
             >
                 ⚙️
             </button>
