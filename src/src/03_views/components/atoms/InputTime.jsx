@@ -1,13 +1,17 @@
 import React, { useEffect } from 'react';
 import useTimer from '../modules/Timer'; // Timerロジックをインポート
 import Notice from '../modules/Notice'; // Noticeコンポーネントをインポート
-
+import Button from '../atoms/Button';
+import { useAnnouncer } from '../../../02_hook/useShareState';
 
 const InputTime = ({ presentationTime, questionTime, firstNotification, secondNotification, volume, notificationSound }) => {
     // 登壇時間のタイマーを管理
     const presentationTimer = useTimer(presentationTime, firstNotification, secondNotification); // 初期値を親コンポーネントから受け取る
     // 質問時間のタイマーを管理
     const questionTimer = useTimer(questionTime, firstNotification, secondNotification); // 初期値を親コンポーネントから受け取る
+
+    // 登壇者の名前を取得
+    const { nameArray, allOpen, everyOpen, flipCard, isFlippedArray, preAnnouncer,nextAnnouncer,announcerIndex } = useAnnouncer();
 
 
     useEffect(() => {
@@ -67,9 +71,10 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '20px' }}>
             {/* 発表者セクション */}
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '10px', marginLeft: '20px' }}>
-                <button>
-                    前の発表者
-                </button>
+                <Button 
+                    name={"前の発表者"}
+                    func={preAnnouncer}
+                />
                 <div
                     style={{
                         display: 'flex', // 横並び
@@ -86,13 +91,14 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
                         color: '#000', // 文字色
                     }}
                 >
-                    <p>
-                        {/* 名前が動的に変化するためのIndexを渡す */}
+                    <p id='nowAnnouncer' key={nameArray.join("-")}>
+                        {nameArray[announcerIndex]}
                     </p>
                 </div>
-                <button>
-                    次の発表者
-                </button>
+                <Button 
+                    name={"次の発表者"}
+                    func={nextAnnouncer}
+                />
 
             </div>
             

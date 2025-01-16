@@ -1,9 +1,13 @@
 import { useState,useEffect } from "react";
+import { useLatest } from 'react-use';
 import Shaffle from "../03_views/components/modules/Shaffle";
 
 export const useAnnouncer = () => {
     // nameの配列を定義
     const [ nameArray, setNameArray ] = useState([]);
+
+    // 最新のname配列を定義
+    const latestNameArray = useLatest(nameArray);
 
     // カードの状態を定義
     const [ isFlippedArray, setIsFlippedArray ] = useState([]);
@@ -17,6 +21,10 @@ export const useAnnouncer = () => {
     // シャッフル後の名前を表示するエレメント
     const outputEle = document.getElementById("outputname");
 
+    // 登壇者の名前を指定するためのIndex
+    const [ announcerIndex, setAnnouncerIndex ] = useState(0);
+
+
     // Shaffleを呼び出して状態を更新
     useEffect(() => {
         const initialize = () => {
@@ -29,6 +37,9 @@ export const useAnnouncer = () => {
 
             // 一枚ずつ開く場合のインデックスもリセット
             setCurrentIndex(0); 
+
+            // 登壇者の名前を管理するインデックスをリセット
+            setAnnouncerIndex(0);
 
             // シャッフル後の名前をリセット
             if(outputEle){
@@ -87,12 +98,27 @@ export const useAnnouncer = () => {
                 const newName = nameArray[currentIndex];
                 outputEle.value += `${newName}\n`; 
             }
-        }, 1000); // 1秒ごとにカードをめく
+        }, 1000); // 1秒ごとにカードをめくる
 
         // クリーンアップ
         return () => clearTimeout(timeout);
         }
     }, [currentMode, currentIndex, nameArray.length]);
+
+    // 登壇者前の名前にする
+    const preAnnouncer= () => {
+        if(announcerIndex > 0) {
+            setAnnouncerIndex((prev) => prev - 1);
+        }
+    }
+
+
+    // 登壇者を次の名前にする
+    const nextAnnouncer = () => {
+        if (announcerIndex < nameArray.length ) { 
+            setAnnouncerIndex((prev) => prev + 1);
+        }
+    };
     
-    return { nameArray, allOpen, everyOpen, flipCard, isFlippedArray };   
+    return { nameArray, allOpen, everyOpen, flipCard, isFlippedArray, preAnnouncer,nextAnnouncer,announcerIndex };
 }
