@@ -1,6 +1,6 @@
 import React from 'react'
 
-function FrontCard({ name }) {
+function FrontCard({ index,func }) {
   const cardStyle = {
     width: "6rem",
     aspectRatio: "58 / 89",
@@ -10,7 +10,7 @@ function FrontCard({ name }) {
     borderRadius: "0.5rem" 
   }
 
-  return <div style={cardStyle}className="card">{name}</div>;
+  return <div style={cardStyle} id={index} onClick={()=>func(index)} ></div>;
 }
 
 export default FrontCard

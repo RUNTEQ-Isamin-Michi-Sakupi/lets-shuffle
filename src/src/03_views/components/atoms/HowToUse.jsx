@@ -2,6 +2,20 @@ import React from 'react';
 
 const HowToUse = ({ onClose }) => {
   return (
+
+    <button
+      // onClick={""}
+      style = {
+        HowToUse_style
+      }
+  onMouseEnter={(e) => e.target.style.backgroundColor = '#ADD8E6'} // ホバー時の背景色
+  onMouseLeave={(e) => e.target.style.backgroundColor = '#fff'} // ホバー解除時の背景色
+>
+  ❤️
+</button>
+  )
+}
+=======
     <div style={overlayStyle}>
       <div style={videoContainerStyle}> {/* 動画コンテナのスタイル */}
         <button onClick={onClose} style={closeButtonStyle}>✖</button> {/* 閉じるボタン */}

@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import FrontCard from '../atoms/FrontCard';
+import BackCard from '../atoms/BackCard';
 import Button from '../atoms/Button'
 import { useAnnouncer } from '../../../02_hook/useShareState';
+import ReactCardFlip from 'react-card-flip';
 
 const ShuffleContent = () => {
   // useAnnouncerからデータを取得
-  const { nameArray, reshuffle } = useAnnouncer();
+  const { nameArray, allOpen, everyOpen, flipCard, isFlippedArray } = useAnnouncer();
 
   const cardAndButtonStyle = {
     marginTop: '20px',
-      width: '90vw',
+    width: '90vw',
     height: '90vh'
   }
 
@@ -24,15 +26,17 @@ const ShuffleContent = () => {
   }
   const cardContainerStyle = {
     marginTop: '50px',
-    display: 'grid',
+    display: 'flex',
+    flexWrap: 'wrap',
+    minWidth: '50vw',
     justifyContent: 'center'
   }
   const cardStyle = {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(7,1fr)', // Gridの繰り返し回数
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
     gap: '15px' // 幅
   }
-
 
   return (
     <div style={cardAndButtonStyle}>
@@ -40,20 +44,23 @@ const ShuffleContent = () => {
         <div style={buttonStyle}>
             <Button
             name={"一気に順番決め"}
-            onClick={reshuffle}
+            func={allOpen}
             />
         </div>
         <div style={buttonStyle}>
           <Button
-            name={"一気に順番決め"}
-            onClick={reshuffle}
+            name={"一枚ずつめくる"}
+            func={everyOpen}
           />
         </div>
         </div>
         <div style={cardContainerStyle}>
         <div style={cardStyle }>
           {nameArray.map((name, index) => (
-            <FrontCard key={index} name={name} /> // 配列の要素に基づいてカードをレンダリング
+            <ReactCardFlip isFlipped={isFlippedArray[index]} key={index}>
+              <FrontCard name={name} index={index} func={flipCard} />
+              <BackCard name={name} index={index} />
+            </ReactCardFlip>
           ))}
         </div>
         </div>
