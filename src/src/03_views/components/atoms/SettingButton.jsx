@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Setting from '../blocks/Setting'; // 設定画面をインポート
 import InputTime from '../atoms/InputTime'; // カウントダウンタイマーをインポート
 
-const SettingButton = () => {
+function SettingButton(props) {
     const [isMenuOpen, setIsMenuOpen] = useState(false); // メニューの開閉状態を管理
     const [presentationTime, setPresentationTime] = useState(600); // 初期値600秒（10分）
     const [questionTime, setQuestionTime] = useState(300); // 初期値300秒（5分）
@@ -20,6 +20,9 @@ const SettingButton = () => {
     const closeMenu = () => {
         setIsMenuOpen(false);
     };
+
+    // propsを取得
+    const { nameArray, preAnnouncer,nextAnnouncer,announcerIndex} = props
 
     const buttonStyle = {
         backgroundColor: '#fff', // 背景色
@@ -121,6 +124,10 @@ const SettingButton = () => {
                 secondNotification={secondNotification}
                 volume={volume}
                 notificationSound={notificationSound}
+                nameArray={nameArray}
+                preAnnouncer={preAnnouncer}
+                nextAnnouncer={nextAnnouncer}
+                announcerIndex={announcerIndex}
             />
         </div>
     );

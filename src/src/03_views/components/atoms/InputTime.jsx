@@ -2,16 +2,13 @@ import React, { useEffect } from 'react';
 import useTimer from '../modules/Timer'; // Timerロジックをインポート
 import Notice from '../modules/Notice'; // Noticeコンポーネントをインポート
 import Button from '../atoms/Button';
-import { useAnnouncer } from '../../../02_hook/useShareState';
+import NowAnnouncer from './NowAnnouncer';
 
-const InputTime = ({ presentationTime, questionTime, firstNotification, secondNotification, volume, notificationSound }) => {
+const InputTime = ({ presentationTime, questionTime, firstNotification, secondNotification, volume, notificationSound, nameArray, preAnnouncer,nextAnnouncer,announcerIndex}) => {
     // 登壇時間のタイマーを管理
     const presentationTimer = useTimer(presentationTime, firstNotification, secondNotification); // 初期値を親コンポーネントから受け取る
     // 質問時間のタイマーを管理
     const questionTimer = useTimer(questionTime, firstNotification, secondNotification); // 初期値を親コンポーネントから受け取る
-
-    // 登壇者の名前を取得
-    const { nameArray, allOpen, everyOpen, flipCard, isFlippedArray, preAnnouncer,nextAnnouncer,announcerIndex } = useAnnouncer();
 
 
     useEffect(() => {
@@ -91,9 +88,10 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
                         color: '#000', // 文字色
                     }}
                 >
-                    <p id='nowAnnouncer' key={nameArray.join("-")}>
-                        {nameArray[announcerIndex]}
-                    </p>
+                <NowAnnouncer
+                    names={nameArray}
+                    index={announcerIndex}      
+                />
                 </div>
                 <Button 
                     name={"次の発表者"}

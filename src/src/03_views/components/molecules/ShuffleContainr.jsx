@@ -5,9 +5,10 @@ import Button from '../atoms/Button'
 import { useAnnouncer } from '../../../02_hook/useShareState';
 import ReactCardFlip from 'react-card-flip';
 
-const ShuffleContent = () => {
+
+function ShuffleContent(props){
   // useAnnouncerからデータを取得
-  const { nameArray, allOpen, everyOpen, flipCard, isFlippedArray } = useAnnouncer();
+  const { nameArray, allOpen, everyOpen, flipCard, isFlippedArray } = props
 
   const cardAndButtonStyle = {
     marginTop: '20px',
@@ -56,13 +57,13 @@ const ShuffleContent = () => {
         </div>
         <div style={cardContainerStyle}>
         <div style={cardStyle }>
-          {nameArray.map((name, index) => (
-            <ReactCardFlip isFlipped={isFlippedArray[index]} key={index}>
-              <FrontCard name={name} index={index} func={flipCard} />
-              <BackCard name={name} index={index} />
-            </ReactCardFlip>
-          ))}
-        </div>
+              {nameArray.map((name, index) => (
+                <ReactCardFlip isFlipped={isFlippedArray[index]} key={index}>
+                  <FrontCard name={name} index={index} func={flipCard} />
+                  <BackCard name={name} index={index} />
+                </ReactCardFlip>
+              ))}
+          </div>
         </div>
     </div>
   )
