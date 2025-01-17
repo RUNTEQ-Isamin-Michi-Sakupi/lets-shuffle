@@ -77,7 +77,6 @@ export const useAnnouncer = () => {
     const everyOpen = () => {
         setCurrentMode("every"); // モードを設定
         reshuffle(); // 再シャッフル
-        setIsFlippedArray(Array(nameArray.length).fill(false));
     }
 
     // 自動でカードがめくれる処理
