@@ -21,10 +21,11 @@ const HowToUseButton = () => {
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // ボックスシャドウを追加
     transition: 'background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease', // トランジションを追加
     width: '150px', // ボタンの幅
-    height: '101px', // ボタンの高さ
+    height: '13vh', // ボタンの高さ いさみんさんご要望により変更
     display: 'flex', // アイコンを中央に配置
     justifyContent: 'center', // アイコンを中央に配置
     alignItems: 'center', // アイコンを中央に配置
+    textShadow: '2px 2px 4px rgba(230, 223, 223, 0.87)', // テキストに影を追加 いさみんさんご要望により追加
   };
 
   const handleMouseEnter = (e) => {
