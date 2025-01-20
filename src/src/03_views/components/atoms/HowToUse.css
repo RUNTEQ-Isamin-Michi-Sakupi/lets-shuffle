@@ -1,0 +1,44 @@
+/* オーバーレイのスタイル */
+.howtouse-overlay {
+    position: fixed; /* 固定位置 */
+    top: 0; /* 上から0 */
+    left: 0; /* 左から0 */
+    width: 100%; /* 幅を100% */
+    height: 100%; /* 高さを100% */
+    background-color: rgba(0, 0, 0, 0.5); /* 背景色（黒色） */
+    display: flex; /* 要素を中央に配置 */
+    justify-content: center; /* 要素を中央に配置 */
+    align-items: center; /* 要素を中央に配置 */
+    z-index: 1000; /* オーバーレイを最前面に表示 */
+}
+
+/* 動画コンテナのスタイル */
+.howtouse-video-container {
+    background-color: #fff; /* 背景色 */
+    padding: 20px; /* 余白 */
+    border-radius: 10px; /* 角丸 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ボックスシャドウ */
+    position: relative; /* 相対位置 */
+    display: flex; /* 要素を中央に配置 */
+    flex-direction: column; /* 要素を縦に配置 */
+    align-items: center; /* 要素を中央に配置 */
+}
+
+/* 閉じるボタンのスタイル */
+.howtouse-close-button {
+    position: absolute; /* 絶対位置 */
+    top: -35px; /* 上から-35px */
+    right: -35px; /* 右から-35px */
+    background-color: #ff5c5c; /* 背景色 */
+    border: none; /* 枠線をなしに */
+    border-radius: 50%; /* 角丸（円形にする） */
+    width: 40px; /* 幅を40px */
+    height: 40px; /* 高さを40px */
+    font-size: 24px; /* フォントサイズ */
+    color: #fff; /* テキストの色 */
+    cursor: pointer; /* マウスカーソルで指を表示 */
+    display: flex; /* アイコンを中央に配置 */
+    justify-content: center; /* アイコンを中央に配置 */
+    align-items: center; /* アイコンを中央に配置 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ボックスシャドウ */
+}
