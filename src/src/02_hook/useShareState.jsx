@@ -1,13 +1,9 @@
 import { useState,useEffect } from "react";
-import { useLatest } from 'react-use';
 import Shaffle from "../03_views/components/modules/Shaffle";
 
 export const useAnnouncer = () => {
     // nameの配列を定義
     const [ nameArray, setNameArray ] = useState([]);
-
-    // 最新のname配列を定義
-    const latestNameArray = useLatest(nameArray);
 
     // カードの状態を定義
     const [ isFlippedArray, setIsFlippedArray ] = useState([]);
@@ -81,7 +77,6 @@ export const useAnnouncer = () => {
     const everyOpen = () => {
         setCurrentMode("every"); // モードを設定
         reshuffle(); // 再シャッフル
-        setIsFlippedArray(Array(nameArray.length).fill(false));
     }
 
     // 自動でカードがめくれる処理

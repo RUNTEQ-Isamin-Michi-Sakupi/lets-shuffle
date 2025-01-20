@@ -2,9 +2,14 @@ import React from 'react'; //背景画像用のテストコード
 import SettingButtonContiner from '../molecules/SettingButtonContiner';
 import ShuffleContainer from '../molecules/ShuffleContainr';
 import DisplayNameContainer from '../molecules/DisplayNameContainer';
+import { useAnnouncer } from '../../../02_hook/useShareState';
 
 
 const Body = () => {
+
+  // useAnnouncerの値を受け取る
+  const  { nameArray, allOpen, everyOpen, flipCard, isFlippedArray, preAnnouncer,nextAnnouncer,announcerIndex } = useAnnouncer();
+
   const bodyStyle = {
     backgroundImage: 'url(/img/background.png)', // 背景画像のパス
     backgroundSize: 'cover', // 画像をコンテナ全体にカバー
@@ -26,8 +31,19 @@ const Body = () => {
     <div style={bodyStyle}>
       {/* コンテンツをここに追加 */}
       <div style={containerStyle}>
-        <SettingButtonContiner />
-        <ShuffleContainer />
+        <SettingButtonContiner
+          nameArray={nameArray}
+          preAnnouncer={preAnnouncer}
+          nextAnnouncer={nextAnnouncer}
+          announcerIndex={announcerIndex}
+        />
+        <ShuffleContainer 
+          nameArray={nameArray}
+          allOpen={allOpen}
+          everyOpen={everyOpen}
+          flipCard={flipCard}
+          isFlippedArray={isFlippedArray} 
+        />
         <DisplayNameContainer />
       </div>
     </div>
