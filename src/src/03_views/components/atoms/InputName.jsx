@@ -1,8 +1,15 @@
 import React from 'react'
 import Button from '../atoms/Button'
-import isDisp from '../modules/IsDisp'
+import { useState } from 'react'
 
 function InputName () {
+
+  const [isVisible, setIsVisible] = useState(true);
+
+  const containerStyle = {
+    width: '150px'
+  }
+
   const inputnameStyle = {
     resize: 'none',
     width: '150px',
@@ -20,14 +27,17 @@ function InputName () {
     transition: 'transform 0.2s', // 変形のトランジション
   }
 
-  let boolean = true;
+  const handleButtonClick = () => {
+    setIsVisible(prevState => !prevState); 
+    console.log(isVisible)
+  };
 
-  if (boolean){
+  if (isVisible){
     return (
-      <div>
+      <div style={containerStyle}>
         <Button 
         name={"登壇者名を非表示"}
-        func={isDisp}
+        func={handleButtonClick}
         style={buttonStyle}
         />
         <textarea id="inputname" style={inputnameStyle} placeholder='改行区切りで入力'>
@@ -36,13 +46,16 @@ function InputName () {
       </div>
     )
   }else{
-    <div>
-      <Button 
-      name={"登壇者名を非表示"}
-      func={isDisp}
-      style={buttonStyle}
-      />
-    </div>
+    return(
+      <div style={containerStyle}>
+        <Button 
+        name={"登壇者名を表示"}
+        func={handleButtonClick}
+        style={buttonStyle}
+        />
+      </div>
+
+    )
 
   }
 
