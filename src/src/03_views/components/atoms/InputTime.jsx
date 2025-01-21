@@ -64,6 +64,7 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
     return (
         <div className="input-time-container">
             {/* 発表者セクション */}
+
             <div className="input-time-section">
                 <Button name={"前の発表者"} func={preAnnouncer} />
                 <div className="timer-display">

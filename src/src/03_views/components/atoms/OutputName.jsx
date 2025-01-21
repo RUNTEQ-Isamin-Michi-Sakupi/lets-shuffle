@@ -1,28 +1,16 @@
 import React from 'react'
-import Button from '../atoms/Button'
-import Copy from '../modules/Copy'
 
-const OutputName = () => {
+function OutputName () {
+
   const outputnameStyle = {
-    width: '150px',
+    width: '10vw',
     resize: 'none',
-    height: '60vh'
-  }
+    height: '55vh'
+  }  
 
-  const buttonStyle = {
-    display: 'flex'
-  }
   return (
     <div>
-      <div style={buttonStyle}>
-        <h3>発表順</h3>
-        <Button
-          name={"copy"}
-          func={Copy}
-        />
-       </div>
       <textarea id="outputname" style={outputnameStyle}>
-
       </textarea>
     </div>
   )

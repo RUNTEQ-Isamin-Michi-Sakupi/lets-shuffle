@@ -1,19 +1,23 @@
 import React from 'react'
 
-const InputName = () => {
+function InputName (isVisible) {
+
+  const containerStyle = {
+    width: '10vw'
+  }
+
   const inputnameStyle = {
     resize: 'none',
-    width: '150px',
-    height: '60vh'
+    width: '10vw',
+    height: '55vh'
   }
-  return (
-    <div>
-    <h3>登壇者名</h3>
-      <textarea id="inputname" style={inputnameStyle} placeholder='改行区切りで入力'>
-
-      </textarea>
-    </div>
-  )
+  
+    return (
+      <div style={containerStyle}>
+        <textarea id="inputname" style={inputnameStyle} placeholder='登壇者名を改行区切りで入力…' >
+        </textarea>
+      </div>
+    )
 }
 
 export default InputName
