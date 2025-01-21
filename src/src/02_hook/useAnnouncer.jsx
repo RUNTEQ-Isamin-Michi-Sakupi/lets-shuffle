@@ -110,7 +110,7 @@ export const useAnnouncer = () => {
 
     // 登壇者を次の名前にする
     const nextAnnouncer = () => {
-        if (announcerIndex < nameArray.length ) { 
+        if (announcerIndex < nameArray.length -1 ) { 
             setAnnouncerIndex((prev) => prev + 1);
         }
     };

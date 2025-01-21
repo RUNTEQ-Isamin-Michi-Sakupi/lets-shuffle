@@ -2,13 +2,13 @@ import React from 'react'; //背景画像用のテストコード
 import SettingButtonContiner from '../molecules/SettingButtonContiner';
 import ShuffleContainer from '../molecules/ShuffleContainr';
 import DisplayNameContainer from '../molecules/DisplayNameContainer';
-import { useAnnouncer } from '../../../02_hook/useShareState';
-
+import { useAnnouncer } from '../../../02_hook/useAnnouncer';
 
 const Body = () => {
 
   // useAnnouncerの値を受け取る
-  const  { nameArray, allOpen, everyOpen, flipCard, isFlippedArray, preAnnouncer,nextAnnouncer,announcerIndex } = useAnnouncer();
+  const  { nameArray, allOpen, everyOpen, flipCard, isFlippedArray, announcerIndex, preAnnouncer, nextAnnouncer} = useAnnouncer();
+
 
   const bodyStyle = {
     backgroundImage: 'url(/img/background.png)', // 背景画像のパス

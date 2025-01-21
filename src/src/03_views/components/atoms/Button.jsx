@@ -1,9 +1,9 @@
 import React from 'react'
 
 function Button (props)  {
-  const { name, func } = props;
+  const { name, func, style } = props;
   return (
-      <button type='button' onClick={()=>func()}>{name}</button>
+      <button style={style} type='button' onClick={()=>func()}>{name}</button>
   )
 }
 

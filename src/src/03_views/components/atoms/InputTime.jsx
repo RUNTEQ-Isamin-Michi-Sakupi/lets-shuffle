@@ -71,6 +71,7 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
                 <Button 
                     name={"前の発表者"}
                     func={preAnnouncer}
+                    style={buttonStyle}
                 />
                 <div
                     style={{
@@ -96,6 +97,7 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
                 <Button 
                     name={"次の発表者"}
                     func={nextAnnouncer}
+                    style={buttonStyle}
                 />
 
             </div>

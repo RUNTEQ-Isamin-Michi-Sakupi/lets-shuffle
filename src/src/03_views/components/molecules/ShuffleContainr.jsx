@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import FrontCard from '../atoms/FrontCard';
 import BackCard from '../atoms/BackCard';
 import Button from '../atoms/Button'
-import { useAnnouncer } from '../../../02_hook/useShareState';
 import ReactCardFlip from 'react-card-flip';
 
 
@@ -23,8 +22,16 @@ function ShuffleContent(props){
   }
 
   const buttonStyle = {
-    margin:'10px'
+    margin:'10px',
+    padding: '10px 20px', // 余白
+    fontSize: '16px', // フォントサイズ
+    width: '200px', // 幅
+    textAlign: 'center', // 文字揃え
+    borderRadius: '5px', // 角丸
+    cursor: 'pointer', // マウスカーソルで指を表示
+    transition: 'transform 0.2s', // 変形のトランジション
   }
+
   const cardContainerStyle = {
     marginTop: '50px',
     display: 'flex',
@@ -46,12 +53,14 @@ function ShuffleContent(props){
             <Button
             name={"一気に順番決め"}
             func={allOpen}
+            style={buttonStyle }
             />
         </div>
         <div style={buttonStyle}>
           <Button
             name={"一枚ずつめくる"}
             func={everyOpen}
+            style={buttonStyle }
           />
         </div>
         </div>
