@@ -16,7 +16,8 @@
     display: flex; /* アイコンを中央に配置 */
     justify-content: center; /* アイコンを中央に配置 */
     align-items: center; /* アイコンを中央に配置 */
-    text-shadow: 2px 2px 4px rgba(230, 223, 223, 0.87); /* テキストに影を追加 */
+    text-shadow: 8px 8px 4px rgba(0, 0, 0, 1); /* テキストに影を追加 */
+    font-weight: bold; /* 太字にする */
   }
   
   .howtouse-button:hover {
