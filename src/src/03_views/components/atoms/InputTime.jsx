@@ -1,24 +1,27 @@
 import React, { useEffect } from 'react';
 import useTimer from '../modules/Timer'; // Timerロジックをインポート
 import Notice from '../modules/Notice'; // Noticeコンポーネントをインポート
-import Button from '../atoms/Button';
+import Button from './Button';
 import NowAnnouncer from './NowAnnouncer';
+import './InputTime.css'; // CSSファイルをインポート
 
-const InputTime = ({ presentationTime, questionTime, firstNotification, secondNotification, volume, notificationSound, nameArray, preAnnouncer,nextAnnouncer,announcerIndex}) => {
+const InputTime = ({ presentationTime, questionTime, firstNotification, secondNotification, volume, notificationSound, nameArray, preAnnouncer, nextAnnouncer, announcerIndex }) => {
     // 登壇時間のタイマーを管理
-    const presentationTimer = useTimer(presentationTime, firstNotification, secondNotification); // 初期値を親コンポーネントから受け取る
+    const presentationTimer = useTimer(presentationTime, firstNotification, secondNotification);
     // 質問時間のタイマーを管理
-    const questionTimer = useTimer(questionTime, firstNotification, secondNotification); // 初期値を親コンポーネントから受け取る
+    const questionTimer = useTimer(questionTime, firstNotification, secondNotification);
 
-
+    // 登壇時間が変更されたときにタイマーをリセット
     useEffect(() => {
         presentationTimer.resetTime(presentationTime);
     }, [presentationTime]);
 
+    // 質問時間が変更されたときにタイマーをリセット
     useEffect(() => {
         questionTimer.resetTime(questionTime);
     }, [questionTime]);
 
+    // 時間をフォーマットする関数
     const formatTime = (time) => {
         if (time < 0) {
             const absTime = Math.abs(time);
@@ -31,12 +34,14 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
         return `${minutes}:${seconds}`;
     };
 
+    // 時間のスタイルを取得する関数
     const getTimeStyle = (time) => {
         return {
             color: time < 0 ? 'red' : 'black',
         };
     };
 
+    // 通知音のファイルパスを取得する関数
     const getSoundFile = (sound, isSecondNotification) => {
         if (sound === 'ベル') {
             return isSecondNotification ? '/sounds/bell2.mp3' : '/sounds/bell1.mp3';
@@ -46,150 +51,75 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
         return '/sounds/bell1.mp3';
     };
 
-    const buttonStyle = {
-        padding: '10px 20px', // 余白
-        fontSize: '16px', // フォントサイズ
-        width: '200px', // 幅
-        textAlign: 'center', // 文字揃え
-        borderRadius: '5px', // 角丸
-        cursor: 'pointer', // マウスカーソルで指を表示
-        transition: 'transform 0.2s', // 変形のトランジション
-    };
-
+    // ボタンを押したときのスタイル変更
     const handleMouseDown = (e) => {
-        e.target.style.transform = 'scale(0.95)'; // クリック時の縮小
+        e.target.style.transform = 'scale(0.95)';
     };
 
+    // ボタンを離したときのスタイル変更
     const handleMouseUp = (e) => {
-        e.target.style.transform = 'scale(1)'; // クリック解除時の元のサイズに戻す
+        e.target.style.transform = 'scale(1)';
     };
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '20px' }}>
+        <div className="input-time-container">
             {/* 発表者セクション */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '10px', marginLeft: '20px' }}>
-                <Button 
-                    name={"前の発表者"}
-                    func={preAnnouncer}
-                    style={buttonStyle}
-                />
-                <div
-                    style={{
-                        display: 'flex', // 横並び
-                        flexDirection: 'column', // 縦並び
-                        justifyContent: 'center', // 中央揃え
-                        alignItems: 'center', // 中央揃え
-                        width: '200px', // 幅
-                        height: '100px', // 高さ
-                        border: '1px solid #000', // 枠線
-                        borderRadius: '5px', // 角丸
-                        backgroundColor: '#fff', // 背景色
-                        fontSize: '24px', // フォントサイズ
-                        fontWeight: 'bold', // 太字
-                        color: '#000', // 文字色
-                    }}
-                >
-                <NowAnnouncer
-                    names={nameArray}
-                    index={announcerIndex}      
-                />
-                </div>
-                <Button 
-                    name={"次の発表者"}
-                    func={nextAnnouncer}
-                    style={buttonStyle}
-                />
 
+            <div className="input-time-section">
+                <Button name={"前の発表者"} func={preAnnouncer} />
+                <div className="timer-display">
+                    <NowAnnouncer names={nameArray} index={announcerIndex} />
+                </div>
+                <Button name={"次の発表者"} func={nextAnnouncer} />
             </div>
-            
 
             {/* 登壇時間セクション */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '10px', marginLeft: '20px' }}>
+            <div className="input-time-section">
                 <button
                     onClick={() => presentationTimer.setIsCounting(true)}
-                    style={{ ...buttonStyle, backgroundColor: '#000', border: '1px solid #fff',color: '#fff', fontWeight: 'bold' }}
+                    className="button button-presentation-start"
                     onMouseDown={handleMouseDown}
                     onMouseUp={handleMouseUp}
-                    onMouseEnter={(e) => e.target.style.backgroundColor = '#444'}
-                    onMouseLeave={(e) => e.target.style.backgroundColor = '#000'}
                 >
                     登壇開始
                 </button>
-                <div
-                    style={{
-                        display: 'flex', // 横並び
-                        flexDirection: 'column', // 縦並び
-                        justifyContent: 'center', // 中央揃え
-                        alignItems: 'center', // 中央揃え
-                        width: '200px', // 幅
-                        height: '100px', // 高さ
-                        border: '1px solid #000', // 枠線
-                        borderRadius: '5px', // 角丸
-                        backgroundColor: '#fff', // 背景色
-                        fontSize: '24px', // フォントサイズ
-                        fontWeight: 'bold', // 太字
-                        color: '#000', // 文字色
-                    }}
-                >
+                <div className="timer-display">
                     <div>登壇時間</div>
                     <div style={getTimeStyle(presentationTimer.time)}>{formatTime(presentationTimer.time)}</div>
-                    {presentationTimer.playNotice1 && <Notice play={presentationTimer.playNotice1} sound={getSoundFile(notificationSound, false)} volume={volume} />} {/* 残り1分の通知音を再生 */}
-                    {presentationTimer.playNotice2 && <Notice play={presentationTimer.playNotice2} sound={getSoundFile(notificationSound, true)} volume={volume} />} {/* カウントが0になったときの通知音を再生 */}
+                    {presentationTimer.playNotice1 && <Notice play={presentationTimer.playNotice1} sound={getSoundFile(notificationSound, false)} volume={volume} />}
+                    {presentationTimer.playNotice2 && <Notice play={presentationTimer.playNotice2} sound={getSoundFile(notificationSound, true)} volume={volume} />}
                 </div>
                 <button
-                    onClick={() => presentationTimer.resetTime(presentationTime)} // タイマーをリセット
-                    style={{ ...buttonStyle, backgroundColor: '#ff0000', border: '1px solid #fff', color: '#fff' ,fontWeight: 'bold'}}
-                                onMouseDown={handleMouseDown}
-                                onMouseUp={handleMouseUp}
-                                onMouseEnter={(e) => e.target.style.backgroundColor = '#ff9999'}
-                                onMouseLeave={(e) => e.target.style.backgroundColor = '#ff0000'}
-
+                    onClick={() => presentationTimer.resetTime(presentationTime)}
+                    className="button button-presentation-end"
+                    onMouseDown={handleMouseDown}
+                    onMouseUp={handleMouseUp}
                 >
                     登壇終了
                 </button>
             </div>
 
             {/* 質問時間セクション */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '10px', marginLeft: '20px' }}>
+            <div className="input-time-section">
                 <button
-                    onClick={() => questionTimer.setIsCounting(true)} // カウントダウンを開始
-                    style={{ ...buttonStyle, backgroundColor: '#008406', border: '1px solid #fff',color: '#fff' , fontWeight: 'bold'}}
-                                onMouseDown={handleMouseDown}
-                                onMouseUp={handleMouseUp}
-                                onMouseEnter={(e) => e.target.style.backgroundColor = '#b2e0c9'}
-                                onMouseLeave={(e) => e.target.style.backgroundColor = '#008406'}
-
+                    onClick={() => questionTimer.setIsCounting(true)}
+                    className="button button-question-start"
+                    onMouseDown={handleMouseDown}
+                    onMouseUp={handleMouseUp}
                 >
                     質問開始
                 </button>
-                <div
-                    style={{
-                        display: 'flex', // 横並び
-                        flexDirection: 'column', // 縦並び
-                        justifyContent: 'center', // 中央揃え
-                        alignItems: 'center', // 中央揃え
-                        width: '200px', // 幅
-                        height: '100px', // 高さ
-                        border: '1px solid #000', // 枠線
-                        borderRadius: '5px', // 角丸
-                        backgroundColor: '#fff', // 背景色
-                        fontSize: '24px', // フォントサイズ
-                        fontWeight: 'bold', // 太字
-                        color: '#000', // 文字色
-                    }}
-                >
+                <div className="timer-display">
                     <div>質問時間</div>
                     <div style={getTimeStyle(questionTimer.time)}>{formatTime(questionTimer.time)}</div>
-                    {questionTimer.playNotice1 && <Notice play={questionTimer.playNotice1} sound={getSoundFile(notificationSound, false)} volume={volume} />} {/* 残り1分の通知音を再生 */}
-                    {questionTimer.playNotice2 && <Notice play={questionTimer.playNotice2} sound={getSoundFile(notificationSound, true)} volume={volume} />} {/* カウントが0になったときの通知音を再生 */}
+                    {questionTimer.playNotice1 && <Notice play={questionTimer.playNotice1} sound={getSoundFile(notificationSound, false)} volume={volume} />}
+                    {questionTimer.playNotice2 && <Notice play={questionTimer.playNotice2} sound={getSoundFile(notificationSound, true)} volume={volume} />}
                 </div>
                 <button
-                    onClick={() => questionTimer.resetTime(questionTime)} // タイマーをリセット
-                    style={{ ...buttonStyle, backgroundColor: '#ee7800', border: '1px solid #fff',color: '#fff' , fontWeight: 'bold'}}
-                                onMouseDown={handleMouseDown}
-                                onMouseUp={handleMouseUp}
-                                onMouseEnter={(e) => e.target.style.backgroundColor = '#ffc185'}
-                                onMouseLeave={(e) => e.target.style.backgroundColor = '#ee7800'}
+                    onClick={() => questionTimer.resetTime(questionTime)}
+                    className="button button-question-end"
+                    onMouseDown={handleMouseDown}
+                    onMouseUp={handleMouseUp}
                 >
                     質問終了
                 </button>

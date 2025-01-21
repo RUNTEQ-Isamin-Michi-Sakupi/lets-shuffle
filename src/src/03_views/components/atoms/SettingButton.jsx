@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Setting from '../blocks/Setting'; // 設定画面をインポート
 import InputTime from '../atoms/InputTime'; // カウントダウンタイマーをインポート
+import './SettingButton.css'; // CSSファイルをインポート
 
 function SettingButton(props) {
     const [isMenuOpen, setIsMenuOpen] = useState(false); // メニューの開閉状態を管理
@@ -22,45 +23,14 @@ function SettingButton(props) {
     };
 
     // propsを取得
-    const { nameArray, preAnnouncer,nextAnnouncer,announcerIndex} = props
-
-    const buttonStyle = {
-        backgroundColor: '#fff', // 背景色
-        color: '#000', // テキストの色
-        border: 'none', // 枠線をなしに
-        borderRadius: '50%', // 角丸（円形にする）
-        padding: '10px', // 余白
-        fontSize: '24px', // フォントサイズ
-        cursor: 'pointer', // マウスカーソルで指を表示
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // ボックスシャドウ
-        transition: 'background-color 0.3s ease, transform 0.3s ease', // 背景色とサイズのトランジション
-        width: '50px', // ボタンの幅
-        height: '50px', // ボタンの高さ
-        display: 'flex', // アイコンを中央に配置
-        justifyContent: 'center', // アイコンを中央に配置
-        alignItems: 'center', // アイコンを中央に配置
-        marginLeft: '20px', // ボタンの左側に余白を設定
-        marginBottom: '20px', // ボタンの下側に余白を設定
-    };
-
-    const handleMouseEnter = (e) => {
-        e.target.style.backgroundColor = '#ADD8E6'; // ホバー時の背景色
-        e.target.style.transform = 'scale(1.1)'; // ホバー時に少し大きくする
-    };
-
-    const handleMouseLeave = (e) => {
-        e.target.style.backgroundColor = '#fff'; // ホバー解除時の背景色を元に戻す
-        e.target.style.transform = 'scale(1)'; // ホバー解除時に元のサイズに戻す
-    };
+    const { nameArray, preAnnouncer, nextAnnouncer, announcerIndex } = props;
 
     return (
         <div style={{ position: 'relative' }}>
             {/* 設定ボタン */}
             <button
                 onClick={toggleMenu}
-                style={buttonStyle}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+                className="setting-button"
             >
                 ⚙️
             </button>
@@ -71,32 +41,10 @@ function SettingButton(props) {
                     {/* オーバーレイ */}
                     <div
                         onClick={closeMenu}
-                        style={{
-                            position: 'fixed',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                            zIndex: 999,
-                        }}
+                        className="overlay"
                     />
                     {/* 設定画面 */}
-                    <div
-                        style={{
-                            position: 'fixed',
-                            top: '52%', // 少し下に移動
-                            left: '50%',
-                            transform: 'translate(-50%, -50%)',
-                            backgroundColor: '#fff',
-                            border: '1px solid #ccc',
-                            borderRadius: '20px', // 角を丸くする
-                            boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-                            padding: '10px 70px', // 横方向に広くする
-                            zIndex: 1000,
-                            width: '300px', // メニューの幅
-                        }}
-                    >
+                    <div className="setting-menu">
                         <Setting
                             presentationTime={presentationTime}
                             setPresentationTime={setPresentationTime}
