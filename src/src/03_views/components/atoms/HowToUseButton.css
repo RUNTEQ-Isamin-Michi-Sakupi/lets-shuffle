@@ -11,7 +11,7 @@
     cursor: pointer; /* マウスカーソルを指に変更 */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* ボックスシャドウを追加 */
     transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease; /* トランジションを追加 */
-    width: 150px; /* ボタンの幅 */
+    width: 10vw; /* ボタンの幅 */
     height: 13vh; /* ボタンの高さ */
     display: flex; /* アイコンを中央に配置 */
     justify-content: center; /* アイコンを中央に配置 */
