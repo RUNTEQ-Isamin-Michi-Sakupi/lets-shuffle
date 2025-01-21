@@ -18,13 +18,16 @@ const DisplayNameContainer = () => {
         marginRight: '30px'
       }
 
+
   return (
     <div style={displayNameContainerStyle}>
         <div style={inputnameContainer}>
-        <InputName />
+        <InputName 
+        />
         </div>
         <div style={outputnameContainer}>
-        <OutputName />
+        <OutputName
+         />
         </div>
     </div>
   )
