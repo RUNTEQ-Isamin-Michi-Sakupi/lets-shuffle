@@ -21,7 +21,18 @@ function ShuffleContent(props){
     justifyContent: 'center',
   }
 
-  const buttonStyle = {
+  const allButtonStyle = {
+    margin:'10px',
+    padding: '10px 20px', // 余白
+    fontSize: '16px', // フォントサイズ
+    width: '200px', // 幅
+    textAlign: 'center', // 文字揃え
+    borderRadius: '5px', // 角丸
+    cursor: 'pointer', // マウスカーソルで指を表示
+    transition: 'transform 0.2s', // 変形のトランジション
+  }
+
+  const everyButtonStyle = {
     margin:'10px',
     padding: '10px 20px', // 余白
     fontSize: '16px', // フォントサイズ
@@ -49,18 +60,18 @@ function ShuffleContent(props){
   return (
     <div style={cardAndButtonStyle}>
         <div style={buttonContainerStyle}>
-        <div style={buttonStyle}>
+        <div>
             <Button
             name={"一気に順番決め"}
             func={allOpen}
-            style={buttonStyle }
+            style={allButtonStyle }
             />
         </div>
-        <div style={buttonStyle}>
+        <div>
           <Button
             name={"一枚ずつめくる"}
             func={everyOpen}
-            style={buttonStyle }
+            style={everyButtonStyle }
           />
         </div>
         </div>

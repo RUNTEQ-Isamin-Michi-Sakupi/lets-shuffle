@@ -5,7 +5,7 @@ export const useVisible = () => {
     const [isVisible, setIsVisible] = useState(true);
     
     // inputのElementを取得
-    const inputEle = document.getElementById("inputname");
+    // const inputEle = document.getElementById("inputname");
 
     const handleButtonClick = () => {
         setIsVisible(prevState => !prevState); 

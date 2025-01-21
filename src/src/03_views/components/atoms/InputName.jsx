@@ -9,7 +9,7 @@ function InputName (isVisible) {
   const inputnameStyle = {
     resize: 'none',
     width: '10vw',
-    height: '60vh'
+    height: '55vh'
   }
   
     return (
