@@ -4,26 +4,23 @@ import InputTime from '../atoms/InputTime'; // カウントダウンタイマー
 import './SettingButton.css'; // CSSファイルをインポート
 
 function SettingButton(props) {
-    const [isMenuOpen, setIsMenuOpen] = useState(false); // メニューの開閉状態を管理
-    const [presentationTime, setPresentationTime] = useState(600); // 初期値600秒（10分）
-    const [questionTime, setQuestionTime] = useState(300); // 初期値300秒（5分）
-    const [firstNotification, setFirstNotification] = useState(60); // 初期値60秒（1分）
-    const [secondNotification, setSecondNotification] = useState(0); // 初期値0秒
-    const [volume, setVolume] = useState(50); // 初期値50%
-    const [notificationSound, setNotificationSound] = useState('ベル'); // 初期値ベル
 
-    // メニューの開閉を切り替える関数
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-
-    // メニューを閉じる関数
-    const closeMenu = () => {
-        setIsMenuOpen(false);
-    };
-
-    // propsを取得
-    const { nameArray, preAnnouncer, nextAnnouncer, announcerIndex } = props;
+    const { isMenuOpen,
+        presentationTime,
+        questionTime,
+        firstNotification,
+        secondNotification,
+        volume,
+        notificationSound,
+        toggleMenu,
+        closeMenu,
+        setPresentationTime,
+        setQuestionTime,
+        setFirstNotification,
+        setSecondNotification,
+        setVolume,
+        setNotificationSound
+     } = props
 
     return (
         <div style={{ position: 'relative' }}>
@@ -64,19 +61,6 @@ function SettingButton(props) {
                 </div>
             )}
 
-            {/* カウントダウンタイマー */}
-            <InputTime
-                presentationTime={presentationTime}
-                questionTime={questionTime}
-                firstNotification={firstNotification}
-                secondNotification={secondNotification}
-                volume={volume}
-                notificationSound={notificationSound}
-                nameArray={nameArray}
-                preAnnouncer={preAnnouncer}
-                nextAnnouncer={nextAnnouncer}
-                announcerIndex={announcerIndex}
-            />
         </div>
     );
 };

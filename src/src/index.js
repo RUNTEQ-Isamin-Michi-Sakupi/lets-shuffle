@@ -9,7 +9,7 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Header />
+    {/* <Header /> */}
     <Body />
     {/* ここに現在の発表者を追加する */}
     <Footer />

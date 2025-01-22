@@ -1,0 +1,55 @@
+
+
+/*  登壇者名表示ボタンのスタイル */
+.button-visible {
+    margin:0.4vw;
+    padding: 10px 20px;
+    font-size: 10px;
+    width: 8vw;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    background-color: #fff;
+    border: 1px solid #444;
+    color: #000;
+    font-weight: bold;
+}
+.button-visible:hover {
+    background-color: #444;
+}
+
+/*  登壇者名非表示ボタンのスタイル */
+.button-invisible {
+    padding: 10px 20px;
+    font-size: 10px;
+    width: 8vw;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #444;
+    color: #000;
+    font-weight: bold;
+}
+.button-invisible:hover {
+    background-color: #444;
+}
+
+/*  Copyボタンのスタイル */
+.button-copy {
+    margin:0.4vw;
+    padding: 10px 20px;
+    font-size: 10px;
+    width: 8vw;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #444;
+    color: #000;
+    font-weight: bold;
+}
+.button-copy:hover {
+    background-color: #444;
+}

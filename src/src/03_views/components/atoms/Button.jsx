@@ -1,9 +1,17 @@
 import React from 'react'
 
 function Button (props)  {
-  const { name, func, style} = props;
+  const { className,name, func, handleMouseDown,handleMouseUp} = props;
   return (
-      <button style={style} type='button' onClick={()=>func()}>{name}</button>
+      <button
+        className={className}
+        type='button' 
+        onClick={()=>func()}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+      >
+        {name}
+      </button>
   )
 }
 

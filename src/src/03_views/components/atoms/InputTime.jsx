@@ -61,16 +61,29 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
         e.target.style.transform = 'scale(1)';
     };
 
+
     return (
         <div className="input-time-container">
             {/* 発表者セクション */}
 
             <div className="input-time-section">
-                <Button name={"前の発表者"} func={preAnnouncer} />
+                <Button
+                    className={"button pre-announcer-button"}
+                    name={"前の発表者"} 
+                    func={preAnnouncer}
+                    onMouseDown={handleMouseDown}
+                    onMouseUp={handleMouseUp}
+                 />
                 <div className="timer-display">
                     <NowAnnouncer names={nameArray} index={announcerIndex} />
                 </div>
-                <Button name={"次の発表者"} func={nextAnnouncer} />
+                <Button 
+                    className={"button next-announcer-button"}
+                    name={"次の発表者"}
+                    func={nextAnnouncer}
+                    onMouseDown={handleMouseDown}
+                    onMouseUp={handleMouseUp}
+                 />
             </div>
 
             {/* 登壇時間セクション */}
