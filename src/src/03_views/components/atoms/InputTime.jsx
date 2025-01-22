@@ -68,7 +68,7 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
 
             <div className="input-time-section">
                 <Button
-                    className={""}
+                    className={"button pre-announcer-button"}
                     name={"前の発表者"} 
                     func={preAnnouncer}
                     onMouseDown={handleMouseDown}
@@ -78,7 +78,7 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
                     <NowAnnouncer names={nameArray} index={announcerIndex} />
                 </div>
                 <Button 
-                    className={""}
+                    className={"button next-announcer-button"}
                     name={"次の発表者"}
                     func={nextAnnouncer}
                     onMouseDown={handleMouseDown}

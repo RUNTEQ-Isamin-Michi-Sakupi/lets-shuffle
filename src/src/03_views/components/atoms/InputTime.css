@@ -8,6 +8,28 @@
     cursor: pointer;
     transition: transform 0.2s;
 }
+/* 前の発表者ボタンのスタイル */
+.pre-announcer-button{
+    background-color: #000;
+    border: 1px solid #fff;
+    color: #fff;
+    font-weight: bold;
+}
+.pre-announcer-button:hover{
+    background-color: #444;
+}
+
+/* 次の発表者ボタンのスタイル */
+.next-announcer-button{
+    background-color: #000;
+    border: 1px solid #fff;
+    color: #fff;
+    font-weight: bold;
+}
+.next-announcer-button:hover{
+    background-color: #444;
+}
+
 
 /* 登壇開始ボタンのスタイル */
 .button-presentation-start {
