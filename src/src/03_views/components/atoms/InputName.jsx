@@ -8,7 +8,7 @@ function InputName (isVisible) {
 
   const inputnameStyle = {
     resize: 'none',
-    width: '10vw',
+    width: '8vw',
     height: '55vh'
   }
   

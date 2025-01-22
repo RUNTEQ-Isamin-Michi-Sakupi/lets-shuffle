@@ -27,13 +27,13 @@ const DisplayNameContainer = () => {
     const inputnameContainer = {
       marginLeft: '2.5px',
       marginRight: '5px',
-      width: '10vw',
+      width: '8vw',
     }
 
     const outputnameContainer = {
       marginLeft: '2.5px',
       marginRight: '30px',
-      width: '10vw'
+      width: '8vw'
     }
 
       // ボタンを押したときのスタイル変更
