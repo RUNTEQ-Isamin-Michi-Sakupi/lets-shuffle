@@ -21,28 +21,6 @@ function ShuffleContent(props){
     justifyContent: 'center',
   }
 
-  const allButtonStyle = {
-    margin:'10px',
-    padding: '10px 20px', // 余白
-    fontSize: '16px', // フォントサイズ
-    width: '200px', // 幅
-    textAlign: 'center', // 文字揃え
-    borderRadius: '5px', // 角丸
-    cursor: 'pointer', // マウスカーソルで指を表示
-    transition: 'transform 0.2s', // 変形のトランジション
-  }
-
-  const everyButtonStyle = {
-    margin:'10px',
-    padding: '10px 20px', // 余白
-    fontSize: '16px', // フォントサイズ
-    width: '200px', // 幅
-    textAlign: 'center', // 文字揃え
-    borderRadius: '5px', // 角丸
-    cursor: 'pointer', // マウスカーソルで指を表示
-    transition: 'transform 0.2s', // 変形のトランジション
-  }
-
   const cardContainerStyle = {
     marginTop: '50px',
     display: 'flex',
@@ -56,22 +34,35 @@ function ShuffleContent(props){
     justifyContent: 'center',
     gap: '15px' // 幅
   }
+  // ボタンを押したときのスタイル変更
+    const handleMouseDown = (e) => {
+      e.target.style.transform = 'scale(0.95)';
+  };
+
+  // ボタンを離したときのスタイル変更
+  const handleMouseUp = (e) => {
+      e.target.style.transform = 'scale(1)';
+  };
 
   return (
     <div style={cardAndButtonStyle}>
         <div style={buttonContainerStyle}>
         <div>
             <Button
+            className={""}
             name={"一気に順番決め"}
             func={allOpen}
-            style={allButtonStyle }
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
             />
         </div>
         <div>
           <Button
+            className={""}
             name={"一枚ずつめくる"}
             func={everyOpen}
-            style={everyButtonStyle }
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
           />
         </div>
         </div>

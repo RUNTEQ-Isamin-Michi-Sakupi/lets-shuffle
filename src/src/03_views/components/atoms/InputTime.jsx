@@ -61,16 +61,40 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
         e.target.style.transform = 'scale(1)';
     };
 
+    // ボタンデザイン
+    const buttonStyle = {
+        margin:'10px',
+        padding: '10px 20px', // 余白
+        fontSize: '10px', // フォントサイズ
+        width: '9vw', // 幅
+        textAlign: 'center', // 文字揃え
+        borderRadius: '5px', // 角丸
+        cursor: 'pointer', // マウスカーソルで指を表示
+        transition: 'transform 0.2s', // 変形のトランジション
+      }
+
     return (
         <div className="input-time-container">
             {/* 発表者セクション */}
 
             <div className="input-time-section">
-                <Button name={"前の発表者"} func={preAnnouncer} />
+                <Button
+                    className={""}
+                    name={"前の発表者"} 
+                    func={preAnnouncer}
+                    onMouseDown={handleMouseDown}
+                    onMouseUp={handleMouseUp}
+                 />
                 <div className="timer-display">
                     <NowAnnouncer names={nameArray} index={announcerIndex} />
                 </div>
-                <Button name={"次の発表者"} func={nextAnnouncer} />
+                <Button 
+                    className={""}
+                    name={"次の発表者"}
+                    func={nextAnnouncer}
+                    onMouseDown={handleMouseDown}
+                    onMouseUp={handleMouseUp}
+                 />
             </div>
 
             {/* 登壇時間セクション */}

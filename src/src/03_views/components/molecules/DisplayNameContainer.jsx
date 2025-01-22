@@ -35,30 +35,33 @@ const DisplayNameContainer = () => {
       width: '10vw'
     }
 
-    const buttonStyle = {
-      margin:'10px',
-      padding: '10px 20px', // 余白
-      fontSize: '10px', // フォントサイズ
-      width: '9vw', // 幅
-      textAlign: 'center', // 文字揃え
-      borderRadius: '5px', // 角丸
-      cursor: 'pointer', // マウスカーソルで指を表示
-      transition: 'transform 0.2s', // 変形のトランジション
-    }
+      // ボタンを押したときのスタイル変更
+        const handleMouseDown = (e) => {
+          e.target.style.transform = 'scale(0.95)';
+      };
+  
+      // ボタンを離したときのスタイル変更
+      const handleMouseUp = (e) => {
+          e.target.style.transform = 'scale(1)';
+      };
 
     if (isVisible){
       return (
         <div>
           <div style={buttonConatiner}>
               <Button 
+              className={""}
               name={"登壇者名を非表示"}
               func={handleButtonClick}
-              style={buttonStyle}
+              handleMouseDown={handleMouseDown}
+              handleMouseUp={handleMouseUp}
               />
               <Button
               name={"発表順をコピー"}
+              className={""}
               func={Copy}
-              style={buttonStyle}
+              handleMouseDown={handleMouseDown}
+              handleMouseUp={handleMouseUp}
               />
           </div>
           <div style={displayNameContainerStyle}>
@@ -79,14 +82,18 @@ const DisplayNameContainer = () => {
         <div>
         <div style={buttonConatiner}>
             <Button 
-            name={"登壇者名を非表示"}
+            className={""}
+            name={"登壇者名を表示"}
             func={handleButtonClick}
-            style={buttonStyle}
+            handleMouseDown={handleMouseDown}
+            handleMouseUp={handleMouseUp}
             />
             <Button
+            className={""}
             name={"発表順をコピー"}
             func={Copy}
-            style={buttonStyle}
+            handleMouseDown={handleMouseDown}
+            handleMouseUp={handleMouseUp}
             />
         </div>
         <div style={displayNameContainerStyle}>
