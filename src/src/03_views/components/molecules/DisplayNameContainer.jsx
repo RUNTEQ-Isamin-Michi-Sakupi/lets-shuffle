@@ -51,7 +51,7 @@ const DisplayNameContainer = () => {
         <div>
           <div style={buttonConatiner}>
               <Button 
-              className={"button button-visible"}
+              className={"button-visible"}
               name={"登壇者名を非表示"}
               func={handleButtonClick}
               handleMouseDown={handleMouseDown}
@@ -59,7 +59,7 @@ const DisplayNameContainer = () => {
               />
               <Button
               name={"発表順をコピー"}
-              className={"button button-copy"}
+              className={"button-copy"}
               func={Copy}
               handleMouseDown={handleMouseDown}
               handleMouseUp={handleMouseUp}
@@ -83,14 +83,14 @@ const DisplayNameContainer = () => {
         <div>
         <div style={buttonConatiner}>
             <Button 
-            className={"button button-invisible"}
+            className={"button-invisible"}
             name={"登壇者名を表示"}
             func={handleButtonClick}
             handleMouseDown={handleMouseDown}
             handleMouseUp={handleMouseUp}
             />
             <Button
-            className={"button button-copy"}
+            className={"button-copy"}
             name={"発表順をコピー"}
             func={Copy}
             handleMouseDown={handleMouseDown}
