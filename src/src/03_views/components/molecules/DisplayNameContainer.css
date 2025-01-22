@@ -11,22 +11,22 @@
 
 /*  allOpenボタンのスタイル */
 .button-allOpen {
-    background-color: #000;
+    background-color: #e8817d;
     border: 1px solid #fff;
     color: #fff;
     font-weight: bold;
 }
 .button-allOpen:hover {
-    background-color: #444;
+    background-color: #f0c1c0;
 }
 
 /*  evryOpenボタンのスタイル */
 .button-everyOpen {
-    background-color: #000;
+    background-color: #8bdce8;
     border: 1px solid #fff;
     color: #fff;
     font-weight: bold;
 }
 .button-everyOpen:hover {
-    background-color: #444;
+    background-color: #bae2e8;
 }

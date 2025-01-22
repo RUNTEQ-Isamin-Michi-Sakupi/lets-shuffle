@@ -2,9 +2,9 @@
 
 /*  登壇者名表示ボタンのスタイル */
 .button-visible {
-    background-color: #000;
-    border: 1px solid #fff;
-    color: #fff;
+    background-color: #fff;
+    border: 1px solid #444;
+    color: #000;
     font-weight: bold;
 }
 .button-visible:hover {
@@ -13,9 +13,9 @@
 
 /*  登壇者名非表示ボタンのスタイル */
 .button-invisible {
-    background-color: #000;
-    border: 1px solid #fff;
-    color: #fff;
+    background-color: #fff;
+    border: 1px solid #444;
+    color: #000;
     font-weight: bold;
 }
 .button-invisible:hover {
@@ -24,9 +24,9 @@
 
 /*  Copyボタンのスタイル */
 .button-copy {
-    background-color: #000;
-    border: 1px solid #fff;
-    color: #fff;
+    background-color: #fff;
+    border: 1px solid #444;
+    color: #000;
     font-weight: bold;
 }
 .button-copy:hover {
