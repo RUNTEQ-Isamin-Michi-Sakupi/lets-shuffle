@@ -61,17 +61,6 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
         e.target.style.transform = 'scale(1)';
     };
 
-    // ボタンデザイン
-    const buttonStyle = {
-        margin:'10px',
-        padding: '10px 20px', // 余白
-        fontSize: '10px', // フォントサイズ
-        width: '9vw', // 幅
-        textAlign: 'center', // 文字揃え
-        borderRadius: '5px', // 角丸
-        cursor: 'pointer', // マウスカーソルで指を表示
-        transition: 'transform 0.2s', // 変形のトランジション
-      }
 
     return (
         <div className="input-time-container">

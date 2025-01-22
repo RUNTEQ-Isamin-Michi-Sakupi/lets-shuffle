@@ -4,6 +4,7 @@ import OutputName from '../atoms/OutputName';
 import Button from '../atoms/Button';
 import Copy from '../modules/Copy';
 import { useVisible } from '../../../02_hook/useVisible'
+import './DisplayNameContainer.css'
 
 const DisplayNameContainer = () => {
 
@@ -50,7 +51,7 @@ const DisplayNameContainer = () => {
         <div>
           <div style={buttonConatiner}>
               <Button 
-              className={""}
+              className={"button button-visible"}
               name={"登壇者名を非表示"}
               func={handleButtonClick}
               handleMouseDown={handleMouseDown}
@@ -58,7 +59,7 @@ const DisplayNameContainer = () => {
               />
               <Button
               name={"発表順をコピー"}
-              className={""}
+              className={"button button-copy"}
               func={Copy}
               handleMouseDown={handleMouseDown}
               handleMouseUp={handleMouseUp}
@@ -82,14 +83,14 @@ const DisplayNameContainer = () => {
         <div>
         <div style={buttonConatiner}>
             <Button 
-            className={""}
+            className={"button button-invisible"}
             name={"登壇者名を表示"}
             func={handleButtonClick}
             handleMouseDown={handleMouseDown}
             handleMouseUp={handleMouseUp}
             />
             <Button
-            className={""}
+            className={"button button-copy"}
             name={"発表順をコピー"}
             func={Copy}
             handleMouseDown={handleMouseDown}

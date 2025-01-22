@@ -3,6 +3,7 @@ import FrontCard from '../atoms/FrontCard';
 import BackCard from '../atoms/BackCard';
 import Button from '../atoms/Button'
 import ReactCardFlip from 'react-card-flip';
+import './ShuffleContainer.css'
 
 
 function ShuffleContent(props){
@@ -49,7 +50,7 @@ function ShuffleContent(props){
         <div style={buttonContainerStyle}>
         <div>
             <Button
-            className={""}
+            className={"button button-allOpen"}
             name={"一気に順番決め"}
             func={allOpen}
             onMouseDown={handleMouseDown}
@@ -58,7 +59,7 @@ function ShuffleContent(props){
         </div>
         <div>
           <Button
-            className={""}
+            className={"button button-everyOpen"}
             name={"一枚ずつめくる"}
             func={everyOpen}
             onMouseDown={handleMouseDown}
