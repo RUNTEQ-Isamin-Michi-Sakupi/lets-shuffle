@@ -10,14 +10,17 @@ const Footer = () => {
     position: 'absolute', /*←絶対位置*/
     bottom: 0, /*下に固定*/
     width: '100vw', // ビューポートの幅
-    height: '5vh' // ビューポートの高さ
+    height: '5vh', // ビューポートの高さ
+    positon: 'fixed'
   }
 
   const Devex = {
     color: '#d00',
     textAlign: 'right',
     alignSelf: 'center',
-    paddingRight: '1vw'
+    marginRight: '2vw',
+    margin: '0',
+    marginTop: '1vh'
   }
 
   const Atag = {

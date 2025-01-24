@@ -12,7 +12,7 @@ const DisplayNameContainer = () => {
   const  [ isVisible, setIsVisible, handleButtonClick ] = useVisible()
 
     const displayNameContainerStyle = {
-        marginTop: '20px',
+        marginTop: '2vh',
         display: 'flex',
         marginRight: '0.5vw'
       }
@@ -32,7 +32,7 @@ const DisplayNameContainer = () => {
 
     const outputnameContainer = {
       marginLeft: '2.5px',
-      marginRight: '30px',
+      marginRight: '2vw',
       width: '8vw'
     }
 

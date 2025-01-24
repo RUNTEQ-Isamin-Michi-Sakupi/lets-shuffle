@@ -42,7 +42,8 @@ const Body = () => {
     backgroundPosition: 'center', // 画像を中央に配置
     backgroundRepeat: 'no-repeat', // 画像を繰り返さない
     width: '100vw', // ビューポートの幅
-    height: '13vh' // ビューポートの高さ
+    height: '13vh', // ビューポートの高さ
+    position: 'fixed'
   }
 
   const bodyStyle = {
@@ -57,9 +58,10 @@ const Body = () => {
   };
 
   const containerStyle = {
-    marginTop: '20px',
+    marginTop: '15vh',
     display: 'flex',
-    width: '100vw'
+    width: '100vw',
+    height: '82vh'
   }
 
   return (

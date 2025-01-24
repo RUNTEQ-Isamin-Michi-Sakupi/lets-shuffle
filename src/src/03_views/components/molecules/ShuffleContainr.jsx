@@ -11,9 +11,9 @@ function ShuffleContent(props){
   const { nameArray, allOpen, everyOpen, flipCard, isFlippedArray } = props
 
   const cardAndButtonStyle = {
-    marginTop: '20px',
+    marginTop: '2vh',
     width: '90vw',
-    height: '90vh'
+    height: '70vh'
   }
 
   const buttonContainerStyle = {
