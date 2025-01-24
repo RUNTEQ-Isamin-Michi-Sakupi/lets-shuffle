@@ -7,10 +7,18 @@ function BackCard({ name, index }) {
       backgroundColor: "#ffffff",
       boxShadow: "0 0 6px black",
       border: "0.5rem white solid",
-      borderRadius: "0.5rem" 
+      borderRadius: "0.5rem" ,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
     }
   
-    return <div style={cardStyle} id={index} >{name}</div>;
+    const pStyle = {
+      textAlign: 'center',
+    }
+    return <div style={cardStyle} id={index}>
+        <p style={pStyle}>{name}</p>
+      </div>;
   }
 
 export default BackCard
