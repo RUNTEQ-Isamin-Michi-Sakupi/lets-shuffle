@@ -1,12 +1,16 @@
 /* ボタンのスタイル */
 .button {
-    padding: 10px 20px;
+    padding: 10px 10px;
     font-size: 16px;
-    width: 200px;
+    width: 13.5vw;
     text-align: center;
     border-radius: 5px;
     cursor: pointer;
     transition: transform 0.2s;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* 前の発表者ボタンのスタイル */
 .pre-announcer-button{
@@ -85,8 +89,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 200px;
-    height: 100px;
+    width: 13.5vw;
+    height: 11vh; 
     border: 1px solid #000;
     border-radius: 5px;
     background-color: #fff;

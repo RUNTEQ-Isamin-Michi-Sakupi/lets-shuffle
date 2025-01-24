@@ -28,6 +28,7 @@ function SettingButton(props) {
             <button
                 onClick={toggleMenu}
                 className="setting-button"
+                style={{ position: 'absolute', left: '30px', top: '30px' }}
             >
                 ⚙️
             </button>
