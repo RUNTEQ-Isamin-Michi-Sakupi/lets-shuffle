@@ -4,18 +4,17 @@
     color: #000; /* テキストの色 */
     border: none; /* 枠線をなしに */
     border-radius: 50%; /* 角丸（円形にする） */
-    padding: 10px; /* 余白 */
-    font-size: 24px; /* フォントサイズ */
+    padding: 1vh; /* 余白 */
+    font-size: 4dvh; /* フォントサイズを大きくする */
     cursor: pointer; /* マウスカーソルで指を表示 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ボックスシャドウ */
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.1); /* ボックスシャドウ */
     transition: background-color 0.3s ease, transform 0.3s ease; /* 背景色とサイズのトランジション */
-    width: 50px; /* ボタンの幅 */
-    height: 50px; /* ボタンの高さ */
+    width: 7vh; /* ボタンの幅を大きくする */
+    height: 7vh; /* ボタンの高さを大きくする */
     display: flex; /* アイコンを中央に配置 */
     justify-content: center; /* アイコンを中央に配置 */
     align-items: center; /* アイコンを中央に配置 */
-    margin-left: 20px; /* ボタンの左側に余白を設定 */
-    margin-bottom: 20px; /* ボタンの下側に余白を設定 */
+    margin: 0 auto; /* ボタンを中央に配置 */
 }
 
 /* 設定ボタンのホバー時のスタイル */
