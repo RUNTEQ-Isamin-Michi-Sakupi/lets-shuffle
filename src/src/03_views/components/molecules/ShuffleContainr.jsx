@@ -51,7 +51,7 @@ function ShuffleContent(props){
         <div>
             <Button
             className={"button button-allOpen"}
-            name={"一気に順番決め"}
+            name={"順番を決める！"}
             func={allOpen}
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
