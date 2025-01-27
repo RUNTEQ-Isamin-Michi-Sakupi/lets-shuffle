@@ -100,6 +100,7 @@ const Body = () => {
             preAnnouncer={preAnnouncer}
             nextAnnouncer={nextAnnouncer}
             announcerIndex={announcerIndex}
+            isFlippedArray={isFlippedArray}
           />
           <ShuffleContainer 
             nameArray={nameArray}

@@ -8,7 +8,7 @@ function SettingButtonContiner (props) {
     firstNotification,
     secondNotification,
     volume,
-    notificationSound,nameArray, preAnnouncer,nextAnnouncer,announcerIndex } = props
+    notificationSound,nameArray, preAnnouncer,nextAnnouncer,announcerIndex,isFlippedArray } = props
   return (
       <InputTime
         presentationTime={presentationTime}
@@ -21,6 +21,7 @@ function SettingButtonContiner (props) {
         preAnnouncer={preAnnouncer}
         nextAnnouncer={nextAnnouncer}
         announcerIndex={announcerIndex}
+        isFlippedArray={isFlippedArray}
     />
   )
 }
