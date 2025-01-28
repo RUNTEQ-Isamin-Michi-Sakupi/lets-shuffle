@@ -12,8 +12,10 @@ import SettingButton from '../atoms/SettingButton'
 
 const Body = () => {
 
+  // const  { nameArray, allOpen, everyOpen, flipCard, isFlippedArray, announcerIndex, preAnnouncer, nextAnnouncer} = useAnnouncer();
+
   // useAnnouncerの値を受け取る
-  const  { nameArray, allOpen, everyOpen, flipCard, isFlippedArray, announcerIndex, preAnnouncer, nextAnnouncer} = useAnnouncer();
+  const  { nameArray, allOpen, isFlippedArray,announcerIndex, preAnnouncer, nextAnnouncer} = useAnnouncer();
 
   // SettingButtonのプロパティ
   const [isMenuOpen, setIsMenuOpen] = useState(false); // メニューの開閉状態を管理
@@ -100,13 +102,14 @@ const Body = () => {
             preAnnouncer={preAnnouncer}
             nextAnnouncer={nextAnnouncer}
             announcerIndex={announcerIndex}
+            isFlippedArray={isFlippedArray}
           />
           <ShuffleContainer 
             nameArray={nameArray}
             allOpen={allOpen}
-            everyOpen={everyOpen}
-            flipCard={flipCard}
             isFlippedArray={isFlippedArray} 
+            // everyOpen={everyOpen}
+            // flipCard={flipCard}
           />
           <DisplayNameContainer />
         </div>

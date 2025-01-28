@@ -1,8 +1,8 @@
 import React from 'react'
 
 function NowAnnouncer( props ) {
-    const {names,index }= props;
-    if(names[index]){
+    const {names,index,isFlippedArray }= props;
+    if(names[index] && isFlippedArray.at(-1)){
       return (
         <p id='nowAnnouncer'>
             {index + 1}:{names[index]}
@@ -14,9 +14,7 @@ function NowAnnouncer( props ) {
           No Announcer
         </p>
       )
-
     }
-
 }
 
 export default NowAnnouncer

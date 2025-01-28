@@ -68,7 +68,6 @@ const DisplayNameContainer = () => {
           <div style={displayNameContainerStyle}>
               <div style={inputnameContainer}>
               <InputName
-              type={isVisible}
               />
               </div>
               <div style={outputnameContainer}>

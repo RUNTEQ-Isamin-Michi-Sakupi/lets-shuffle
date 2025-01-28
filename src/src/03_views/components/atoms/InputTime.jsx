@@ -5,7 +5,7 @@ import Button from './Button';
 import NowAnnouncer from './NowAnnouncer';
 import './InputTime.css'; // CSSファイルをインポート
 
-const InputTime = ({ presentationTime, questionTime, firstNotification, secondNotification, volume, notificationSound, nameArray, preAnnouncer, nextAnnouncer, announcerIndex }) => {
+const InputTime = ({ presentationTime, questionTime, firstNotification, secondNotification, volume, notificationSound, nameArray, preAnnouncer, nextAnnouncer, announcerIndex,isFlippedArray }) => {
     // 登壇時間のタイマーを管理
     const presentationTimer = useTimer(presentationTime, firstNotification, secondNotification);
     // 質問時間のタイマーを管理
@@ -75,7 +75,7 @@ const InputTime = ({ presentationTime, questionTime, firstNotification, secondNo
                     onMouseUp={handleMouseUp}
                  />
                 <div className="timer-display">
-                    <NowAnnouncer names={nameArray} index={announcerIndex} />
+                    <NowAnnouncer names={nameArray} index={announcerIndex} isFlippedArray={isFlippedArray} />
                 </div>
                 <Button 
                     className={"button next-announcer-button"}

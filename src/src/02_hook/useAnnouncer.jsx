@@ -56,15 +56,15 @@ export const useAnnouncer = () => {
       };
 
     // カードをめくるための関数
-    const flipCard = (nameArrayIndex) => {
-        setIsFlippedArray(
-            isFlippedArray.map(
-                (isFlipped, index) => (index === nameArrayIndex ? !isFlipped:isFlipped )
-            )
-        )
-            const flippedName = nameArray[nameArrayIndex];
-            outputEle.value += `${flippedName}\n`; // 改行付きで名前を追加
-    }
+    // const flipCard = (nameArrayIndex) => {
+    //     setIsFlippedArray(
+    //         isFlippedArray.map(
+    //             (isFlipped, index) => (index === nameArrayIndex ? !isFlipped:isFlipped )
+    //         )
+    //     )
+    //         const flippedName = nameArray[nameArrayIndex];
+    //         outputEle.value += `${flippedName}\n`; // 改行付きで名前を追加
+    // }
 
     // 一気に開く場合
     const allOpen = () => {
@@ -74,10 +74,10 @@ export const useAnnouncer = () => {
     }
     
     // 一枚づつ開く
-    const everyOpen = () => {
-        setCurrentMode("every"); // モードを設定
-        reshuffle(); // 再シャッフル
-    }
+    // const everyOpen = () => {
+    //     setCurrentMode("every"); // モードを設定
+    //     reshuffle(); // 再シャッフル
+    // }
 
     // 自動でカードがめくれる処理
     useEffect(() => {
@@ -115,5 +115,6 @@ export const useAnnouncer = () => {
         }
     };
     
-    return { nameArray, allOpen, everyOpen, flipCard, isFlippedArray, preAnnouncer,nextAnnouncer,announcerIndex };
+    // return { nameArray, allOpen, everyOpen, flipCard, isFlippedArray, preAnnouncer,nextAnnouncer,announcerIndex };
+    return { nameArray, allOpen, isFlippedArray, preAnnouncer,nextAnnouncer,announcerIndex };
 }
