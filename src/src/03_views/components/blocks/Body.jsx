@@ -12,6 +12,8 @@ import SettingButton from '../atoms/SettingButton'
 
 const Body = () => {
 
+  // const  { nameArray, allOpen, everyOpen, flipCard, isFlippedArray, announcerIndex, preAnnouncer, nextAnnouncer} = useAnnouncer();
+
   // useAnnouncerの値を受け取る
   const  { nameArray, allOpen, isFlippedArray,announcerIndex, preAnnouncer, nextAnnouncer} = useAnnouncer();
 
@@ -106,6 +108,8 @@ const Body = () => {
             nameArray={nameArray}
             allOpen={allOpen}
             isFlippedArray={isFlippedArray} 
+            // everyOpen={everyOpen}
+            // flipCard={flipCard}
           />
           <DisplayNameContainer />
         </div>

@@ -7,6 +7,7 @@ import './ShuffleContainer.css'
 
 
 function ShuffleContent(props){
+  // const { nameArray, allOpen, everyOpen, flipCard, isFlippedArray } = props
   // useAnnouncerからデータを取得
   const { nameArray, allOpen, isFlippedArray } = props
 
@@ -57,11 +58,21 @@ function ShuffleContent(props){
             onMouseUp={handleMouseUp}
             />
         </div>
+        {/* <div>
+          <Button
+            className={"button button-everyOpen"}
+            name={"一枚ずつめくる"}
+            func={everyOpen}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+          />
+        </div> */}
         </div>
         <div style={cardContainerStyle}>
         <div style={cardStyle }>
               {nameArray.map((name, index) => (
                 <ReactCardFlip isFlipped={isFlippedArray[index]} key={index}>
+                  {/* <FrontCard name={name} index={index} func={flipCard} /> */}
                   <FrontCard name={name} index={index}/>
                   <BackCard name={name} index={index} />
                 </ReactCardFlip>

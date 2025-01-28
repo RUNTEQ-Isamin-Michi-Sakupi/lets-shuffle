@@ -115,5 +115,6 @@ export const useAnnouncer = () => {
         }
     };
     
+    // return { nameArray, allOpen, everyOpen, flipCard, isFlippedArray, preAnnouncer,nextAnnouncer,announcerIndex };
     return { nameArray, allOpen, isFlippedArray, preAnnouncer,nextAnnouncer,announcerIndex };
 }
