@@ -4,7 +4,10 @@ function BackCard({ name, index }) {
     const cardStyle = {
       width: "6rem",
       aspectRatio: "58 / 89",
-      backgroundColor: "#ffffff",
+
+      backgroundImage: "url(/img/backcard.png)",
+      backgroundSize: "180%",
+      backgroundPosition: 'center',
       boxShadow: "0 0 6px black",
       border: "0.5rem white solid",
       borderRadius: "0.5rem" ,
