@@ -1,6 +1,6 @@
 import React from 'react'
 
-function InputName (isVisible) {
+function InputName () {
 
   const containerStyle = {
     width: '10vw'
