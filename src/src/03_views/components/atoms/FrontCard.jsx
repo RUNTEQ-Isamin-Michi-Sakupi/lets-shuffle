@@ -16,12 +16,12 @@ import React from 'react'
 // export default FrontCard
 
 function FrontCard({ index }) {
+  // カードのスタイルの参考URL：https://zenn.dev/kagan/articles/css-spread-cards
   const cardStyle = {
     width: "6rem",
-    aspectRatio: "58 / 89",
-    backgroundColor: "#c00606",
-    boxShadow: "0 0 6px black",
-    border: "0.5rem white solid",
+    aspectRatio: "47 / 76",
+    backgroundColor: "#9b111e",
+    boxShadow: "0 0 1rem black",
     borderRadius: "0.5rem" 
   }
 
