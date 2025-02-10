@@ -103,12 +103,6 @@ export const useAnnouncer = () => {
             prev.map((isFlipped, idx) => (idx === currentIndex ? true : isFlipped))
             );
             setCurrentIndex((prev) => prev + 1);
-
-            // outpueEleに改行付きで追加
-            if (outputEle) {
-                const newName = nameArray[currentIndex];
-                outputEle.value += `${newName}\n`; 
-            }
         }, 1000); // 1秒ごとにカードをめくる
 
         // クリーンアップ
@@ -149,6 +143,19 @@ export const useAnnouncer = () => {
         });
         }
     }
+
+    // 名前配列が変更されたときの処理
+    useEffect(() => {
+        // Flippedが全部trueのときだけ変更
+        if (isFlippedArray.at(-1)){
+            // outpueEleに改行付きで追加
+            if (outputEle) {
+                outputEle.value = "";
+                const names = nameArray.join("\n")
+                outputEle.value = names
+            }
+        }
+    }, [nameArray,isFlippedArray]); 
 
     // return { nameArray, allOpen, everyOpen, flipCard, isFlippedArray, preAnnouncer,nextAnnouncer,announcerIndex };
     return { nameArray, allOpen, isFlippedArray, preAnnouncer,nextAnnouncer,announcerIndex,sensors,handleDragEnd };
