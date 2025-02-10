@@ -15,7 +15,7 @@ const Body = () => {
   // const  { nameArray, allOpen, everyOpen, flipCard, isFlippedArray, announcerIndex, preAnnouncer, nextAnnouncer} = useAnnouncer();
 
   // useAnnouncerの値を受け取る
-  const  { nameArray, allOpen, isFlippedArray,announcerIndex, preAnnouncer, nextAnnouncer} = useAnnouncer();
+  const  { nameArray, allOpen, isFlippedArray,announcerIndex, preAnnouncer, nextAnnouncer,sensors,handleDragEnd } = useAnnouncer();
 
   // SettingButtonのプロパティ
   const [isMenuOpen, setIsMenuOpen] = useState(false); // メニューの開閉状態を管理
@@ -110,6 +110,8 @@ const Body = () => {
             isFlippedArray={isFlippedArray} 
             // everyOpen={everyOpen}
             // flipCard={flipCard}
+            sensors={sensors}
+            handleDragEnd={handleDragEnd}
           />
           <DisplayNameContainer />
         </div>

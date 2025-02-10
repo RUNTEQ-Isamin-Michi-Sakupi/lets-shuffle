@@ -15,7 +15,7 @@ import React from 'react'
 
 // export default FrontCard
 
-function FrontCard({ index }) {
+function FrontCard() {
   // カードのスタイルの参考URL：https://zenn.dev/kagan/articles/css-spread-cards
   const cardStyle = {
     width: "6rem",
@@ -25,7 +25,7 @@ function FrontCard({ index }) {
     borderRadius: "0.5rem" 
   }
 
-  return <div style={cardStyle} id={index} ></div>;
+  return <div style={cardStyle} ></div>;
 }
 
 export default FrontCard

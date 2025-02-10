@@ -5,11 +5,24 @@ import Button from '../atoms/Button'
 import ReactCardFlip from 'react-card-flip';
 import './ShuffleContainer.css'
 
+// sortable
+import {
+  DndContext, 
+  closestCenter,
+} from '@dnd-kit/core';
+import {
+  SortableContext,
+  verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
+
+import SortableItem from './SortableItem';
+
 
 function ShuffleContent(props){
   // const { nameArray, allOpen, everyOpen, flipCard, isFlippedArray } = props
   // useAnnouncerからデータを取得
-  const { nameArray, allOpen, isFlippedArray } = props
+  const { nameArray, allOpen, isFlippedArray,sensors,handleDragEnd } = props
+
 
   const cardAndButtonStyle = {
     marginTop: '2vh',
@@ -69,20 +82,23 @@ function ShuffleContent(props){
         </div> */}
         </div>
         <div style={cardContainerStyle}>
-        <div style={cardStyle }>
-              {nameArray.map((name, index) => (
-                <ReactCardFlip isFlipped={isFlippedArray[index]} key={index}>
-                  {/* <FrontCard name={name} index={index} func={flipCard} /> */}
-                  <FrontCard name={name} index={index}/>
-                  <BackCard name={name} index={index} />
-                </ReactCardFlip>
-              ))}
+          <div style={cardStyle }>
+          <DndContext 
+            sensors={sensors}
+            collisionDetection={closestCenter}
+            onDragEnd={handleDragEnd}
+          >
+            <SortableContext 
+              items={nameArray}
+              strategy={verticalListSortingStrategy}
+            >
+              {nameArray.map((index) => <SortableItem key={index} id={index} isFlipped={isFlippedArray[nameArray.indexOf(index)]} />)}
+            </SortableContext>
+          </DndContext>
           </div>
         </div>
     </div>
   )
 }
-
-
 
 export default ShuffleContent
