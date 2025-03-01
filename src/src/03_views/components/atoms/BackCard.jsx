@@ -1,6 +1,6 @@
 import React from 'react'
 
-function BackCard({ name, index }) {
+function BackCard({ name}) {
     // カードのスタイルの参考URL：https://zenn.dev/kagan/articles/css-spread-cards
     const cardStyle = {
       width: "6rem",
@@ -18,7 +18,7 @@ function BackCard({ name, index }) {
     const pStyle = {
       textAlign: 'center',
     }
-    return <div style={cardStyle} id={index}>
+    return <div style={cardStyle}>
         <p style={pStyle}>{name}</p>
       </div>;
   }

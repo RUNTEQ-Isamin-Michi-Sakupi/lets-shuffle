@@ -1,6 +1,22 @@
 import { useState,useEffect } from "react";
 import Shaffle from "../03_views/components/modules/Shaffle";
 
+// テスト
+import {
+    DndContext, 
+    closestCenter,
+    KeyboardSensor,
+    PointerSensor,
+    useSensor,
+    useSensors,
+  } from '@dnd-kit/core';
+  import {
+    arrayMove,
+    SortableContext,
+    sortableKeyboardCoordinates,
+    verticalListSortingStrategy,
+  } from '@dnd-kit/sortable';
+
 export const useAnnouncer = () => {
     // nameの配列を定義
     const [ nameArray, setNameArray ] = useState([]);
@@ -87,12 +103,6 @@ export const useAnnouncer = () => {
             prev.map((isFlipped, idx) => (idx === currentIndex ? true : isFlipped))
             );
             setCurrentIndex((prev) => prev + 1);
-
-            // outpueEleに改行付きで追加
-            if (outputEle) {
-                const newName = nameArray[currentIndex];
-                outputEle.value += `${newName}\n`; 
-            }
         }, 1000); // 1秒ごとにカードをめくる
 
         // クリーンアップ
@@ -107,14 +117,46 @@ export const useAnnouncer = () => {
         }
     }
 
-
     // 登壇者を次の名前にする
     const nextAnnouncer = () => {
         if (announcerIndex < nameArray.length -1 ) { 
             setAnnouncerIndex((prev) => prev + 1);
         }
     };
+
+    // sortableにする
+    const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, {
+        coordinateGetter: sortableKeyboardCoordinates,
+    })
+    );
+    function handleDragEnd(event) {
+    const {active, over} = event;
     
+    if (active.id !== over.id) {
+        setNameArray((nameArray) => {
+        const oldIndex = nameArray.indexOf(active.id);
+        const newIndex = nameArray.indexOf(over.id);
+        
+        return arrayMove(nameArray, oldIndex, newIndex);
+        });
+        }
+    }
+
+    // 名前配列が変更されたときの処理
+    useEffect(() => {
+        // Flippedが全部trueのときだけ変更
+        if (isFlippedArray.at(-1)){
+            // outpueEleに改行付きで追加
+            if (outputEle) {
+                outputEle.value = "";
+                const names = nameArray.join("\n")
+                outputEle.value = names
+            }
+        }
+    }, [nameArray,isFlippedArray]); 
+
     // return { nameArray, allOpen, everyOpen, flipCard, isFlippedArray, preAnnouncer,nextAnnouncer,announcerIndex };
-    return { nameArray, allOpen, isFlippedArray, preAnnouncer,nextAnnouncer,announcerIndex };
+    return { nameArray, allOpen, isFlippedArray, preAnnouncer,nextAnnouncer,announcerIndex,sensors,handleDragEnd };
 }
